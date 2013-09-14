@@ -7,6 +7,7 @@ use IO::File;
 use Digest::MD5 qw(md5_hex);
 use File::Slurp;
 use DateTime::Format::Natural;
+use Text::Diff;
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
@@ -37,10 +38,10 @@ if (-e "posts.inventory") {
 		if ($a == 0) {
 			$filename = $line;
 			$a = 1; 
-		} elsif ($a == 1) {
+		} elsif (($a == 1) and (-e "posts/$filename")) {
 			$lastCheckSums{$filename} = $line;
 			$a = 2;
-		} else {
+		} elsif (-e "posts/$filename") {
 			$lastDates{$filename} = $line;
 			$a = 0;
 		}
@@ -81,26 +82,72 @@ my %checkSums;
 foreach my $key (keys %lastCheckSums) { $checkSums{$key} = $lastCheckSums{$key}; }
 my $ref = 0;
 foreach my $postfile (@newPosts) {
-	my $page = {};
-	($page->{'Title'}, $page->{'Date'}, $page->{'Content'}) = ReadPost($postfile);
-	$page->{'ShortName'} = $page->{'Title'};
-	$page->{'ShortName'} = lc($page->{'ShortName'});
-	$page->{'ShortName'} =~ s/ /_/g;
-	# $page->{'ShortName'} = $page->{'ShortName'} . $page->{'Date'};
-	my $suffix = 1;
-	while ($lastCheckSums{"$page->{'ShortName'}.md"}) {
-		$page->{'ShortName'} = $page->{'ShortName'} . $suffix;
-		$suffix = $suffix + 1;
+	my ($title, $date, $content) = ReadPost($postfile);
+	my $shortname = TitleToShortName($title);
+	# assign new filename and deal with duplicates
+	if ($postfile ne "$shortname.md") {
+		print "file $postfile is not $shortname.md\n";
+		if (-e "posts/$shortname.md") {
+			print "file $shortname.md already exists\n";
+			# determine if duplicate is an update or just has the same title
+			my ($dtitle, $ddate, $dcontent) = ReadPost("$shortname.md");
+			if ($dtitle ne $title) {
+				print "duplicate file title $dtitle doesn't match title $title\n";
+				# move duplicate file with title that doesn't match filename
+				for ($i = 0; $i <= $#newPosts; $i++) {
+					if ($newPosts[i] eq "$shortname.md") {
+						my $dshortname = TitleToShortName($dtitle);
+						my $suffix = 1;
+						while (-e "posts/$dshortname.md") {
+							$dshortname = $dshortname . $suffix;
+							$suffix = $suffix + 1;
+						}
+						move("posts/$newPosts[i]", "posts/$dshortname.md");
+						$newPosts[i] = "$dshortname.md";
+					}
+				}
+			} elsif ($lastCheckSums{"$shortname.md"}) {
+				print "$shortname.md exists in last inventory\n";
+				my $diff = diff \$content, \$dcontent;
+				if (length($diff) < length($content) / 2) {
+					print "diff is more than half match, moving old to backup\n";
+					# move duplicate to backup
+					delete $lastCheckSums{"$shortname.md"};
+					unless (-d "backup") { mkdir "backup"; }
+					my $suffix = 1;
+					my $backupname = $shortname;
+					while (-e "backup/$backupname.md") {
+						$backupname = $backupname . $suffix;
+						$suffix = $suffix + 1;
+					}
+					move("posts/$shortname.md", "backup/$backupname.md")
+				} else {
+					print "diff is less than half match, finding new filename\n";
+					# find new filename
+					my $suffix = 1;
+					while (-e "posts/$shortname.md") {
+						$shortname = $shortname . $suffix;
+						$suffix = $suffix + 1;
+					}
+				}
+			}
+		}
+		print "moving $postfile to $shortname.md\n";
+		move("posts/$postfile", "posts/$shortname.md");
+		$postfile = "$shortname.md";
 	}
-	move("posts/$postfile", "posts/$page->{'ShortName'}.md");
-	$postfile = "$page->{'ShortName'}.md";
 	$checkSums{"$postfile"} = md5_hex(read_file("posts/$postfile"));
-#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($page->{'Date'});
+#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
 #	($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($lastDate{$newestPost});
-	if (GetDateNumber($page->{'Date'}) > GetDateNumber($lastDate{$newestPost})) {
+	if (GetDateNumber($date) > GetDateNumber($lastDate{$newestPost})) {
 		$newestPost = $postfile;
 	}
-	$postDates{"$postfile"} = $page->{'Date'};
+	$postDates{"$postfile"} = $date;
+	my $page = {};
+	$page->{'Title'} = $title;
+	$page->{'Date'} = $date;
+	$page->{'Content'} = $content;
+	$page->{'ShortName'} = $shortname;
 	$pages[$ref] = $page;
 	$pageRef{$postfile} = $ref;
 	BuildPostPage($postfile);
@@ -177,6 +224,12 @@ close(FILE);
 #
 # SUBROUTINES
 #
+
+sub TitleToShortName() {
+	my $shortname= lc($_[0]);
+	$shortname =~ s/ /_/g;
+	return $shortname;
+}
 
 sub GetDateNumber() {
 	if ($_[0] ne '') {

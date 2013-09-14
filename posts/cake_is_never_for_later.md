@@ -18,5 +18,3 @@ My brother has developed a tamarind habit, which is another way of saying he bou
 I make it concentrated, so that it can be diluted to taste, like Russian tea. My brother's girlfriend likes it very dilute--"refreshing." He likes it fairly concentrated. I can't decide. Dilute, I drink glass after glass, because every swallow is unsatisfactory. Concentrated, I drink half a glass and leave it on the table. Its cloudy solids settle to the bottom. You'd think there would be a happy medium, but I haven't found it.
 
 There are those things that I repeatedly vow never to eat again, like eggs on toast. Then I look in the fridge in the morning, and think what else am I going to make? There they are, greasy as ever. It would be reasonable to conclude that eggs on toast are, like anything else, something to have sometimes. But I only seem able to think in always and never.
-
-And stuff!
