@@ -3,13 +3,17 @@ use File::Copy;
 use Date::Parse;
 use Text::Markdown 'markdown';
 use Date::Calc qw(Delta_Days);
+use IO::File;
+use Digest::MD5 qw(md5_hex);
+use File::Slurp;
+use DateTime::Format::Natural;
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
 
 # read last checksums and dates to compare against
-my %lastCheckSums = {};
-my %lastDates = {};
+my %lastCheckSums;
+my %lastDates;
 if (-e "posts.inventory") {
 	open(FILE, "posts.inventory");
 	@cslines = <FILE>;
@@ -38,13 +42,18 @@ my $newestPost = GetLastNewestPost();
 
 # read post markdown checksums to find new posts
 opendir(DIR, "posts");
-@postfiles = <DIR>;
+@postfiles = readdir(DIR);
 closedir(DIR);
 my @newPosts;
 foreach my $postfile (@postfiles) {
-	my $checksum = md5_hex(do { local $/; IO::File->new("posts/$postfile")->getline });
-	if ($checksum ne $lastCheckSums{$postfile}) {
-		push(@newPosts, $postfile);
+	if (($postfile ne '.') and ($postfile ne '..')) {
+		print "$postfile\n";
+		my $checksum = md5_hex(read_file("posts/$postfile"));
+		print "$checksum\n";
+		if ($checksum ne $lastCheckSums{$postfile}) {
+			push(@newPosts, $postfile);
+		}
+		if ($newestPost eq '') { $newestPost = $postfile; }
 	}
 }
 
@@ -52,15 +61,19 @@ foreach my $postfile (@postfiles) {
 unless (-d 'build') { mkdir ('build'); }
 
 # read new posts and create their post pages
-my @pages = ();
-my %pageRef = {};
-my %dates = %lastDates;
-my %checkSums = %lastCheckSums;
+my @pages;
+my %pageRef;
+my %postDates;
+foreach my $key (keys %lastDates) { $postDates{$key} = $lastDates{$key}; }
+my %checkSums;
+foreach my $key (keys %lastCheckSums) { $checkSums{$key} = $lastCheckSums{$key}; }
 my $ref = 0;
 foreach my $postfile (@newPosts) {
 	my $page = {};
 	($page->{'Title'}, $page->{'Date'}, $page->{'Content'}) = ReadPost($postfile);
-	my $page->{'ShortName'} = $page->{'Title'};
+	print "before $postfile, $page->{'Title'}, $page->{'Date'}\n";
+	$page->{'ShortName'} = $page->{'Title'};
+	$page->{'ShortName'} = lc($page->{'ShortName'});
 	$page->{'ShortName'} =~ s/ /_/g;
 	# $page->{'ShortName'} = $page->{'ShortName'} . $page->{'Date'};
 	my $suffix = 1;
@@ -70,15 +83,14 @@ foreach my $postfile (@newPosts) {
 	}
 	move("posts/$postfile", "posts/$page->{'ShortName'}.md");
 	$postfile = "$page->{'ShortName'}.md";
-	$checkSums{$postfile} = md5_hex(do { local $/; IO::File->new("posts/$postfile")->getline });
-	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($page->{'Date'});
-	my $datenumber = "$year$month$day$hh$mm$ss";
-	($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($lastDate{$newestPost});
-	my $lastdatenumber = "$year$month$day$hh$mm$ss";
-	if ($datenumber > $lastdatenumber) {
+	$checkSums{"$postfile"} = md5_hex(read_file("posts/$postfile"));
+#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($page->{'Date'});
+#	($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($lastDate{$newestPost});
+	if (GetDateNumber($page->{'Date'}) > GetDateNumber($lastDate{$newestPost})) {
 		$newestPost = $postfile;
 	}
-	$dates{$postfile} = $page->{'Date'};
+	print "after $postfile, $page->{'Title'}, $page->{'Date'}\n";
+	$postDates{"$postfile"} = $page->{'Date'};
 	$pages[$ref] = $page;
 	$pageRef{$postfile} = $ref;
 	BuildPostPage($postfile);
@@ -86,19 +98,29 @@ foreach my $postfile (@newPosts) {
 }
 
 # build index
-my %frontPageDates = {};
+my %frontPageDates;
 # find posts within $frontPageDays old
-my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$newestPost});
-my @newestYearMonthDay = ($year, $month, $day);
-my $newestDateNumber = "$year$month$day$hh$mm$ss";
-foreach my $postfile (keys %dates) {
-	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
-	my @ymd = ($year, $month, $day);
-	print("$postfile\n");
-	print("$year $month $day compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
+print "newest $newestPost $postDates{$newestPost}\n";
+my $parser = DateTime::Format::Natural->new;
+my $date_string  = $parser->extract_datetime($postDates{$newestPost});
+my $dt = $parser->parse_datetime($date_string);
+my @newestYearMonthDay = ($dt->year, $dt->month, $dt->day);
+my $newestDateNumber = GetDateNumber($postDates{$newestPost});
+foreach my $key (keys %checkSums) { print "key: $key\n"; }
+foreach my $postfile (keys %checkSums) {
+	print "$postDates{$newestPost}\n";
+#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
+	print "$postfile $postDates{$postfile}\n";
+	my $parser = DateTime::Format::Natural->new;
+ 	my $date_string  = $parser->extract_datetime($postDates{$postfile});
+ 	my $dt = $parser->parse_datetime($date_string);
+	my @ymd = ($dt->year, $dt->month, $dt->day);
+	print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
 	my $daysold = Delta_Days(@newestYearMonthDay, @ymd);
+	print ("days old $daysold\n");
 	if ($daysold <= $frontPageDays) {
-		my $datenumber = "$year$month$day$hh$mm$ss";
+		print "$postfile within front page\n";
+		my $datenumber = GetDateNumber($postDates{$postfile});
 		$frontPageDates{$postfile} = $datenumber;
 	}
 }
@@ -106,10 +128,14 @@ foreach my $postfile (keys %dates) {
 my @frontPagePosts = sort { $frontPageDates{$a} <=> $frontPageDates{$b} } keys(%frontPageDates);
 # parse posts in order
 my $frontPageContent;
+my $fpsize = @frontPagePosts;
+print "front page post total $fpsize\n";
 foreach my $postfile (@frontPagePosts) {
+	print "$postfile\n";
 	my $ref = $pageRef{$postfile};
+	print "$ref\n";
 	my %page = %{ $pages[$ref] };
-	foreach my $key (keys %page) { $buffer{$key} = $page{$key}; }
+	foreach my $key (keys %page) { $buffer{$key} = $page{$key}; print "$key $page{$key}\n"; }
 	$frontPageContent = $frontPageContent . ParseTemplate('post-template.html');
 }
 # parse front page
@@ -124,7 +150,7 @@ open(FILE, ">posts.inventory");
 foreach my $postfile (keys %checkSums) {
 	print FILE "$postfile\n";
 	print FILE "$checkSums{$postfile}\n";
-	print FILE "$dates{$postfile}\n";
+	print FILE "$postDates{$postfile}\n";
 }
 close(FILE);
 
@@ -137,6 +163,18 @@ close(FILE);
 #
 # SUBROUTINES
 #
+
+sub GetDateNumber() {
+	if ($_[0] ne '') {
+		my $parser = DateTime::Format::Natural->new;
+	 	my $date_string  = $parser->extract_datetime($_[0]);
+	 	my $dt = $parser->parse_datetime($date_string);
+		my $datenumber = $dt->year . $dt->month . $dt->day . $dt->hour . $dt->min . $dt->sec;
+		return $datenumber;
+	} else {
+		return 0;
+	}
+}
 
 # build a post page
 sub BuildPostPage() {
@@ -178,8 +216,11 @@ sub ReadPost() {
 			} else {
 				$content = $content . $line;
 			}
+			$l = $l + 1;
 		}
-		$content = markdown($content);
+		my $m = Text::Markdown->new;
+		$content = $m->markdown($content);
+		print "$date\n";
 		return ($title, $date, $content);
 	} else {
 		return;
