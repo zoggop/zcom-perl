@@ -158,18 +158,12 @@ foreach my $postfile (@newPosts) {
 my %frontPageDates;
 # find posts within $frontPageDays old
 print "newest $newestPost $postDates{$newestPost}\n";
-my $parser = DateTime::Format::Natural->new;
-my $date_string  = $parser->extract_datetime($postDates{$newestPost});
-my $dt = $parser->parse_datetime($date_string);
-my @newestYearMonthDay = ($dt->year, $dt->month, $dt->day);
+my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
 my $newestDateNumber = GetDateNumber($postDates{$newestPost});
 foreach my $postfile (keys %checkSums) {
 #	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
 	print "$postfile $postDates{$postfile}\n";
-	my $parser = DateTime::Format::Natural->new;
- 	my $date_string  = $parser->extract_datetime($postDates{$postfile});
- 	my $dt = $parser->parse_datetime($date_string);
-	my @ymd = ($dt->year, $dt->month, $dt->day);
+	my @ymd = GetYearMonthDay($postDates{$postfile});
 	print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
 	my $daysold = Delta_Days(@newestYearMonthDay, @ymd);
 	print ("days old $daysold\n");
@@ -180,7 +174,7 @@ foreach my $postfile (keys %checkSums) {
 	}
 }
 # sort posts
-my @frontPagePosts = sort { $frontPageDates{$a} <=> $frontPageDates{$b} } keys(%frontPageDates);
+my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
 # parse posts in order
 my $frontPageContent;
 my $fpsize = @frontPagePosts;
@@ -229,6 +223,17 @@ sub TitleToShortName() {
 	my $shortname= lc($_[0]);
 	$shortname =~ s/ /_/g;
 	return $shortname;
+}
+
+sub GetYearMonthDay() {
+	if ($_[0] ne '') {
+		my $parser = DateTime::Format::Natural->new;
+	 	my $date_string  = $parser->extract_datetime($_[0]);
+	 	my $dt = $parser->parse_datetime($date_string);
+		return ($dt->year, $dt->month, $dt->day);
+	} else {
+		return (0, 0, 0);
+	}
 }
 
 sub GetDateNumber() {
