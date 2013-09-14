@@ -58,15 +58,16 @@ closedir(DIR);
 my @newPosts;
 foreach my $postfile (@postfiles) {
 	if (($postfile ne '.') and ($postfile ne '..')) {
-		print "$postfile\n";
 		my $checksum = md5_hex(read_file("posts/$postfile"));
-		print "$checksum\n";
-		if (($checksum ne $lastCheckSums{$postfile}) or ($CLARG{'all'})) {
+		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
 		}
 		if ($newestPost eq '') { $newestPost = $postfile; }
 	}
 }
+my $totalNewPosts = @newPosts;
+print "total new posts: $totalNewPosts\n";
+if ($totalNewPosts == 0) { exit; }
 
 # create build directory if not existant
 unless (-d 'build') { mkdir ('build'); }
@@ -82,7 +83,6 @@ my $ref = 0;
 foreach my $postfile (@newPosts) {
 	my $page = {};
 	($page->{'Title'}, $page->{'Date'}, $page->{'Content'}) = ReadPost($postfile);
-	print "before $postfile, $page->{'Title'}, $page->{'Date'}\n";
 	$page->{'ShortName'} = $page->{'Title'};
 	$page->{'ShortName'} = lc($page->{'ShortName'});
 	$page->{'ShortName'} =~ s/ /_/g;
@@ -100,7 +100,6 @@ foreach my $postfile (@newPosts) {
 	if (GetDateNumber($page->{'Date'}) > GetDateNumber($lastDate{$newestPost})) {
 		$newestPost = $postfile;
 	}
-	print "after $postfile, $page->{'Title'}, $page->{'Date'}\n";
 	$postDates{"$postfile"} = $page->{'Date'};
 	$pages[$ref] = $page;
 	$pageRef{$postfile} = $ref;
@@ -117,9 +116,7 @@ my $date_string  = $parser->extract_datetime($postDates{$newestPost});
 my $dt = $parser->parse_datetime($date_string);
 my @newestYearMonthDay = ($dt->year, $dt->month, $dt->day);
 my $newestDateNumber = GetDateNumber($postDates{$newestPost});
-foreach my $key (keys %checkSums) { print "key: $key\n"; }
 foreach my $postfile (keys %checkSums) {
-	print "$postDates{$newestPost}\n";
 #	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
 	print "$postfile $postDates{$postfile}\n";
 	my $parser = DateTime::Format::Natural->new;
@@ -145,8 +142,14 @@ foreach my $postfile (@frontPagePosts) {
 	print "$postfile\n";
 	my $ref = $pageRef{$postfile};
 	print "$ref\n";
-	my %page = %{ $pages[$ref] };
-	foreach my $key (keys %page) { $buffer{$key} = $page{$key}; print "$key $page{$key}\n"; }
+	if ($ref) {
+		my %page = %{ $pages[$ref] };
+		foreach my $key (keys %page) { $buffer{$key} = $page{$key}; print "$key $page{$key}\n"; }
+	} else {
+		($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
+		$buffer{'ShortName'} = $postfile;
+		$buffer{'ShortName'} =~ s{\.[^.]+$}{}; # removes extension
+	}
 	$frontPageContent = $frontPageContent . ParseTemplate('post-template.html');
 }
 # parse front page
