@@ -168,7 +168,7 @@ foreach my $postfile (keys %checkSums) {
 	my $daysold = Delta_Days(@newestYearMonthDay, @ymd);
 	print ("days old $daysold\n");
 	if ($daysold <= $frontPageDays) {
-		print "$postfile within front page\n";
+		print "$postfile made front page\n";
 		my $datenumber = GetDateNumber($postDates{$postfile});
 		$frontPageDates{$postfile} = $datenumber;
 	}
@@ -180,12 +180,10 @@ my $frontPageContent;
 my $fpsize = @frontPagePosts;
 print "front page post total $fpsize\n";
 foreach my $postfile (@frontPagePosts) {
-	print "$postfile\n";
 	my $ref = $pageRef{$postfile};
-	print "$ref\n";
 	if ($ref) {
 		my %page = %{ $pages[$ref] };
-		foreach my $key (keys %page) { $buffer{$key} = $page{$key}; print "$key $page{$key}\n"; }
+		foreach my $key (keys %page) { $buffer{$key} = $page{$key}; }
 	} else {
 		($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
 		$buffer{'ShortName'} = $postfile;
