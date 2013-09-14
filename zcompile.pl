@@ -11,6 +11,17 @@ use DateTime::Format::Natural;
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
 
+# command line arguments
+my %CLARG = {};
+foreach my $arg (@ARGV) {
+	$CLARG{$arg} = 1;
+}
+
+if ($CLARG{'all'}) {
+	if (-e "posts.inventory") { unlink "posts.inventory"; }
+	if (-e "posts.newest") { unlink "posts.newest"; }
+}
+
 # read last checksums and dates to compare against
 my %lastCheckSums;
 my %lastDates;
@@ -50,7 +61,7 @@ foreach my $postfile (@postfiles) {
 		print "$postfile\n";
 		my $checksum = md5_hex(read_file("posts/$postfile"));
 		print "$checksum\n";
-		if ($checksum ne $lastCheckSums{$postfile}) {
+		if (($checksum ne $lastCheckSums{$postfile}) or ($CLARG{'all'})) {
 			push(@newPosts, $postfile);
 		}
 		if ($newestPost eq '') { $newestPost = $postfile; }
@@ -180,6 +191,7 @@ sub GetDateNumber() {
 sub BuildPostPage() {
 	my $postfile = $_[0];
 	my $ref = $pageRef{$postfile};
+	print "post ref $postfile $ref\n";
 	my %page = %{ $pages[$ref] };
 	foreach my $key (keys %page) { $buffer{$key} = $page{$key}; }
 	$buffer{'Content'} = ParseTemplate('post-template.html');
