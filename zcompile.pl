@@ -8,9 +8,32 @@ use Digest::MD5 qw(md5_hex);
 use File::Slurp;
 use DateTime::Format::Natural;
 use Text::Diff;
+use Image::Magick;
+
+# image extensions
+my %imageExts = {
+	'PDF' => 1,
+	'JPG' => 1,
+	'JPEG' => 1,
+	'PNG' => 1,
+	'SVG' => 1,
+	'JNG' => 1,
+	'GIF' => 1,
+};
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
+my $FinalImageExt = "jpg";
+my $FinalImageQuality = 90;
+my $LargeWidth = 800;
+my $LargeHeight = 680;
+my $ThumbWidth = 300;
+my $ThumbHeight = 300;
+my $PdfDensity = 200;
+
+# geometry strings for passing to imagemagick
+my $LargeSize = $LargeWidth . 'x' . $LargeHeight;
+my $ThumbSize = $ThumbWidth . 'x' . $ThumbHeight;
 
 # command line arguments
 my %CLARG = {};
@@ -148,6 +171,7 @@ foreach my $postfile (@newPosts) {
 	$page->{'Date'} = $date;
 	$page->{'Content'} = $content;
 	$page->{'ShortName'} = $shortname;
+	$page->{'Assets'} = BuildPostAssets($shortname);
 	$pages[$ref] = $page;
 	$pageRef{$postfile} = $ref;
 	BuildPostPage($postfile);
@@ -216,6 +240,29 @@ close(FILE);
 #
 # SUBROUTINES
 #
+
+sub BuildPostAssets() {
+	my $post = $_[0];
+	opendir(DIR, $post);
+	my @assets = readdir(DIR);
+	closedir(DIR);
+	my $assetshtml;
+	foreach my $asset (@assets) {
+		(my $base, my $ext) = split(/\./, $asset);
+		my $assethtml;
+		if ($imageExts{$ext}) {
+			($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
+			$assethtml = ParseTemplate('asset-image-template.html');
+		} else {
+			copy("posts/$post/$asset", "build/$post/$asset") or die "Copy failed: $!";
+			$buffer{'File'} = "$post/$asset";
+			$buffer{'Filename'} = $asset;
+			$assethtml = ParseTemplate('asset-file-template.html');
+		}
+		$assetshtml = $assetshtml . $assethtml;
+	}
+	return $assetshtml;
+}
 
 sub TitleToShortName() {
 	my $shortname= lc($_[0]);
@@ -333,4 +380,83 @@ sub ParseTemplate {
 		$output = $output . $line;
 	}
 	return $output;
+}
+
+# creates a thumbnail from an image in the source directory. also creates a midsize, and copies the source image to the build directory with a new name
+sub Thumbnail {
+	my $image = $_[0];
+	(my $base, my $ext) = split(/\./, $image);
+	my $post = $_[1];
+	# create image dir in build/ if necessary
+	unless (-d "build/$post") {
+		mkdir ("build/$post");
+	}
+	my $FullSizeURL;
+	#localize imagemagick and warning vars
+	my $IM = "";
+	my $x;
+	unless ((-e "build/$post/$base.$FinalImageExt") and ($CLARG{'overwrite'} != 1)) {	
+		if ("\U$ext" eq "PDF") {
+			$IM = ReadPDF("posts/$post/$image");
+			copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+			$FullSizeURL = "$post/$image";
+		} else {
+			# read source image
+			$IM = Image::Magick->new;
+			$x = $IM->Read("posts/$post/$image");
+			warn "$x" if "$x";
+			# get width and height
+			(my $width, my $height) = $IM->Get('height', 'width');
+			if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
+				copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+			} else {
+				ResizeImage($IM, $LargeSize, "build/$post/$base");
+			}
+			$FullSizeURL = "$post/$base.$FinalImageExt";
+		}
+	}
+	if ((-e "build/$post/$base-thumb.$FinalImageExt") and ($CLARG{'overwrite'} != 1)) {
+	} else {
+		if ($IM eq "") {
+			if ("\U$ext" eq "PDF") {
+				ReadPDF("posts/$post/$image");
+			} else {
+				# read source image if necessary
+				$IM = Image::Magick->new;
+				$x = $IM->Read("posts/$post/$image");
+				warn "$x" if "$x";
+			}
+		}
+		# resize and write thumb image
+		ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
+	}
+	print "$_[0] --> $post/$base\n";
+	return ("$posts/$base-thumb.$FinalImageExt", $FullSizeURL);
+}
+
+# read source pdf and trim edges
+sub ReadPDF {
+	my $PDF = Image::Magick->new;
+	$PDF->Set(density=>$PdfDensity);
+	$PDF->Set(units=>"PixelsPerInch");
+	my $x = $PDF->Read("$_[0]");
+	warn "$x" if "$x";
+	$PDF->Set(alpha=>"Off");
+	$x = $PDF->Trim();
+	warn "$x" if "$x";
+	return $PDF;
+}
+
+# resize a magick image
+sub ResizeImage {
+	my $image = $_[0]->Clone();
+	my $size = $_[1];
+	my $base = $_[2];
+	my $x = $image->Resize(geometry=>"$size");
+	warn "$x" if "$x";
+	$x = $image->Set(quality=>"$FinalImageQuality");
+	warn "$x" if "$x";
+	$x = $image->Write("build/$base.$FinalImageExt");
+	warn "$x" if "$x";
+	undef $image;
 }
