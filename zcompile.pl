@@ -12,14 +12,16 @@ use Image::Magick;
 
 # image extensions
 my %imageExts = {
-	'PDF' => 1,
-	'JPG' => 1,
-	'JPEG' => 1,
-	'PNG' => 1,
-	'SVG' => 1,
-	'JNG' => 1,
-	'GIF' => 1,
+	'PDF', 1,
+	'JPG', 1,
+	'JPEG', 1,
+	'PNG', 1,
+	'SVG', 1,
+	'JNG', 1,
+	'GIF', 1
 };
+
+$imageExts{'PNG'} = 1;
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
@@ -81,7 +83,7 @@ opendir(DIR, "posts");
 closedir(DIR);
 my @newPosts;
 foreach my $postfile (@postfiles) {
-	if (($postfile ne '.') and ($postfile ne '..')) {
+	if (($postfile ne '.') and ($postfile ne '..') and not (-d "posts/$postfile")) {
 		my $checksum = md5_hex(read_file("posts/$postfile"));
 		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
@@ -204,6 +206,7 @@ my $frontPageContent;
 my $fpsize = @frontPagePosts;
 print "front page post total $fpsize\n";
 foreach my $postfile (@frontPagePosts) {
+	$buffer{'Assets'} = '';
 	my $ref = $pageRef{$postfile};
 	if ($ref) {
 		my %page = %{ $pages[$ref] };
@@ -212,6 +215,7 @@ foreach my $postfile (@frontPagePosts) {
 		($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
 		$buffer{'ShortName'} = $postfile;
 		$buffer{'ShortName'} =~ s{\.[^.]+$}{}; # removes extension
+		$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
 	}
 	$frontPageContent = $frontPageContent . ParseTemplate('post-template.html');
 }
@@ -243,23 +247,27 @@ close(FILE);
 
 sub BuildPostAssets() {
 	my $post = $_[0];
-	opendir(DIR, $post);
+	opendir(DIR, "posts/$post");
 	my @assets = readdir(DIR);
 	closedir(DIR);
 	my $assetshtml;
 	foreach my $asset (@assets) {
-		(my $base, my $ext) = split(/\./, $asset);
-		my $assethtml;
-		if ($imageExts{$ext}) {
-			($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
-			$assethtml = ParseTemplate('asset-image-template.html');
-		} else {
-			copy("posts/$post/$asset", "build/$post/$asset") or die "Copy failed: $!";
-			$buffer{'File'} = "$post/$asset";
-			$buffer{'Filename'} = $asset;
-			$assethtml = ParseTemplate('asset-file-template.html');
+		unless (-d "posts/$post/$asset") {
+			(my $base, my $ext) = split(/\./, $asset);
+			my $assethtml;
+			$ext = uc($ext);
+			print "$base $ext $imageExts{$ext}\n";
+			if ($imageExts{$ext}) {
+				($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
+				$assethtml = ParseTemplate('asset-image-template.html');
+			} else {
+				copy("posts/$post/$asset", "build/$post/$asset") or die "Copy failed: $!";
+				$buffer{'File'} = "$post/$asset";
+				$buffer{'Filename'} = $asset;
+				$assethtml = ParseTemplate('asset-file-template.html');
+			}
+			$assetshtml = $assetshtml . $assethtml;
 		}
-		$assetshtml = $assetshtml . $assethtml;
 	}
 	return $assetshtml;
 }
@@ -394,44 +402,39 @@ sub Thumbnail {
 	my $FullSizeURL;
 	#localize imagemagick and warning vars
 	my $IM = "";
-	my $x;
-	unless ((-e "build/$post/$base.$FinalImageExt") and ($CLARG{'overwrite'} != 1)) {	
-		if ("\U$ext" eq "PDF") {
-			$IM = ReadPDF("posts/$post/$image");
+	my $x;	
+	if ("\U$ext" eq "PDF") {
+		$IM = ReadPDF("posts/$post/$image");
+		copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+		$FullSizeURL = "$post/$image";
+	} else {
+		# read source image
+		$IM = Image::Magick->new;
+		$x = $IM->Read("posts/$post/$image");
+		warn "$x" if "$x";
+		# get width and height
+		(my $width, my $height) = $IM->Get('height', 'width');
+		if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
 			copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
-			$FullSizeURL = "$post/$image";
 		} else {
-			# read source image
+			ResizeImage($IM, $LargeSize, "build/$post/$base");
+		}
+		$FullSizeURL = "$post/$base.$FinalImageExt";
+	}
+	if ($IM eq "") {
+		if ("\U$ext" eq "PDF") {
+			ReadPDF("posts/$post/$image");
+		} else {
+			# read source image if necessary
 			$IM = Image::Magick->new;
 			$x = $IM->Read("posts/$post/$image");
 			warn "$x" if "$x";
-			# get width and height
-			(my $width, my $height) = $IM->Get('height', 'width');
-			if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
-				copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
-			} else {
-				ResizeImage($IM, $LargeSize, "build/$post/$base");
-			}
-			$FullSizeURL = "$post/$base.$FinalImageExt";
 		}
 	}
-	if ((-e "build/$post/$base-thumb.$FinalImageExt") and ($CLARG{'overwrite'} != 1)) {
-	} else {
-		if ($IM eq "") {
-			if ("\U$ext" eq "PDF") {
-				ReadPDF("posts/$post/$image");
-			} else {
-				# read source image if necessary
-				$IM = Image::Magick->new;
-				$x = $IM->Read("posts/$post/$image");
-				warn "$x" if "$x";
-			}
-		}
-		# resize and write thumb image
-		ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
-	}
+	# resize and write thumb image
+	ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
 	print "$_[0] --> $post/$base\n";
-	return ("$posts/$base-thumb.$FinalImageExt", $FullSizeURL);
+	return ("$post/$base-thumb.$FinalImageExt", $FullSizeURL);
 }
 
 # read source pdf and trim edges
@@ -456,7 +459,7 @@ sub ResizeImage {
 	warn "$x" if "$x";
 	$x = $image->Set(quality=>"$FinalImageQuality");
 	warn "$x" if "$x";
-	$x = $image->Write("build/$base.$FinalImageExt");
+	$x = $image->Write("$base.$FinalImageExt");
 	warn "$x" if "$x";
 	undef $image;
 }
