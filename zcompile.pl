@@ -26,6 +26,11 @@ foreach my $ext (@iexts) {
 	$imageExts{$ext} = 1;
 }
 
+# month names
+my %num2mon = qw(
+	1 January 2 February 3 March 4 April 5 May 6 June 7 July 8 August 9 September 10 October 11 November 12 December
+);
+
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
 my $headlineArchiveDays = 30;
@@ -184,8 +189,8 @@ foreach my $postfile (@newPosts) {
 	$updateYearArchive{$year} = 1;
 	$updateMonthArchive{"$year $month"} = 1;
 	my $post = {};
+	$post->{'Date'} = ReformatDate($date);
 	$post->{'Title'} = $title;
-	$post->{'Date'} = $date;
 	$post->{'Content'} = $content;
 	$post->{'ShortName'} = $shortname;
 	$post->{'Assets'} = BuildPostAssets($shortname);
@@ -195,11 +200,12 @@ foreach my $postfile (@newPosts) {
 	$ref = $ref + 1;
 }
 
+# find post ages and put into archives that need to be updated
 my %frontPageDates;
 my %headlineArchiveDates;
+my %allYears;
 my %yearArchives;
 my %monthArchives;
-# find post age and put into archives that need to be updated
 print "newest $newestPost $postDates{$newestPost}\n";
 my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
 foreach my $postfile (keys %checkSums) {
@@ -211,15 +217,21 @@ foreach my $postfile (keys %checkSums) {
 	print ("days old $daysold\n");
 	if ($daysold <= $frontPageDays) {
 		print "$postfile made front page\n";
-		my $datenumber = GetDateNumber($postDates{$postfile});
-		$frontPageDates{$postfile} = $datenumber;
+		$frontPageDates{$postfile} = $daysold;
 	} elsif ($daysold <= $headlineArchiveDays) {
 		print "$postfile made headline archive\n";
-		$headlineArchiveDates{$postfile} = GetDateNumber($postDates{$postfile});
+		$headlineArchiveDates{$postfile} = $daysold;
 	}
 	my $year = $ymd[0];
 	my $month = $ymd[1];
 	my $day = $ymd[2];
+	# add to complete list of years for the list of archive pages
+	if ($allYears{$year}) {
+		$allYears{$year} = $allYears{$year} + 1;
+	} else {
+		$allYears{$year} = 1;
+	}
+	# compile list of pages within each year and month's archive
 	if ($updateYearArchive{$year}) {
 		my $order = Delta_Days(($year, 1, 1), @ymd);
 		$yearArchives{$year}{$postfile} = $order;
@@ -233,35 +245,47 @@ foreach my $postfile (keys %checkSums) {
 # sort {$hash{$b} cmp $hash{$a}} keys %hash
 
 # sort front page posts
-my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
+my @frontPagePosts = sort { $frontPageDates{$a} <=> $frontPageDates{$b} } keys(%frontPageDates);
 push(@frontPagePosts, 'post-template.html');
 my $frontPageContent = BuildPostList(@frontPagePosts);
 # sort headline archive posts
-my @headlineArchivePosts = sort { $headlineArchiveDates{$b} <=> $headlineArchiveDates{$a} } keys(%headlineArchiveDates);
+my @headlineArchivePosts = sort { $headlineArchiveDates{$a} <=> $headlineArchiveDates{$b} } keys(%headlineArchiveDates);
 push(@headlineArchivePosts, 'post-headline-template.html');
 my $headlineArchiveContent = BuildPostList(@headlineArchivePosts);
+# sort year list
+my @yearList = sort keys %allYears;
+my $yearListContent;
+foreach my $year (@yearList) {
+	$buffer{'Year'} = $year;
+	$buffer{'Number'} = $allYears{$year};
+	$yearListContent = $yearListContent . ParseTemplate('year-template.html');
+}
 # build index
 $buffer{'FrontPage'} = $frontPageContent;
 $buffer{'HeadlineArchive'} = $headlineArchiveContent;
+$buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
+$buffer{'Title'} = '';
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
 
-# sort archives
+# sort archives and build archive pages
 foreach my $year (keys %yearArchives) {
-	my @yearPosts = sort { $yearArchives{$year}{$a} <=> $yearArchives{$year}{$b} } keys($yearArchives{$year});
+	my @yearPosts = sort { $yearArchives{$year}{$b} <=> $yearArchives{$year}{$a} } keys($yearArchives{$year});
 	push(@yearPosts, 'post-headline-template.html');
 	$buffer{'Content'} = BuildPostList(@yearPosts);
+	$buffer{'Title'} = $year;
 	open(FILE, ">build/$year.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
 }
 foreach my $yearmonth (keys %monthArchives) {
-	my @monthPosts = sort { $monthArchives{$yearmonth}{$a} <=> $monthArchives{$yearmonth}{$b} } keys($monthArchives{$yearmonth});
+	my @monthPosts = sort { $monthArchives{$yearmonth}{$b} <=> $monthArchives{$yearmonth}{$a} } keys($monthArchives{$yearmonth});
 	push(@monthPosts, 'post-template.html');
 	$buffer{'Content'} = BuildPostList(@monthPosts);
 	my ($year, $month) = split(/ /, $yearmonth);
+	$buffer{'Title'} = "$num2mon{$month} $year";
 	open(FILE, ">build/$year-$month.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
@@ -302,6 +326,7 @@ sub BuildPostList() {
 			foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
 		} else {
 			($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
+			$buffer{'Date'} = ReformatDate($buffer{'Date'});
 			$buffer{'ShortName'} = $postfile;
 			$buffer{'ShortName'} =~ s{\.[^.]+$}{}; # removes extension
 			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
@@ -343,6 +368,17 @@ sub TitleToShortName() {
 	$shortname =~ s/[^a-z0-9.]/_/g;
 	return $shortname;
 }
+
+sub ReformatDate() {
+	my ($year, $month, $day);
+	($year, $month, $day) = GetYearMonthDay($_[0]);
+	$buffer{'Year'} = $year;
+	$buffer{'Month'} = $month;
+	$buffer{'MonthName'} = $num2mon{$month};
+	$buffer{'Day'} = $day;
+	return ParseTemplate('date-template.html');
+}
+
 
 sub GetYearMonthDay() {
 	if ($_[0] ne '') {
