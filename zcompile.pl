@@ -103,6 +103,8 @@ if ($totalNewPosts == 0) { exit; }
 unless (-d 'build') { mkdir ('build'); }
 
 # read new posts and create their post pages
+my %updateYearArchive;
+my %updateMonthArchive;
 my @posts;
 my %postRef;
 my %postDates;
@@ -177,6 +179,10 @@ foreach my $postfile (@newPosts) {
 		$newestDateNumber = GetDateNumber($date);
 	}
 	$postDates{"$postfile"} = $date;
+	# find which archive pages need to be updated
+	my ($year, $month, $day) = GetYearMonthDay($date);
+	$updateYearArchive{$year} = 1;
+	$updateMonthArchive{"$year $month"} = 1;
 	my $post = {};
 	$post->{'Title'} = $title;
 	$post->{'Date'} = $date;
@@ -189,10 +195,11 @@ foreach my $postfile (@newPosts) {
 	$ref = $ref + 1;
 }
 
-# build index
 my %frontPageDates;
 my %headlineArchiveDates;
-# find posts within $frontPageDays old
+my %yearArchives;
+my %monthArchives;
+# find post age and put into archives that need to be updated
 print "newest $newestPost $postDates{$newestPost}\n";
 my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
 foreach my $postfile (keys %checkSums) {
@@ -210,7 +217,21 @@ foreach my $postfile (keys %checkSums) {
 		print "$postfile made headline archive\n";
 		$headlineArchiveDates{$postfile} = GetDateNumber($postDates{$postfile});
 	}
+	my $year = $ymd[0];
+	my $month = $ymd[1];
+	my $day = $ymd[2];
+	if ($updateYearArchive{$year}) {
+		my $order = Delta_Days(($year, 1, 1), @ymd);
+		$yearArchives{$year}{$postfile} = $order;
+	}
+	if ($updateMonthArchive{"$year $month"}) {
+		my $order = Delta_Days(($year, $month, 1), @ymd);
+		$monthArchives{"$year $month"}{$postfile} = $order;
+	}
 }
+
+# sort {$hash{$b} cmp $hash{$a}} keys %hash
+
 # sort front page posts
 my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
 push(@frontPagePosts, 'post-template.html');
@@ -219,13 +240,32 @@ my $frontPageContent = BuildPostList(@frontPagePosts);
 my @headlineArchivePosts = sort { $headlineArchiveDates{$b} <=> $headlineArchiveDates{$a} } keys(%headlineArchiveDates);
 push(@headlineArchivePosts, 'post-headline-template.html');
 my $headlineArchiveContent = BuildPostList(@headlineArchivePosts);
-# parse index
+# build index
 $buffer{'FrontPage'} = $frontPageContent;
 $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
+
+# sort archives
+foreach my $year (keys %yearArchives) {
+	my @yearPosts = sort { $yearArchives{$year}{$a} <=> $yearArchives{$year}{$b} } keys($yearArchives{$year});
+	push(@yearPosts, 'post-headline-template.html');
+	$buffer{'Content'} = BuildPostList(@yearPosts);
+	open(FILE, ">build/$year.html");
+	print FILE ParseTemplate('template.html');
+	close(FILE);
+}
+foreach my $yearmonth (keys %monthArchives) {
+	my @monthPosts = sort { $monthArchives{$yearmonth}{$a} <=> $monthArchives{$yearmonth}{$b} } keys($monthArchives{$yearmonth});
+	push(@monthPosts, 'post-template.html');
+	$buffer{'Content'} = BuildPostList(@monthPosts);
+	my ($year, $month) = split(/ /, $yearmonth);
+	open(FILE, ">build/$year-$month.html");
+	print FILE ParseTemplate('template.html');
+	close(FILE);
+}
 
 # write post inventory
 # if (-e 'posts.inventory') { undef("posts.inventory"); }
