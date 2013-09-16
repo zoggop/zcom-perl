@@ -28,6 +28,7 @@ foreach my $ext (@iexts) {
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
+my $headlineArchiveDays = 30;
 my $FinalImageExt = "jpg";
 my $FinalImageQuality = 90;
 my $LargeWidth = 800;
@@ -190,6 +191,7 @@ foreach my $postfile (@newPosts) {
 
 # build index
 my %frontPageDates;
+my %headlineArchiveDates;
 # find posts within $frontPageDays old
 print "newest $newestPost $postDates{$newestPost}\n";
 my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
@@ -204,30 +206,23 @@ foreach my $postfile (keys %checkSums) {
 		print "$postfile made front page\n";
 		my $datenumber = GetDateNumber($postDates{$postfile});
 		$frontPageDates{$postfile} = $datenumber;
+	} elsif ($daysold <= $headlineArchiveDays) {
+		print "$postfile made headline archive\n";
+		$headlineArchiveDates{$postfile} = GetDateNumber($postDates{$postfile});
 	}
 }
-# sort posts
+# sort front page posts
 my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
-# parse posts in order
-my $frontPageContent;
-my $fpsize = @frontPagePosts;
-print "front page post total $fpsize\n";
-foreach my $postfile (@frontPagePosts) {
-	$buffer{'Assets'} = '';
-	my $ref = $postRef{$postfile};
-	if ($ref) {
-		my %post = %{ $posts[$ref] };
-		foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
-	} else {
-		($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
-		$buffer{'ShortName'} = $postfile;
-		$buffer{'ShortName'} =~ s{\.[^.]+$}{}; # removes extension
-		$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
-	}
-	$frontPageContent = $frontPageContent . ParseTemplate('post-template.html');
-}
-# parse front page
-$buffer{'Content'} = $frontPageContent;
+push(@frontPagePosts, 'post-template.html');
+my $frontPageContent = BuildPostList(@frontPagePosts);
+# sort headline archive posts
+my @headlineArchivePosts = sort { $headlineArchiveDates{$b} <=> $headlineArchiveDates{$a} } keys(%headlineArchiveDates);
+push(@headlineArchivePosts, 'post-headline-template.html');
+my $headlineArchiveContent = BuildPostList(@headlineArchivePosts);
+# parse index
+$buffer{'FrontPage'} = $frontPageContent;
+$buffer{'HeadlineArchive'} = $headlineArchiveContent;
+$buffer{'Content'} = ParseTemplate('index-template.html');
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
@@ -248,9 +243,33 @@ open(FILE, ">posts.newest");
 print FILE "$newestPost";
 close(FILE);
 
+
 #
 # SUBROUTINES
 #
+
+sub BuildPostList() {
+	# parse front page posts in order
+	my $postlist;
+	my $template = pop(@_);
+	my $fpsize = @_;
+	print "post total $fpsize with template $template\n";
+	foreach my $postfile (@_) {
+		$buffer{'Assets'} = '';
+		my $ref = $postRef{$postfile};
+		if ($ref) {
+			my %post = %{ $posts[$ref] };
+			foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
+		} else {
+			($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
+			$buffer{'ShortName'} = $postfile;
+			$buffer{'ShortName'} =~ s{\.[^.]+$}{}; # removes extension
+			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
+		}
+		$postlist = $postlist . ParseTemplate($template);
+	}
+	return $postlist;
+}
 
 sub BuildPostAssets() {
 	my $post = $_[0];
