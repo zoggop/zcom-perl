@@ -11,17 +11,20 @@ use Text::Diff;
 use Image::Magick;
 
 # image extensions
-my %imageExts = {
-	'PDF', 1,
-	'JPG', 1,
-	'JPEG', 1,
-	'PNG', 1,
-	'SVG', 1,
-	'JNG', 1,
-	'GIF', 1
-};
+my @iexts = (
+	'PDF',
+	'JPG',
+	'JPEG',
+	'PNG',
+	'SVG',
+	'JNG',
+	'GIF'
+);
 
-$imageExts{'PNG'} = 1;
+my %imageExts;
+foreach my $ext (@iexts) {
+	$imageExts{$ext} = 1;
+}
 
 # config variables
 my $frontPageDays = 7; # how many days beyond the first post to display on the front page
@@ -30,8 +33,8 @@ my $FinalImageQuality = 90;
 my $LargeWidth = 800;
 my $LargeHeight = 680;
 my $ThumbWidth = 300;
-my $ThumbHeight = 300;
-my $PdfDensity = 200;
+my $ThumbHeight = 680;
+my $PdfDensity = 100;
 
 # geometry strings for passing to imagemagick
 my $LargeSize = $LargeWidth . 'x' . $LargeHeight;
@@ -76,6 +79,7 @@ if (-e "posts.inventory") {
 # ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 
 my $newestPost = GetLastNewestPost();
+my $newestDateNumber = 0;
 
 # read post markdown checksums to find new posts
 opendir(DIR, "posts");
@@ -88,7 +92,6 @@ foreach my $postfile (@postfiles) {
 		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
 		}
-		if ($newestPost eq '') { $newestPost = $postfile; }
 	}
 }
 my $totalNewPosts = @newPosts;
@@ -99,8 +102,8 @@ if ($totalNewPosts == 0) { exit; }
 unless (-d 'build') { mkdir ('build'); }
 
 # read new posts and create their post pages
-my @pages;
-my %pageRef;
+my @posts;
+my %postRef;
 my %postDates;
 foreach my $key (keys %lastDates) { $postDates{$key} = $lastDates{$key}; }
 my %checkSums;
@@ -159,23 +162,28 @@ foreach my $postfile (@newPosts) {
 		}
 		print "moving $postfile to $shortname.md\n";
 		move("posts/$postfile", "posts/$shortname.md");
+		# move asset directory too
+		my $postbase = $postfile;
+		$postbase =~ s/.md//;
+		if (-d "posts/$posebase") {
+			move("posts/$postbase", "posts/$shortname");
+		}
 		$postfile = "$shortname.md";
 	}
 	$checkSums{"$postfile"} = md5_hex(read_file("posts/$postfile"));
-#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
-#	($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($lastDate{$newestPost});
-	if (GetDateNumber($date) > GetDateNumber($lastDate{$newestPost})) {
+	if (GetDateNumber($date) > $newestDateNumber) {
 		$newestPost = $postfile;
+		$newestDateNumber = GetDateNumber($date);
 	}
 	$postDates{"$postfile"} = $date;
-	my $page = {};
-	$page->{'Title'} = $title;
-	$page->{'Date'} = $date;
-	$page->{'Content'} = $content;
-	$page->{'ShortName'} = $shortname;
-	$page->{'Assets'} = BuildPostAssets($shortname);
-	$pages[$ref] = $page;
-	$pageRef{$postfile} = $ref;
+	my $post = {};
+	$post->{'Title'} = $title;
+	$post->{'Date'} = $date;
+	$post->{'Content'} = $content;
+	$post->{'ShortName'} = $shortname;
+	$post->{'Assets'} = BuildPostAssets($shortname);
+	$posts[$ref] = $post;
+	$postRef{$postfile} = $ref;
 	BuildPostPage($postfile);
 	$ref = $ref + 1;
 }
@@ -185,13 +193,12 @@ my %frontPageDates;
 # find posts within $frontPageDays old
 print "newest $newestPost $postDates{$newestPost}\n";
 my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
-my $newestDateNumber = GetDateNumber($postDates{$newestPost});
 foreach my $postfile (keys %checkSums) {
 #	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
 	print "$postfile $postDates{$postfile}\n";
 	my @ymd = GetYearMonthDay($postDates{$postfile});
 	print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
-	my $daysold = Delta_Days(@newestYearMonthDay, @ymd);
+	my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
 	print ("days old $daysold\n");
 	if ($daysold <= $frontPageDays) {
 		print "$postfile made front page\n";
@@ -207,10 +214,10 @@ my $fpsize = @frontPagePosts;
 print "front page post total $fpsize\n";
 foreach my $postfile (@frontPagePosts) {
 	$buffer{'Assets'} = '';
-	my $ref = $pageRef{$postfile};
+	my $ref = $postRef{$postfile};
 	if ($ref) {
-		my %page = %{ $pages[$ref] };
-		foreach my $key (keys %page) { $buffer{$key} = $page{$key}; }
+		my %post = %{ $posts[$ref] };
+		foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
 	} else {
 		($buffer{'Title'}, $buffer{'Date'}, $buffer{'Content'}) = ReadPost($postfile);
 		$buffer{'ShortName'} = $postfile;
@@ -274,7 +281,7 @@ sub BuildPostAssets() {
 
 sub TitleToShortName() {
 	my $shortname= lc($_[0]);
-	$shortname =~ s/ /_/g;
+	$shortname =~ s/[^a-z0-9.]/_/g;
 	return $shortname;
 }
 
@@ -304,12 +311,12 @@ sub GetDateNumber() {
 # build a post page
 sub BuildPostPage() {
 	my $postfile = $_[0];
-	my $ref = $pageRef{$postfile};
+	my $ref = $postRef{$postfile};
 	print "post ref $postfile $ref\n";
-	my %page = %{ $pages[$ref] };
-	foreach my $key (keys %page) { $buffer{$key} = $page{$key}; }
+	my %post = %{ $posts[$ref] };
+	foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
 	$buffer{'Content'} = ParseTemplate('post-template.html');
-	open(FILE, ">build/$page{'ShortName'}.html");
+	open(FILE, ">build/$post{'ShortName'}.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
 }
