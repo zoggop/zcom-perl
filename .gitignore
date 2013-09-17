@@ -1,3 +1,7 @@
+import/
+!build/fonts/
+!build/style.css
+
 #################
 ## Eclipse
 #################

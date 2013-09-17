@@ -365,7 +365,7 @@ sub BuildPostAssets() {
 
 sub TitleToShortName() {
 	my $shortname= lc($_[0]);
-	$shortname =~ s/[^a-z0-9.]/_/g;
+	$shortname =~ s/[^a-z0-9]/_/g;
 	return $shortname;
 }
 
@@ -411,6 +411,7 @@ sub BuildPostPage() {
 	my %post = %{ $posts[$ref] };
 	foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
 	$buffer{'Content'} = ParseTemplate('post-template.html');
+	$buffer{'Title'} = '';
 	open(FILE, ">build/$post{'ShortName'}.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
