@@ -1,0 +1,203 @@
+body {
+  font-family: "Lato", "Open Sans", "Droid Sans", "Segoe UI", "Ubuntu", "Arial", sans-serif;
+  line-height:1.5em;
+  margin:0;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "antykwa_poltawskiegoexpd", "Antykwa Półtawskiego", "Antykwa Poltawskiego", "AntykwaPoltawskiego", "Georgia", "Times New Roman", serif;
+  color:#AAA;
+  font-weight: 900;
+  -moz-font-feature-settings: "onum=1";
+  -ms-font-feature-settings: "onum=1";
+  -webkit-font-feature-settings: "onum=1";
+  -o-font-feature-settings: "onum=1";
+  font-feature-settings: "onum=1";
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size:1em;
+}
+
+a { text-decoration:underline; color: black; }
+a:visited { text-decoration:underline; color: black; }
+a:active { text-decoration:underline; color: black; }
+a:hover { text-decoration:underline; color: black; }
+
+/*
+#container {
+  display:block;
+  max-width:1127px;
+  margin-right:auto;
+  margin-left:auto;
+}
+*/
+
+#header {
+  display:inline-block;
+  width:300px;
+  text-align:left;
+  vertical-align:top;
+  margin:8px;
+  margin-top:16px;
+  margin-bottom:32px;
+  text-align:left;
+}
+
+#header h1:hover {
+  color:black;
+}
+
+#header h1 {
+  font-size: 4em;
+  line-height:0.55em;
+  letter-spacing:-0.1em;
+  color:#EEE;
+  font-weight:800;
+  word-spacing:0;
+  margin-top:0;
+  margin-bottom:0;
+  font-variant:small-caps;
+}
+
+#header h2 {
+  font-style:italic;
+}
+
+#header a {
+  text-decoration:none;
+}
+
+#content {
+  display:inline-block;
+  margin:8px;
+  text-align:left;
+}
+
+#frontpage {
+  margin-bottom:6em;
+}
+
+
+.smallcaps {
+  font-variant:small-caps;
+}
+
+.post {
+  display: block;
+  vertical-align: top;
+  margin-bottom: 3em;
+}
+
+.post-content {
+  display:inline-block;
+  max-width:480px;
+  width:100%;
+}
+
+.post-content p {
+  text-align:left;
+}
+
+.assets {
+  display:inline-block;
+  width:300px;
+  vertical-align: top;
+  margin-left:8px;
+  margin-top:8px;
+}
+
+.assets a {
+  display:inline-block;
+  margin-bottom:8px;
+}
+
+h2.post-title {
+  line-height: 1.0em;
+  font-weight:400;
+  margin-top:8px;
+  margin-bottom:1em;
+}
+
+h2.post-title a, h2.post-title a:visited {
+  text-decoration:none;
+}
+
+h3.date {
+  font-style: italic;
+  font-weight:800;
+  text-align:right;
+}
+
+.date a {
+  color:inherit;
+  text-decoration: inherit;
+}
+
+.date a:hover {
+  color:black;
+  text-decoration:underline;
+}
+
+.post-headline {
+  display:block;
+  margin-top:24px;
+}
+
+h2.post-link {
+  font-size:1em;
+  font-weight:800;
+  float:left;
+  display:block;
+  width:67%;
+  margin:0;
+}
+
+.post-headline h3.date {
+  float:right;
+  display:block;
+  width:33%;
+  margin:0;
+}
+
+#yearlist {
+  text-align:center;
+  max-width:480px;
+  margin-top:3em;
+}
+
+.year {
+  font-style: italic;
+}
+
+
+@media (min-width: 1143px) {
+  #header {
+    width: 26.2%;
+  }
+}
+
+@media (min-width: 1354px) {
+  .post-content {
+    max-width:640px;
+  }
+  #yearlist {
+    max-width:640px;
+  }
+}
+
+@media (max-width: 814x) {
+  .assets {
+    margin-left:0px;
+  }
+}
+*/
