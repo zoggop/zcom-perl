@@ -2,6 +2,7 @@ use XML::Feed;
 use LWP::UserAgent;
 use LWP::Simple;
 use URI::Escape;
+use Text::Markdown;
 
 my $ua = LWP::UserAgent->new;
 
@@ -20,8 +21,12 @@ foreach my $ext (@iexts) {
 	$imageExts{$ext} = 1;
 }
 
-my $imagePre = ']: http';
-my $imagePost = '\n';
+# my $imagePre = ']: http';
+# my $imagePost = '\n';
+my $imagePre = '<a href="';
+my $imagePost = '</a>';
+my $captionPre = '<td class="tr-caption"';
+my $captionPost = '</td>';
 
 my $feed = XML::Feed->parse($ARGV[0])
     or die XML::Feed->errstr;
@@ -33,12 +38,9 @@ for my $entry ($feed->entries) {
 		my $shortname = TitleToShortName($title);
 		my $content = $entry->content;
 		my $body = $content->body;
-		my $url = 'http://heckyesmarkdown.com/go/';
-		my $req = HTTP::Request->new(POST => $url);
-		$req->content_type('application/x-www-form-urlencoded');
-  		$req->content('html=' . uri_escape_utf8($body));
-		# send request
-		$res = $ua->request($req);
+		# get images and clean them from html
+		$body = GetImages($body, $shortname);
+		my $md = reverseMarkdown($body);
 		# write the outcome
 		my $year = $dt->year();
 		my $month = $dt->month_name();
@@ -48,12 +50,8 @@ for my $entry ($feed->entries) {
 		binmode(FILE, ":utf8");
 		print FILE "# $title\n";
 		print FILE "## $day $month $year\n\n";
-		if ($res->is_success) {
-			my $md = $res->decoded_content;
-			$md = GetImages($md, $shortname);
-			print FILE $md;
-		}
-		else { print "Error: " . $res->status_line . "\n"; }
+		print FILE $md;
+		close(FILE);
 	}
 }
 
@@ -64,48 +62,84 @@ sub TitleToShortName() {
 }
 
 sub GetImages() {
-	my $md = $_[0];
+	my $html = $_[0];
 	my $shortname = $_[1];
-	if ($md =~ m/$imagePre/) {
-		# my @images = split(/\[[0-9]\]: http/, $md);
-		my @images = split(/$imagePre/, $md);
-		my $cleaned = $md;
-		for ($i=2; $i<=$#images; $i=$i+1) {
-			my $image = $images[$i];
-			my $nothing;
-			(my $url, $nothing) = split(/$imagePost/, $image);
+	my $captionout;
+	if ($html =~ m/\Q$imagePre/) {
+		my @images = split(/\Q$imagePre/, $html, -1);
+		my $nothing = shift(@images);
+		my $cleaned = $html;
+		my $i = 1;
+		foreach my $thing (@images) {
+			(my $url, $nothing) = split(/"/, $thing);
+			(my $link, $nothing) = split(/\Q$imagePost/, $thing);
 			my @dot = split(/\./, $url);
 			my $ext = uc($dot[$#dot]);
-			print $ext, "\n";
+			# print $ext, "\n";
 			if ($imageExts{$ext}) {
-				# clean text of image reference
-				my $before = substr $images[$i-1], -2, 2;
-				my $eraseref = $before . $imagePre . $url;
-				print $eraseref, "\n";
-				$cleaned =~ s/$eraseref//;
-				# grab image
-				$url = 'http' . $url;
-				print $url, "\n";
-				my $data = get($url);
-				die "Couldn't get it!" unless defined $data;
-				# write image
+				# clean image tag
+				my $erase = $imagePre . $link . $imagePost;
+				$cleaned =~ s/\Q$erase/ /g;
+				# get image filename
 				my @slash = split(/\//, $url);
 				my $filename = $slash[$#slash];
-				mkdir "import/$shortname";
-				open(FILE, ">import/$shortname/$filename");
-				binmode(FILE);
-				print FILE $data;
-				close(FILE);
-				print "$filename written\n";
-				# clean out image tag
-				my $eraseimg = '![' . $filename . ']' . $before . ']';
-				print $eraseimg, "\n";
-				$cleaned =~ s/$eraseimg//; 
+				$filename = sprintf("%02d", $i) . '-' . $filename;
+				# get image if necessary
+				unless (-d "import/$shortname") { mkdir "import/$shortname"; }
+				unless (-e "import/$shortname/$filename") {
+					my $data = get($url);
+					unless (defined $data) {print "WARNING: COULD NOT GET $url\n"; }
+					open(FILE, ">import/$shortname/$filename");
+					binmode(FILE);
+					print FILE $data;
+					close(FILE);
+					print "$filename written\n";
+				} else {
+					print "$filename already exists\n";
+				}
+				# deal with caption if present
+				if ($thing =~ m/\Q$captionPre/) {
+					($nothing, my $capthing) = split(/\Q$captionPre/, $thing);
+					($capthing, $nothing) = split(/\Q$captionPost/, $capthing);
+					($nothing, my $caption) = split(/>/, $capthing, 2);
+					$caption = reverseMarkdown($caption);
+					$caption =~ s/\n/ /g;
+					$captionout = $captionout . $filename . "\n" . $caption . "\n";
+					my $erasecap = $captionPre . $capthing . $captionPost;
+					$cleaned =~ s/\Q$erasecap/ /g;
+				}
+				$i = $i + 1;
 			}
 		}
-		print $cleaned;
+		# write captions file
+		if ($captionout) {
+			open(FILE, ">import/$shortname/assets.captions");
+			print FILE $captionout;
+			close(FILE);
+			print "assets.captions written\n";
+		}
 		return $cleaned;
 	} else {
-		return $md;
+		return $html;
 	}
 }
+
+sub reverseMarkdown() {
+	my $req = HTTP::Request->new(POST => 'http://heckyesmarkdown.com/go/');
+	$req->content_type('application/x-www-form-urlencoded');
+	$req->content('html=' . uri_escape_utf8($_[0]));
+	# send request
+	$res = $ua->request($req);
+	if ($res->is_success) {
+		return $res->decoded_content;
+	} else {
+		print "Error: " . $res->status_line . "\n";
+		return;
+	}
+}
+
+# &lt;a href="http://3.bp.blogspot.com/-3Q9n7FRCDrM/USvNrkW8_yI/AAAAAAAAEx0/L_cJVTM5P7Y/s1600/0224131549.jpg" imageanchor="1" &gt;&lt;img border="0" src="http://3.bp.blogspot.com/-3Q9n7FRCDrM/USvNrkW8_yI/AAAAAAAAEx0/L_cJVTM5P7Y/s320/0224131549.jpg" /&gt;&lt;/a&gt;&lt;p&gt;
+
+# <a href="http://4.bp.blogspot.com/-lh7IdsJ_TxY/USvNxZG-RTI/AAAAAAAAEx8/yP6l7PguPBs/s1600/0224131556.jpg" imageanchor="1" ><img border="0" src="http://4.bp.blogspot.com/-lh7IdsJ_TxY/USvNxZG-RTI/AAAAAAAAEx8/yP6l7PguPBs/s320/0224131556.jpg" /></a>
+
+# <a href="http://3.bp.blogspot.com/-3Q9n7FRCDrM/USvNrkW8_yI/AAAAAAAAEx0/L_cJVTM5P7Y/s1600/0224131549.jpg" imageanchor="1" ><img border="0" src="http://3.bp.blogspot.com/-3Q9n7FRCDrM/USvNrkW8_yI/AAAAAAAAEx0/L_cJVTM5P7Y/s320/0224131549.jpg" /></a

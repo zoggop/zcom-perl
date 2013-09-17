@@ -1,6 +1,6 @@
 import/
 build/
-!build/fonts/
+!build/fonts/*
 !build/style.css
 
 #################
