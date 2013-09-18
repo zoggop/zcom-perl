@@ -93,7 +93,7 @@ opendir(DIR, "posts");
 closedir(DIR);
 my @newPosts;
 foreach my $postfile (@postfiles) {
-	if (($postfile ne '.') and ($postfile ne '..') and not (-d "posts/$postfile")) {
+	unless (-d "posts/$postfile") {
 		my $checksum = md5_hex(read_file("posts/$postfile"));
 		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
@@ -341,13 +341,38 @@ sub BuildPostAssets() {
 	opendir(DIR, "posts/$post");
 	my @assets = readdir(DIR);
 	closedir(DIR);
-	my $assetshtml;
+	my %captions;
+	my %aorder;
+	my $n = 1;
+	if (-e "posts/$post/assets.captions") {
+		# read captions if existant
+		open(FILE, "posts/$post/assets.captions");
+		my @caplines = <FILE>;
+		close(FILE);
+		my $ac = 0;
+		my $a;
+		foreach my $line (@caplines) {
+			chomp($line);
+			if ($ac == 0) {
+				$a = $line;
+				$ac = 1;
+			} else {
+				$captions{$a} = markdown($line);
+				$aorder{$a} = $n;
+				$n = $n + 1;
+				$ac = 0;
+			}
+		}
+	}
+	my %ahtml;
 	foreach my $asset (@assets) {
-		unless (-d "posts/$post/$asset") {
-			(my $base, my $ext) = split(/\./, $asset);
+		unless ((-d "posts/$post/$asset") or ($asset eq 'assets.captions')) {
+			# read asset
+			(my $base, my $ext) = GetBaseExt($asset);
 			my $assethtml;
 			$ext = uc($ext);
 			print "$base $ext $imageExts{$ext}\n";
+			$buffer{'Caption'} = $captions{$asset};
 			if ($imageExts{$ext}) {
 				($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
 				$assethtml = ParseTemplate('asset-image-template.html');
@@ -357,8 +382,17 @@ sub BuildPostAssets() {
 				$buffer{'Filename'} = $asset;
 				$assethtml = ParseTemplate('asset-file-template.html');
 			}
-			$assetshtml = $assetshtml . $assethtml;
+			$ahtml{$asset} = $assethtml;
+			unless ($aorder{$asset}) {
+				$aorder{$asset} = $n;
+				$n = $n + 1;
+			}
 		}
+	}
+	@assets = sort { $aorder{$a} <=> $aorder{$b} } keys(%ahtml);
+	my $assetshtml;
+	foreach $asset (@assets) {
+		$assetshtml = $assetshtml . $ahtml{$asset};
 	}
 	return $assetshtml;
 }
@@ -396,7 +430,8 @@ sub GetDateNumber() {
 		my $parser = DateTime::Format::Natural->new;
 	 	my $date_string  = $parser->extract_datetime($_[0]);
 	 	my $dt = $parser->parse_datetime($date_string);
-		my $datenumber = $dt->year . $dt->month . $dt->day . $dt->hour . $dt->min . $dt->sec;
+		my $datenumber = $dt->year . sprintf("%003d", $dt->doy) . sprintf("%02d", $dt->hour) . sprintf("%02d", $dt->min);
+		print $datenumber, "\n";
 		return $datenumber;
 	} else {
 		return 0;
@@ -496,7 +531,7 @@ sub ParseTemplate {
 # creates a thumbnail from an image in the source directory. also creates a midsize, and copies the source image to the build directory with a new name
 sub Thumbnail {
 	my $image = $_[0];
-	(my $base, my $ext) = split(/\./, $image);
+	(my $base, my $ext) = GetBaseExt($image);
 	my $post = $_[1];
 	# create image dir in build/ if necessary
 	unless (-d "build/$post") {
@@ -514,30 +549,25 @@ sub Thumbnail {
 		# read source image
 		$IM = Image::Magick->new;
 		$x = $IM->Read("posts/$post/$image");
-		warn "$x" if "$x";
-		# get width and height
-		(my $width, my $height) = $IM->Get('height', 'width');
-		if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
-			copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+		if ($x) {
+			print $x, "\n";
 		} else {
-			ResizeImage($IM, $LargeSize, "build/$post/$base");
-		}
-		$FullSizeURL = "$post/$base.$FinalImageExt";
-	}
-	if ($IM eq "") {
-		if ("\U$ext" eq "PDF") {
-			ReadPDF("posts/$post/$image");
-		} else {
-			# read source image if necessary
-			$IM = Image::Magick->new;
-			$x = $IM->Read("posts/$post/$image");
-			warn "$x" if "$x";
+			# get width and height
+			(my $width, my $height) = $IM->Get('height', 'width');
+			if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
+				copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+			} else {
+				ResizeImage($IM, $LargeSize, "build/$post/$base");
+			}
+			$FullSizeURL = "$post/$base.$FinalImageExt";
 		}
 	}
-	# resize and write thumb image
-	ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
-	print "$_[0] --> $post/$base\n";
-	return ("$post/$base-thumb.$FinalImageExt", $FullSizeURL);
+	unless ($x) {
+		# resize and write thumb image
+		ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
+		print "$_[0] --> $post/$base\n";
+		return ("$post/$base-thumb.$FinalImageExt", $FullSizeURL);
+	}
 }
 
 # read source pdf and trim edges
@@ -565,4 +595,12 @@ sub ResizeImage {
 	$x = $image->Write("$base.$FinalImageExt");
 	warn "$x" if "$x";
 	undef $image;
+}
+
+sub GetBaseExt() {
+	my $file = $_[0];
+	my @dot = split(/\./, $file);
+	my $ext = pop(@dot);
+	my $base = join('', @dot);
+	return ($base, $ext);
 }
