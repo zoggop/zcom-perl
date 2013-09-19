@@ -57,6 +57,8 @@ if ($CLARG{'all'}) {
 	if (-e "posts.newest") { unlink "posts.newest"; }
 }
 
+my $untitled = 0;
+
 # read last checksums and dates to compare against
 my %lastCheckSums;
 my %lastDates;
@@ -317,7 +319,7 @@ sub BuildPostList() {
 	my $postlist;
 	my $template = pop(@_);
 	my $fpsize = @_;
-	print "post total $fpsize with template $template\n";
+	# print "post total $fpsize with template $template\n";
 	foreach my $postfile (@_) {
 		$buffer{'Assets'} = '';
 		my $ref = $postRef{$postfile};
@@ -398,10 +400,17 @@ sub BuildPostAssets() {
 }
 
 sub TitleToShortName() {
-	my $shortname= lc($_[0]);
-	$shortname =~ s/[^a-z0-9]/_/g;
-	return $shortname;
+	if ($_[0]) {
+		my $shortname= lc($_[0]);
+		$shortname =~ s/[^a-z0-9]/_/g;
+		return $shortname;
+	} else {
+		my $shortname = sprintf("%02d", $untitled);
+		$untitled = $untitled + 1;
+		return $shortname;
+	}
 }
+
 
 sub ReformatDate() {
 	my ($year, $month, $day);

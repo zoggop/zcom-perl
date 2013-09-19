@@ -1,0 +1,1 @@
+perl zpublish.pl %1

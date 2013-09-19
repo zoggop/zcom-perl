@@ -29,6 +29,10 @@ my @iMid = (
 	'href',
 	'src'
 );
+my @iPost = (
+	'</a>',
+	'/>'
+);
 # my $imagePre = '<a href="';
 # my $imagePost = '</a>';
 my $captionPre = '<td class="tr-caption"';
@@ -54,13 +58,14 @@ for my $entry ($feed->entries) {
 		my $year = $dt->year();
 		my $month = $dt->month_name();
 		my $day = $dt->day();
-		my $hour = $dt->hour();
-		my $min = $dt->min();
-		print $title, ' -> ', $shortname, " $day $month $year $hour:$min\n";
+		my $hour = $dt->hour_12();
+		my $min = sprintf("%02d", $dt->min());
+		my $ampm = $dt->am_or_pm();
+		print $title, ' -> ', $shortname, " $day $month $year $hour:$min $ampm\n";
 		open (FILE, ">import/$shortname.md");
 		binmode(FILE, ":utf8");
 		print FILE "# $title\n";
-		print FILE "## $day $month $year $hour:$min\n\n";
+		print FILE "## $day $month $year $hour:$min $ampm\n\n";
 		print FILE $md;
 		close(FILE);
 	}
@@ -87,9 +92,9 @@ sub GetImages() {
 	foreach my $ip (@iPre) {
 		my $imagePre = '<' . $ip;
 		my $imageMid = $iMid[$t] . '="';
-		my $imagePost = '</' . $ip . '>';
-		if ($html =~ m/\Q$imagePre/) {
-			my @images = split(/\Q$imagePre/, $html, -1);
+		my $imagePost = $iPost[$t];
+		if ($cleaned =~ m/\Q$imagePre/) {
+			my @images = split(/\Q$imagePre/, $cleaned, -1);
 			my $nothing = shift(@images);
 			my $i = 1;
 			foreach my $thing (@images) {
@@ -99,6 +104,7 @@ sub GetImages() {
 				($url, $nothing) = split(/"/, $url);
 				my @dot = split(/\./, $url);
 				my $ext = uc($dot[$#dot]);
+				if ($ext =~ m/\?/) { ($ext, $nothing) = split(/\?/, $ext); print "fixed ? in $ext\n"; }
 				# print $ext, "\n";
 				if ($imageExts{$ext}) {
 					# clean tag
@@ -112,12 +118,20 @@ sub GetImages() {
 					unless (-d "import/$shortname") { mkdir "import/$shortname"; }
 					unless (-e "import/$shortname/$filename") {
 						my $data = get($url);
-						unless (defined $data) {print "WARNING: COULD NOT GET $url\n"; }
-						open(FILE, ">import/$shortname/$filename");
-						binmode(FILE);
-						print FILE $data;
-						close(FILE);
-						print "$filename written\n";
+						if (defined $data) {
+							if ($data =~ m/<html>/) {
+								print "image url was html, getting image from it...";
+								$nothing = GetImages($data, $shortname);
+							} else {
+								open(FILE, ">import/$shortname/$filename");
+								binmode(FILE);
+								print FILE $data;
+								close(FILE);
+								print "$filename written\n";
+							}
+						} else {
+							print "WARNING: COULD NOT GET $url\n";
+						}
 					} else {
 						print "$filename already exists\n";
 					}
@@ -125,7 +139,9 @@ sub GetImages() {
 					if ($thing =~ m/\Q$captionPre/) {
 						($nothing, my $capthing) = split(/\Q$captionPre/, $thing);
 						($capthing, $nothing) = split(/\Q$captionPost/, $capthing);
-						($nothing, my $caption) = split(/>/, $capthing, 2);
+						my @end = split(/>/, $capthing, -1);
+						$nothing = shift(@end);
+						$caption = join(@end);
 						$caption = reverseMarkdown($caption);
 						$caption =~ s/\n/ /g;
 						$captionout = $captionout . $filename . "\n" . $caption . "\n";
@@ -134,10 +150,9 @@ sub GetImages() {
 					}
 					$i = $i + 1;
 				}
-				$html = $cleaned;
 			}
-			$t = $t + 1;
 		}
+		$t = $t + 1;
 	}
 	# write captions file
 	if ($captionout) {
