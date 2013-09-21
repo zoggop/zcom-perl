@@ -87,7 +87,7 @@ if (-e "posts.inventory") {
 # ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 
 my $newestPost = GetLastNewestPost();
-my $newestDateNumber = 0;
+my $newestDateNumber = GetDateNumber($lastDates{$newestPost});
 
 # read post markdown checksums to find new posts
 opendir(DIR, "posts");
@@ -181,9 +181,11 @@ foreach my $postfile (@newPosts) {
 		$postfile = "$shortname.md";
 	}
 	$checkSums{"$postfile"} = md5_hex(read_file("posts/$postfile"));
-	if (GetDateNumber($date) > $newestDateNumber) {
+	my $datenumber = GetDateNumber($date);
+	print("$datenumber compared to $newestDateNumber\n");
+	if ($datenumber > $newestDateNumber) {
 		$newestPost = $postfile;
-		$newestDateNumber = GetDateNumber($date);
+		$newestDateNumber = $datenumber;
 	}
 	$postDates{"$postfile"} = $date;
 	# find which archive pages need to be updated
@@ -216,13 +218,14 @@ foreach my $postfile (keys %checkSums) {
 	my @ymd = GetYearMonthDay($postDates{$postfile});
 	print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
 	my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
+	my $datenumber = GetDateNumber($postDates{$postfile});
 	print ("days old $daysold\n");
 	if ($daysold <= $frontPageDays) {
 		print "$postfile made front page\n";
-		$frontPageDates{$postfile} = $daysold;
+		$frontPageDates{$postfile} = $datenumber;
 	} elsif ($daysold <= $headlineArchiveDays) {
 		print "$postfile made headline archive\n";
-		$headlineArchiveDates{$postfile} = $daysold;
+		$headlineArchiveDates{$postfile} = $datenumber;
 	}
 	my $year = $ymd[0];
 	my $month = $ymd[1];
@@ -235,11 +238,11 @@ foreach my $postfile (keys %checkSums) {
 	}
 	# compile list of pages within each year and month's archive
 	if ($updateYearArchive{$year}) {
-		my $order = Delta_Days(($year, 1, 1), @ymd);
+		my $order = $datenumber;
 		$yearArchives{$year}{$postfile} = $order;
 	}
 	if ($updateMonthArchive{"$year $month"}) {
-		my $order = Delta_Days(($year, $month, 1), @ymd);
+		my $order = $datenumber;
 		$monthArchives{"$year $month"}{$postfile} = $order;
 	}
 }
@@ -247,11 +250,11 @@ foreach my $postfile (keys %checkSums) {
 # sort {$hash{$b} cmp $hash{$a}} keys %hash
 
 # sort front page posts
-my @frontPagePosts = sort { $frontPageDates{$a} <=> $frontPageDates{$b} } keys(%frontPageDates);
+my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
 push(@frontPagePosts, 'post-template.html');
 my $frontPageContent = BuildPostList(@frontPagePosts);
 # sort headline archive posts
-my @headlineArchivePosts = sort { $headlineArchiveDates{$a} <=> $headlineArchiveDates{$b} } keys(%headlineArchiveDates);
+my @headlineArchivePosts = sort { $headlineArchiveDates{$b} <=> $headlineArchiveDates{$a} } keys(%headlineArchiveDates);
 push(@headlineArchivePosts, 'post-headline-template.html');
 my $headlineArchiveContent = BuildPostList(@headlineArchivePosts);
 # sort year list

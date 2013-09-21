@@ -1,11 +1,18 @@
 use Text::Markdown 'markdown';
 use DateTime;
 
-my $file = $ARGV[0];
-
-open(FILE, $file);
-my @lines = <FILE>;
-close(FILE);
+my $file;
+my @lines;
+if (uc($ARGV[0]) eq 'TEXT') {
+	my $text = $ARGV[1];
+	$text =~ s/\\n/\n\\n/g;
+	@lines = split(/\\n/, $text);
+} else { 
+	$file = $ARGV[0];
+	open(FILE, $file);
+	@lines = <FILE>;
+	close(FILE);
+}
 
 # read post 
 my $l = 0;
@@ -27,6 +34,10 @@ foreach my $line (@lines) {
 		$date =~ s/^\s+//; #remove leading spaces
 		$date =~ s/\s+$//; #remove trailing spaces
 		splice(@lines, $l, 1);
+	} elsif ($eval =~ m/\*\*\*END OF FILE\*\*\*/) {
+		(my $something, my $nothing) = split(/\*\*\*END OF FILE\*\*\*/, $eval);
+		$line[$l] = "$something\n";
+		splice(@lines, $l+1);
 	} elsif ($first eq '') {
 		my $possible = $eval;
 		$possible =~ s/^\s+//; #remove leading spaces
@@ -56,10 +67,16 @@ unless ($title) {
 	}
 }
 
-# create a date from file modified date unless otherwise specified
 unless($date) {
-	my $epoch = (stat $file)[9];
-	my $dt = DateTime->from_epoch( epoch => $epoch );
+	my $dt;
+	if ($file) {
+		# get the file last modified date
+		my $epoch = (stat $file)[9];
+		$dt = DateTime->from_epoch( epoch => $epoch );
+	} else {
+		# if no file, use the time right now
+		$dt = DateTime->now;
+	}
 	my $year = $dt->year();
 	my $month = $dt->month_name();
 	my $day = $dt->day();
@@ -67,7 +84,7 @@ unless($date) {
 	my $min = sprintf("%02d", $dt->min());
 	my $ampm = $dt->am_or_pm();
 	$date = "$day $month $year $hour:$min $ampm";
-	print "file last modified $date\n";
+	print "time published: $date\n";
 }
 
 # this way, zcompile.pl deals with duplicate filename issues
