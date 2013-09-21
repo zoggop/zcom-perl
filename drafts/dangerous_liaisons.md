@@ -1,0 +1,50 @@
+# Dangerous Liaisons
+## 9 September 2012 5:59 AM
+
+What does it take for me to enjoy a film about nothing but sex?* First, evacuate all sentiment. Turn it into a sociopathic game. Then slowly let sentiment seep back in. Drag it through wet Paris streets.
+
+The weather in _Dangerous Liaisons_ is more symbolic than atmospheric, following the declension of play. It begins in summer. Vicomte de Valmont (John Malkovich), the agent in this spy story of the heart, flounces ruthlessly about a sunny country estate in his pastel finery. He's trying to win a married woman's heart, for the fun of it, for his ego (the challenge), to impress the Marquise de Merteuil (Glenn Close), and because she stands for everything these two despise: "strict morals, religious fervor, and the happiness of her marriage." The game takes on a tinge of emotional investment around the time the rain begins. For the rest of the film, it rains off and on, and all the drama moves indoors. I would say the drama unfolds, but actually it folds inward, taking shape like origami. It ends in the snow, Vicomte impaled in a duel by a dumb-eyed Keanu Reeves (his diegetic name, Danceny). "Like mosts intellectuals, he's intensely stupid," the Marquise says of him, and later fucks him for a month or two. Winter, and the Keanus of the world win the day. The Marquise is publicly shamed for her libertinism, booed by a crowd in a theater.
+
+If it were not for this booing, and the utter boringness of the characters of morals (rather than bored, which is what Vicomte and the Marquise are), this all would have seemed like a morality lesson. The two are punished for toying with the heart. The agent (Vicomte) finds True Love and is tortured because he destroys it. When he dies, the pupeetteer (the Marquise) loses who appears to be her one True Love, him. Despite the delightfully amoral beginning, it seems that the script is intent upon bashing its two cynical leads up against Love, which is apparently the salvation they cannot have. (This is logical; liaisons are, after all, dangerous. Cynicism does not equal invincibility.) Then again, they're conveniently saved from their salvation, by death. "Happiness," the Marquise points out, "cannot be had without regret." Vicomte has an infinitude of regret in his dying words: "He [Danceny] had good cause [to kill me]. I don't believe that's something anyone has ever been able to say about me."
+
+The thematic coherence of this script is tight enough that there's a running commentary on happiness, and one that does not rankle with false profundity. The word is threaded through everyone's dialogue and twists away antiphilosophically.
+
+It begins without being said as the Marquise and Vicomte set out to destroy others' happiness. She sends him on a mission to deflower a future bride, Cecile Volanges (Uma Thurman), because her husband-to-be avowedly values not the girl's money, but her "guaranteed virtue." Vicomte, however, is more interested in bedding the aforementioned Madame de Tourvel (Michelle Pfeiffer). When he performs a bizarre semblance of courting her, the talk of happpiness begins. He declares with soppy romance (she is a soppy romantic) that he values her happiness above his own. Just after the rainstorm hits, her mother dispenses antique wisdom: "Men enjoy the happiness they feel. We can only enjoy the happiness we give. They are not capable of devoting themselves exclusively to one person. So to hope to be made happy by love is a certain cause of grief." Heeding this stark female complaint, she leaves the estate and him by cover of night.
+Months later, she accepts his request to see her in Paris, and swiftly throws out the conclusion but not the analysis of her mother's vision of happiness.
+
+Him: "Why should you be so upset by the idea of making me happy?"
+
+Her: "You're right, I can't live either unless I make you happy."
+
+Things tend to be thrown out at such times. He later confides to the Marquise that he was so caught up in it all that he pledged eternal love. "At that time, and for several hours afterwards, I actually meant it." But she does not have faith in his lack of faith. She thinks he just can't bear to think of himself as someone who actually falls in love. "Happiness and vanity," she says, her back to him, "are not compatible."
+
+There is one time he almost manages to trick himself into being happy and approving of himself at the same time, by composing an entire letter of double entendre:
+
+
+> My dear Madame de Tourvelle,
+I have just come [the woman whose naked back he's using as a desk giggles] to my desk in the middle of a stormy night during which I have been tossed from exaltation to exhaustion and back again. Yet despite these torments, I guarantee that at this moment I am far happier than you.
+
+But then, that is wooing, not having.
+
+This vision of happiness--just around the corner of self-consciousness--strikes me as at once true and suspect. Is it only mirrors that turn happiness against us?
+
+There are plenty of mirrors to impale oneself on in this film. Specifically, the Marquise gets caught on their sharp edges. While all of Vicomte's liaisons are played out directly in the camera's frame, hers are reflected in mirrors or alluded to. It's implied that her life is as wanton as his or more, but it's his exploits that the story follows.
+
+To traverse her house (a task and a journey, I assure you) from receiving Vicomte's call to her lover secreted away in another room (ah, rooms: this film's antics could not function without the privacy of rooms), she must go through a doorway I cannot classify. It's studded with dozens of square mirrors, and curved inward toward the opening. The mirrors are curved, too, so that they distort what they reflect.
+
+This set piece makes several appearances. The most memorable of which is the scene I referred to earlier, in which the Marquise realizes that Vicomte is actually in love with this woman he set out conquer. Her loves's love is directed elsewhere. He leaves the room; cut to the mirrors; distorted reflections of her contorted face (usually so calm) turn about the room. Now, I believe it's possible to read too far into something. I'm not _against_ it, but I do think the question "but what does it mean?" is at its most futile when directed at strokes of modernism. I found myself asking just that when the camera turned on those mirrors. It would be easy to equate the reflective misdirection of eros and the cinematic preoccupation with mirrors--it's just a linguistic conceit of describing them both with a metaphor of direction. What such a shot is not is "psychological". I'll not discuss the "mental state" it expresses.
+
+The first time she goes through that door-mirror, the camera follows her until she opens the next door behind which a liaison waits. It peers in the open door to a mirror on the wall, where she and her lover can be seen embracing. "Time has no logic when I'm not with you--an hour is like a century," he pleads. To which she cracks "I've told you before--we'll get along a great deal better if you make a concerted effort not to sound like the latest novel," and shuts the door.
+
+It's in this same mirror that she's perfectly framed, hovering above Vicomte and Danceny. Vicomte had burst in on she and Danceny in her bed--he sneaks through the door-mirror to get there--and this leads not to a fight, but to more scheming (as such interruptions do in this film). There she is, smirking at them in the mirror.
+
+One might see only artifice in this usage of mirrors, but she must perform the same acrobatics of perspective to access herself. She and Vicomte are masters of deception--she better than he, he admits. The film begins with the two being dressed in the morning, putting on their faces. It ends with her wiping makeup from her face in the mirror. It's an arduous process; she pushes and pulls the flesh of her face out of shape, and despite the force, can she get to the bottom of it? She fades to black with the top half of her face still pale with her mask.
+
+She has one uncharacteristically divulgent monologue. It's akin to when the murderer in a mystery spills forth how and why.
+
+
+> Women are obliged to be far more skillful than men. You can ruin our reputation and our life with a few well-chosen words. So of course I had to invent not only myself but ways of escape that no one has thought of before. And I've suceeded because I've always known I was born to dominate your sex and avenge my own.
+
+_Dangerous Liaisons_ both revels in these ways of escape, and meditates on how they might also imprison. (Her reflections in the multipaned doorway are doubly behind bars, between the window grilles behind her and the mirror grilles in front of her.) She hates marriage, has sex with "as many and in as many ways" as possible, and finds delight in screwing with others' lives. Yet her escape from this era's normativity is a mask that demands another mask. Keanus will be deluded into faith in the verity of the narratives they live. But being undeceived like her is to deceive others that she lives those same narratives, and to deceive herself that she does not.
+
+* There is, I must say, a rape. It was all fun and games up until _that_ point, not the other point on which I focus. I was, as you would expect, disturbed by this scene in which Vicomte enters Cecile's room while she sleeps, covers her mouth, tells her that were they were caught the blame would fall upon her, and forces himself upon her. However, the Marquise soon arrives at the house (in a yellow and black dress reminiscent of a hornet) to tell her not that she has been forever traumatized by an omnipotent penis, but rather that she may, if she is discreet, have all the sex she likes, or none at all. "You'll find the shame is like the pain--you only feel it once." Cecile cheers. In her case it was only the shame, apparently, that made the act distasteful.

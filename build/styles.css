@@ -1,12 +1,14 @@
 body {
-  font-family: "Lato", "Open Sans", "Droid Sans", "Segoe UI", "Ubuntu", "Arial", sans-serif;
+  /* prioritize system font for better smoothing in chrome */
+  font-family: "Lato", "latoweb", "Open Sans", "Droid Sans", "Segoe UI", "Ubuntu", "Arial", sans-serif;
   line-height:1.5em;
   margin:0;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "antykwa_poltawskiegoexpd", "Antykwa Półtawskiego", "Antykwa Poltawskiego", "AntykwaPoltawskiego", "Georgia", "Times New Roman", serif;
+  /* prioritize web font because it's unlikely anyone will have the font, and i can't seem to use the expanded version using a system font */
+  font-family: "antykwa_poltawskiegoexpd", "Georgia", "Times New Roman", serif;
   color:#AAA;
   font-weight: 900;
   -moz-font-feature-settings: "onum=1";
@@ -59,11 +61,11 @@ a:hover { text-decoration:underline; color: black; }
 
 #header h1 {
   font-size: 4em;
-  line-height:0.55em;
-  letter-spacing:-0.1em;
+  line-height:0.5em;
+  letter-spacing:-0.15em;
   color:#EEE;
   font-weight:800;
-  word-spacing:0;
+  word-spacing:3em;
   margin-top:0;
   margin-bottom:0;
   font-variant:small-caps;
@@ -87,6 +89,11 @@ a:hover { text-decoration:underline; color: black; }
   margin-bottom:6em;
 }
 
+#footer {
+  font-size:0.75em;
+  text-align:center;
+  margin-top:48px;
+} 
 
 .smallcaps {
   font-variant:small-caps;
@@ -142,6 +149,10 @@ h2.post-title {
 
 h2.post-title a, h2.post-title a:visited {
   text-decoration:none;
+}
+
+h2.post-title a:hover, h2.post-title a:active {
+  text-decoration:underline;
 }
 
 h3.date {

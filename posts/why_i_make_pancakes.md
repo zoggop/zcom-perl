@@ -1,0 +1,14 @@
+# Why I Make Pancakes
+## 4 June 2011 9:18 AM
+
+While I am not yet eating eggs with a comb out of a shoe, there is dog shit on the porch, mouse shit on the counter, a pile of week-old dishes soaking in putrid water in the sink behind which festers a crust of black mold, and grain moths hatching from and having their way with god knows what forgotten stash of dry goods. There’s no use denying it, I live in a house full of slobby men, and I am one of them. I flee from the mess I can’t stand.
+
+The sight of the disgusting, somewhat toxic kitchen adds an unhealthy layer to my morning grumbling: I am loathe to cook anything, and for the first hour manage only to put the tea kettle on. On rare exuberant mornings I might wash some of the dishes while the water comes to a boil. Most of the time, though, I just pace around bemoaning the unendurable injustice of having to prepare and eat breakfast. This morning I stooped to a new low by making quesadillas for breakfast. They tasted largely of rubber and heartburn, but there wasn’t anything else around I could imagine being able to stomach.
+
+After sitting in denial of my bodily needs in front of the computer with a cup of tea, reading new emails or perusing Google Reader for new amusements, most mornings I end up making pancakes. It is difficult to explain why I do this. I, and perhaps you, wouldn’t think that mixing together pancake batter from scratch is the solution for someone who wants non-nasty breakfast with minimal effort. Why not, say, cereal? It is the result of a collection of interconnected, deeply entrenched kitchen habits. I never think to buy cereal. I often buy yogurt, thinking that I’ll eat that in the morning, and I do, but it’s never enough to just eat yogurt. What else do we keep in the kitchen that’s palatable for breakfast? Well, there are eggs. Sometimes, there is bread, and when there is I make eggs on toast. But somehow, even though it is basically the same ingredients, fried eggs and buttered toast are more nauseating than pancakes. Also there is oatmeal, in my mind the least vomitable substance despite looking a bit like vomit, but I made the mistake of buying steel-cut oats. They are delicious, but take about half an hour to cook properly. I don’t get the normal, rolled variety because why buy those when I have the kind I will never use? Basically, I cook pancakes to not think about what to make for breakfast. They are the status quo.
+
+And when the kitchen is disgusting, it is still somehow possible to scrape off whatever grime is on the cast iron pan and while it heats get out the pyrex measuring cup, crack an egg in, add milk, oil, flour, baking powder, and salt, mix it with a fork, and wait until the pan is hot. It’s a ritual that can happen amid squalor.
+
+The result is a very starchy, tiring food. Eat a couple of pancakes and you may just want to go back to bed.
+
+Having written this, maybe I should invest in some muesli.

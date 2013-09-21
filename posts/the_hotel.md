@@ -1,0 +1,9 @@
+# The Hotel
+## 7 May 2012 12:54 AM
+
+
+I used to take the elevator up to the top floor, but the last time I did one of the hotel staff finally did something about it. He was very apologetic. His first sentence began with a conciliatory "I know". I don't remember what else he said. That he can't have non-guests up here, probably. Which led us into the elevator together, trying to make small talk. He kept apologizing, and I kept saying I didn't hold it against him, or mind much. Every time I go up I know I'm not supposed to be there. That's why I go. The view is wonderfully removed from the street. It is relaxing, or I think so until I'm up there, fidgeting. If it weren't illicit, I doubt I would go.
+
+I haven't been since that run-in with him happened. Maybe there's a camera, or one of the guests was particularly uppity and told him. Or maybe he just noticed me, clearly out of place, entering the elevator. Anyway, I no longer want to take the risk.
+
+The southern side of the building is very warm, when the sun is out. That side is perpendicular to the main drag, and my route to the grocery store goes along there. It's a half-block of quiet heat. The whole building is painted a very bright beige, which looks yellow at some times of the day. The rest of the time it looks awful. Brutal. Without discrimination--as if every detail has been ignored. The sunlight reflects off of this nearly white surface, creating a kind of solar oven near where it intersects with the sidewalk. If the wind is coming from the north, the massive edifice blocks it. In spring I can here receive an early summer. Then I get to the corner of both the building and the street, and everything floods back: wind, traffic, tourists, cold.

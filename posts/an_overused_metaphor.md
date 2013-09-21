@@ -1,0 +1,6 @@
+# An Overused Metaphor
+## 27 January 2011 8:52 PM
+
+This blog has a shadow, or maybe it is the shadow of something else. Each entry is motivated by another entry that's never written. And there are still more unwritten entries which have simply been forgotten. And sometimes what I want to write is never even at play in a written entry. It just slips my mind, and I'm left to type out unbidden words only because I've cooked something and photographed it and ought to have something to say about it. Despite being obligated like this, there are still plenty of photos of food I intended to write about but never did.
+
+As the blog trundles forward entry by entry, it does so in an attempt to recapture what it has left behind, and, fumbling, yet more slips out of its grasp. These movements do not necessarily result in repetitive content. I leave trains of thought like "recipeness" behind, wishing I could still write more about them but can't, don't. My nostalgia for them just pushes me to write about something else with similar zeal, even though my writing on any one topic is vague and unfinished.

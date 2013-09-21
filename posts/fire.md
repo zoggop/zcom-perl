@@ -1,0 +1,10 @@
+# Fire
+## 19 March 2013 6:42 AM
+
+I had a professor who demanded that I have "fire in the belly." I still don't know what that is, but slices of jalapeno steeped in chicken broth has a certain feeling. I have had a cold for the past two weeks, and I disingenuously tell myself that hot hot chicken soup with fresh lime juice (for the vitamin C of course--certainly not a dubious "fusion" impulse!) would help. It does have a medicinal quality. I can't decide if drinking it is tasty or a chore. In lieu the symptom, the broth makes me cough, which is cathartic in its way, like crying while chopping onions.
+
+The gas range in my apartment has the opposite problem that an electric has. "2" is enough to caramelize onions, and the only possible utility of "Max" (right above "8") is boiling water. A month and I still misgauge just how hot it is, always worrying that "Min" cannot possibly be hot enough, bumping the dial up a bit and then back down and back up again, and rationalizing that it's at "Min" if I look at it without bending down to see exactly where the mark lines up.
+
+The cast-iron pan I have has a concavity in the middle--what might be called a "dip" on a road sign. The lower the heat, the more the flame heats the middle, which is exactly where the pan is lowest and thinnest. Turning it down sometimes does exactly what I mean to avoid, yet at the same time heats everything less. So a low flame sometimes both burns and fails to heat. This leads to for example burnt grilled cheese with not-quite melted cheese, or still-gooey pancakes with a burnt spot. I exaggerate, but if I didn't there wouldn't be much to say about it.
+
+Grilled cheese and pancakes are of course not foods that should be made, and the grease that flies off them accumulates on the stove, the fridge, the walls, the fan and the air. The windows may be opened, the fan may be turned on, but a certain not entirely unpleasant smell persists. The smell of the oven when it's on is far more intense and acrid, yet it can be evacuated out the window within an hour, and does not affect what's baked inside.

@@ -258,7 +258,7 @@ my @headlineArchivePosts = sort { $headlineArchiveDates{$b} <=> $headlineArchive
 push(@headlineArchivePosts, 'post-headline-template.html');
 my $headlineArchiveContent = BuildPostList(@headlineArchivePosts);
 # sort year list
-my @yearList = sort keys %allYears;
+my @yearList = reverse sort keys %allYears;
 my $yearListContent;
 foreach my $year (@yearList) {
 	$buffer{'Year'} = $year;
@@ -270,7 +270,7 @@ $buffer{'FrontPage'} = $frontPageContent;
 $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
-$buffer{'Title'} = '';
+$buffer{'Title'} = "";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
@@ -488,7 +488,6 @@ sub ReadPost() {
 				$date =~ s/\s+$//; #remove trailing spaces
 				# my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
 				# $date = "$year$month$day$hh$mm$ss";
-
 			} else {
 				$content = $content . $line;
 			}

@@ -1,0 +1,22 @@
+# A Box of Persimmons
+## 22 December 2011 1:13 AM
+
+I was given a box of persimmons. There were a lot of unasked for and unexpected things that came with the box of persimmons, one of which was this: "they don't have much flavor." He was right. Smell, though.
+
+There were the tiny black specks buried in their flesh as if they had just come in barefoot from a particularly old deck. Actually, they looked more like insect eggs. So I entered "tiny black specks" into google, and came up only with several people complaining about black spots on the outside, on those forums where you ask a question and (hopefully) get a response. (I continue to remain wilfully ignorant of where this question-and-answer content comes from, because I can't imagine who would actually ask the questions. It's easy to imagine the answerers--The Internet has a major infestation of them.) Lacking a definitive answer after ten minutes of research (that is always the criterion), I convinced myself that the specks were nothing. (Nothing is amazing. I like to do a lot of it.) And if not that wonderful soldering iron to the brain of an idiom, then they were "precipitated tannins." I read that somewhere about overripe persimmons, which these are.
+
+There was the bite into obcenity one yielded to me. It was the sweet part of my lunch. I was in a car. I chucked the wounded fruit into my teacup to save it for persimmon bread. I always make a gesture of saving everything: vegetable scraps, leftovers, half-full cans of coconut milk, thickened gravy. All of these things eventually rot in the fridge, except for the vegetable scraps (kept in the freezer), which I strangely enough do use for soup.
+
+There was the indescribably monstrous texture of persimmon pie. No, not the kind that's made like apple pie--the kind that's made like pumpkin pie.
+
+
+
+Before I disgust us both any more, let me assure you that persimmon bread was good. I made two loaves of it, and ate all of it. It too was as alien as befits a fruit named _Diospyros_: The bread browned unnaturaly quickly, so quickly I was afraid I would end up with a burnt exterior and a goopy interior. Once baked the upper half of the inside was lighter than the deep brown lower half. Why? As far as I'm concerned, persimmons are an unknowable function in persimmon bread, lending something you can't quite taste to the finished product. Yeah, okay, that's an overstatement. It changes the texture, and I could find out how by baking the same "bread" (i.e. cake) without the persimmons.
+
+
+
+I would have another batch of persimmon bread, but my father threw them out. I can't say that it was a bad idea at all. Given the chance, I probably would have saved them until they were black piles of snot. It was taking me a long time to understand that although they were pretty, they were mostly flavorless, and going bad quickly. Here is what happened to the persimmons before ever being used: First, I left them in the car for most of a week. I was commuting in the car every day for four days. While I was working, everything else got forgotten about, including the persimmons. Then they sat on the kitchen table for two days, while I kept telling myself that I would turn them all into something baked. Finally, I used five of them in the persimmon bread. By this time many were turning a troubling umber shade, and some had large black spots (not problematic in themselves, but indicative of ripening), and some were rotting into the cardboard.
+
+Just those five persimmons made a lot of persimmon bread, which took a few days to eat. I probably would have gone on like that, in a charade of frugality, using every single last persimmon by making another batch of persimmon bread every three days. My father inadvertantly saved me from all that.
+
+There is a reason those of us who can waste, waste so much: Along with the past-prime food, obsolesced technology, and high-maintenace cars, misery is thrown out. There are those, including myself, who romanticize not wasting. We would like to live in a world where everything has a place. Of course, there is another way out of misery, but it involves not only foresight, but also the impossible murder of the part of you that yields: don't accumulate anything you will waste.

@@ -1,0 +1,18 @@
+# I am endeavouring, ma'am, to construct a mnemonic memory circuit using stone knives and bearskins.
+## 4 October 2012 5:15 AM
+
+Star Trek (the original) is nearly unwatchable. Thus it is populated with babes in costumes whose designer seems to grin lasciviously from behind the camera. When their bodies aren't giving relief from the creak of plastic gears--or if you prefer, the shouting of men--a particular kind of head shot is. The female guest star's face is in soft focus, and lit from a slightly oblique angle, so that her hair shines ethereally. Her face glows, and her glowing smile appears indeed from another planet.
+
+While the rest of our heroes boldly go where no man has gone before--namely, portals--Uhura says "Captain, I'm afraid."
+
+To a trekkie, it's already apparent that I'm really speaking of one episode, "The City on the Edge of Forever". (But that way of filming female faces holds throughout the series, I swear.) I began watching the episode because I know someone who is obsessed with the writer, Harlan Ellison. I was wikipediaing him, and discovered he wrote an episode of Star Trek. What really interested me, though, was that he hated the adaptation of his script so much that he went to court. I had to see what all the fuss was about.
+
+Controversy could only bouy me so much against the sinking dullness of the show, however. I couldn't make it through the episode. It was one of those "travelling back in time screws up the present" plots. When it is revealed that what changes the future for the worse is the U.S. not going to war with Germany during World War Two, my cursor fled to the pause button. I longed for a non-butterfly-effect time travel concept, as in Kage Baker. At least when written history cannot be changed, jingoistic self-justification (whenever we feel national shame, it seems, we can always fall back on "but we saved the world!") isn't possible.
+
+But anyway, I wasn't intending masturbate about taste. I haven't read Ellison's script, but I have a conjecture. When he wrote an episode for Star Trek, what was he expecting when it got aired? Star Trek is still Star Trek. Every writer has a rebellious streak of some sort--otherwise why write--but I think Ellison's was particularly strong. When he wrote an episode of Star Trek, he wanted it to exceed the bounds of what a Star Trek episode could be. He wanted to make something daring, perhaps with a bit of commentary on the show itself. He wanted to inject a bit of not-Star Trek into Star Trek, to give it a little life. So when he saw what ultimately made it to the screen, he was pissed. This wasn't the edgyness he had imagined.
+
+I make fun, but it's perfectly understandable. (Although it does take a special kind of stubbornness to take Paramount to court four decades later for rewriting his script.) Even writing a piece for [Bright Wall in a Dark Room][1], at least half my motivation was something along the lines of _I'll show them!_ I felt that I was in some way shaking up the genre of BWDR. Such an attitude may be necessary, along with the idealizations that come with it.
+
+There's something phallic about this conception of creativity in which one creates within confines but yearns to exceed those confines, and in so doing reveal one's idealized self in the difference. One pretends to want freedom from the confines, but without them one would not be able to create, nor would one want to. Ellison raged against the apparatus of his articulation. He saw too much of the apparatus, and not enough of himself. Despite the angelic face of its female guest star, the episode wasn't pornographic enough.
+
+   [1]: http://brightwalldarkroom.com/

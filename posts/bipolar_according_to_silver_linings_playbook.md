@@ -1,0 +1,12 @@
+# Bipolar According to Silver Linings Playbook
+## 1 September 2013 7:45 AM
+
+I wanted to see _Silver Linings Playbook_ because I thought it might be about manic depression in some way. The trailer wasn't encouraging, but everyone said it was good. In other words, improving--to use Jeeves' only adjective for a book he's reading. It's fine, but it has nothing to do with mental illness. "Bipolar" is code for "quirky and inappropriate."
+
+It's not impossible for manic depression to have some thematic resonance. _Homeland_ at least framed mania as a crisis of judgement. Carrie always seemed a bit nuts to her coworkers, but note that she was able to hide that she took medication for most of her career.
+
+If we pretend _Silver Linings_ is about a bipolar man, his mania is never in the least bit sneaky. He seems to be always manic, yet the script seems to actually believe him when he says he's getting better. And this constant hyperoptimism ("silver lining_s_") and need to be doing shit is punctuated by "episodes" during which he wakes up his parents, yells about Hemmingway for the dumbest reason, and breaks things. I don't deny that this could happen, but watching the scene, you'd think mania is just a quirk, like not wearing underwear--not to everyone's taste, but with few serious repercussions. I guess this is an attempt to make it as much of cinematic spectacle as possible. I longed for Kay Redfield Jamison's narration of her manic explosions of thought. She convinces herself of her own genius in that state, of course, but she also might well be a genius.
+
+Everything for Pat is on the surface. The only character that seems to have any interiority at all is the depressive, Tiffany, and the romance plot becomes his quest for it. Which is not exactly a revelation. Likewise that the proof of true love is sexuality supressed for friendship until the right moment (the end, when the whole room is shocked by the sexuality of their dance moves, inexplicably).
+
+So if I want to believe the screenwriter isn't clueless, the only option as far as I can see is that it's a romance of two pathological liars who really like to be "weird," and so self-diagnose themselves bipolar and nymphomaniac. Because it makes them seem interesting.

@@ -1,0 +1,14 @@
+# Spiced Apple Pie with Dulce de Leche
+## 3 March 2012 7:23 PM
+
+What is _Esquire_? For reasons still unknown to me at the time of writing this, someone left an issue on my bed open to a recipe for “Spiced Apple Pie with Dulce de Leche”. Not bad. A little boring, but not a terrible idea to add spice and caramel sauce to apple pie. I wasn’t sure why the minimal conceit demanded a full-fludged recipe complete with retro-styled full-page photos, but whatever. Actually, who am I kidding. It’s one of the most pointlessly over-blinged desserts I’ve ever heard of.
+
+I flipped around, and discovered other mediocre recipes coupled with raunchy food photography. Hold on--I see what’s going on here. These aren’t recipes. They’re ads. The spiced apple pie is an ad for Eagle Brand condensed milk. I have to admit, this may not have been money poorly spent on Eagle’s part, whoever they are. Apparently this is all a part of “The Esquire Pantry Hall of Fame”--a series of recipes complete with specification readouts--“CHEF:”, “MAKES:”, “PRODUCT:”--as if stenciled on a piece of military equipment. The reason for both pieces of painfully articulated information is the same: to destroy any possibility of ambiguity for readers who can’t be trusted unfold a napkin. You don’t want troops firing bazookas into their faces, or bachelors not knowing how much pie they’re making, or what brand of condensed milk to use.
+
+I was confused. Some dimly-remembered rumor led me to believe that Esquire had content, somewhere. I searched. All I found was something about Willem Defoe, his grim face in black and white filling the entire opposite page (this magazine certainly makes use of its glossy paper). It wasn’t an article, it was a hagiography of quotations, the first of which I wish he had taken to heart more rigorously: “There’s a real wisdom to not saying anything.”
+
+Scouring the pages for anything but ads, all I could find were nearly-nude photos of Kate Upton staring lasciviously at the camera, presenting her breasts as if they were prize pumpkins. In the first photo they’re being barely contained by a loose bra, to which she is taking scissors. Do they have a panel of 13-year-old boys, or do they come up with this stuff all on their own?
+
+Eventually I stopped straining, and realized the nicest--admittedly the only--thing about the magazine is its fashion ads. Once I thought of it as a catalogue of mens clothing, it provided entertainment. (This whole rant is essentially an admission of how bored I am.) Of a sort. If I see one more suede desert boot, one more casual suit, one more appeal to the reader’s alleged uniqueness...
+
+Wait, I finally get it: My dad wants me to make apple pie.

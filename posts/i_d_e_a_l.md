@@ -1,0 +1,7 @@
+# I D E A L
+## 22 June 2012 12:55 AM
+
+
+I like to remind everyone I meet that swallowing is not natural. A characteristically exasperating conversational habit, especially during meals, which is just when I bring it up. Like saying during coitus that biological imperatives have no intrinsic normative force. Mood breaks when necessity falls away (and with clunky academic diction). When small you can choose not to swallow. You would starve.
+
+It's preferable to glide over such things. Pleasure in spinning the primal. The centrifical force of the everyday considerable; it's a wonder we aren't always dizzy. A restaurant on the beach in Santa Cruz endeavors to fling its customers into the breakers. With wide-set capitals it declares itself IDEAL. Its menu more specific, the cover a black and white photo of a shapely woman in a bathing suit, holding a tall salmon in each hand, her pose bent at one knee, her eyes smiling (as the photographed must be). My uncle, drawn by the $4.95 breakfast special, says "look at the size of those salmon." Inside the restaurant the gaze is deflected in the same way. Look at the size of those plates (carried by waitresses no older than eighteen in mandatory short shorts). One jump over two messes. Do greasy eggs, potatoes, and bacon go down easier when served by nubiles? That would be IDEAL, crossing its fingers.

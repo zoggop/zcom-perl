@@ -1,0 +1,10 @@
+# Timing
+## 6 February 2011 6:23 PM
+
+Truthfully all the durations in my recipes are guestimates. When I say five minutes I just mean what felt like a short amount of time. I was not looking at the clock. I imagine this isn’t a surprise to anyone. Timing in cooking is vague and conditional, something sensed out and learned.
+
+Despite knowing this about myself, it is sometimes easy for me to get take the numbers of minutes in someone else’s recipe as absolute. There are far too many variables that make this impossible. Even if the recipes were written from precise timings in the author’s kitchen, these do not necessarily or even often translate well into another kitchen. Ingredients differ, altitudes differ, pans differ, burners differ, etc. There is a complex if not always logical process of translation. Often what the recipe says marks the dish as done is more absolute than the cooking time. But those numbers are not useless. They might tell me that something is different. If the recipe says 45 minutes and the cake has been in for an hour and still doesn’t look done, then something is different, even though what exactly is the work of sketchy reasoning.
+
+Either improvised or from a recipe, cooking involves for me a great deal of anxiety about how long to cook something. The worst are the things I can’t taste for doneness, like baked goods or roast chicken. Or tea, which I rigidly time but am always wondering if I should leave the leaves in longer or take them out early. Even when I cook something as simple as sauteed vegetables I go to the pan every two minutes to taste how soft they are, and am constantly uncertain if they’re soft enough or too soft. It’s not really two minutes, it’s more like I’ll take it off the burner when I’m done reading a blog post, after I feed the dogs, after I go to the bathroom, after I finish doing the dishes, etc.
+
+The clock, in other words, is a deceptive ally to cooking. It deludes cooks into false certainties that assume the kitchen is the same as the mechanical innards of a clock. Timing, on the other hand, is essential.

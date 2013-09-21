@@ -1,0 +1,26 @@
+# Homosocial
+## 16 April 2013 7:49 PM
+
+In a recent episode of _Nashville_, two men made music together, and not grudgingly. Yes, there was a bachelor-party spite of the woman who, ironically, pushed her boyfriend unwillingly into the other man's company. Still I almost tweeted "a male vamp on Nashville!" and then "homosocial music-making on Nashville!" I didn't tweet either, though, because the word "homosocial" seems to imply the libidinal world of _Nashville_, in which the only energy comes from relationships between a man and a woman. (Even the two men's companionship seemed to eminate from the negative vehemence of Gunnar's attachment to Scarlett, who he vehemently ignores for the evening.)
+
+I understand the purpose of the word, but the discursive need to seperate the sexual from the social mirrors a societal need to do the same. Even subtle shades of sexuality in social relationships tend to be treated as a taint.
+
+Often, it's the subject of a joke. Any hint of eroticism or even romantic attachment between straight men is deemed, with a sneer or a giggle, "bromance," and between women it's a "girl crush." These epithets near describing the psychological muddiness of these waters like a yuppie nears a panhandler: with great trepidation.
+
+If not a joke, then with outright paranoia, as in "no homo," though this, too, tends to be stated "ironically." The most earnest version of this I've heard is "I'm not gay, but." Apparently, the nature of acceptable homosocial relationships has been so restricted that it seems necessary to specify.
+
+With the increasing tolerance of homosexuality seems to come not increasing flexibility of what is normal, but the opposite. Straightness has just further consolidated itself as pure reproductivity, and gay and lesbian also denote rigid sets of behavior. The point of labelling, it seems, is to seperate sexuality from sociality as accurately as possible.
+
+Whatever sexes are involved, gender intervenes to make certain interactions between individuals categorically innocent or categorically sexual. While the actual children part of reproductivity has shifted a bit since the 19th century, its logic is only becoming more extreme. One is presumed to interact with those of one's sexual preference only for sexual purposes, and sex is that thing done with genitals, if not exclusively penetrative. Straight being the category whose anxieties I suspect produce this need to specify, it's no surprise I have yet to hear the word "heterosocial."
+
+As in _Nashville_, the idea that a man and a woman can interact innocently is as crazy as the idea that two women or two women can write music together. So this new hunk of a character, I find an exciting threat. He seems not to care who he seduces to get what he wants (what everyone wants in _Nashville_\--a record deal). Those of the literalist school of sexuality would tell me that he doesn't want to fuck Gunnar, and I would agree. But what exactly is he soliciting from Gunnar by being so schmoozey? It seems to me, much the same thing he's soliciting from Scarlett. Maybe lust for money in this economy will temporarily cure us of our preoccupying anxieties about who wants to fuck who.
+
+Oddly, while he's motivated by desperation, there seems to be nobody on the show more hopeful. Moving forward, getting what he wants, does not seem to be a process of attrition. Rather, he's cheerfully, selfishly, bringing the warmth back to a toxic heterosexual couple. A threesome seems on the horizon. Perhaps for some, extending the sexual union to three and beyond is the only way for otherwise conventional people to mitigate the feeling that life, and especially partnership, is a series of losses.
+
+Here I must confess the source of all this talk of attrition. I had a bit of a fit, not too long ago. I was complaining--misguidedly, but maybe that's the point--about the coupledness of my friends to someone I don't actually know very well. I thought afterwards, if he wanted to get to know me, well, he is. Moodiness and all. My complaint was that time with these friends has to be fought for, and often they only spent time away from their significant other when the significant other is occupied. I don't think anybody benefits from spending that much time together, from assuming that all of their time will be spent with one person unless otherwise specified. I say this because I have been guilty of the worst kind of this cowardice.
+
+This affable man was confused by my frustration. That's just life, he said, you grow up, you "evolve." That was the word he used. And I suppose evolution, in its scientific sense, is the consolidation of normativity. He thought my melancholic attachment to old friendships was childish. Adults rearrange their entire lives around one romantic attachment. Adult friendships are played out in "guy time," "girls night out," and other explicitly sexed, explicitly nonsexual time. I ought to adjust, just as they adjusted to their partnership.
+
+If this is the case, I've never felt more peter-pan.
+
+Months later, I overhear "stay positive and change the topic." This is how one stays with someone one is made uncomfortable enough by to have to change the topic, and this is perhaps what I should have done, rather than ranted at him. Then again, why?

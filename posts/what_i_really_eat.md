@@ -1,0 +1,10 @@
+# What I Really Eat
+## 31 December 2010 10:22 PM
+
+Making gorgeous tarts and experimental sauces is all well and good, but what do you eat for lunch on a hectic day, for instance?  How about breakfast when your eyes seem to have retreated permanently into your skull?  What gets you through the days, presuming that nobody cooks for you and you haven't the money to go out?
+
+I'm jobless, so my day-to-day food is still a little ambitious.  As in I might use the stove in addition to the microwave or the toaster.  No cooking at all is also a possibility, of course.  Recently for lunch I have been, rather than a dish per se, just throwing together three or four things that take a minimum of effort and not much time.  Most of the time this involves leftovers.
+
+Mundane food would be strange to write recipes for.  It's creation is entirely circumstantial.  Unless you're the sort of person who plans all of your meals and meticulously buys only ingredients for use in your meals.  Personally I find life to be far messier, especially sharing food with who I live with.  Today my lunch was miso soup, a grilled cheese sandwich, and a pear.  Why?  Because miso, bread, cheese, and pears were around.  But someone else would have done something else with these same things.  My lunch was both circumstantial and idiomatic.  It would be silly to write a recipe because making these things is not particularly complicated nor desirable, and because they came out of a very particular situation.  Then again taking food in and out of different contexts is what recipes do.  Just because this context is not the pristine dream world of a culinary superstar and the food is not the subject of superlative praise does not make it pointless to share.  I guess.  Sharing is one thing, but a recipe?  Really?  Whatever.
+
+The truth is, I didn't eat the pear.  It just sounded like what should have gone with it.

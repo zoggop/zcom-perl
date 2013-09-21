@@ -1,0 +1,18 @@
+# Gluten-Free Baking Part II: Bob's Red Mill Shortbread Cookies and Chocolate Chip Cookies
+## 22 August 2011 10:26 PM
+
+I suppose I should have photographed the whole process, showing you everything, plenty for your tactile imagination to chew on. But this isn't [The Pioneer Woman Cooks!][1] or some other shiny cooking blog. All I have are photos of the baked cookies themselves, which don't much illustrate the difficulty of making them. You can see the paraplegic cat, and a few other limbs broken off. This could've happened at one of a few points: transferring the cut dough shapes from the counter to the baking sheet, transferring the baked cookies off of the baking sheet, and simply handling the cookies to eat them. The package told us, like the chocolate chip cookie mix of the same brand, that the dough would seem dry, and that we needed to squish it together with our hands, and to roll it out between parchment paper and plastic wrap to 1/4 inch. How exactly did we do this without the dough crumbling to pieces? With difficulty. The package suggests using a cookie cutter. It does not suggest the acrobatics involved in getting the cut dough to the baking sheet. We carefully removed the layer around the shapes, trying not to break the shapes themselves, and used a spatula--quickly, quickly--to lift them in one piece (or, if the maneuver isn't executed perfectly, several). Irregular shapes with lots of limbs sticking off didn't fare well. The pumpkins were okay, being essentially a circle with a tiny bit sticking off (the stem).
+
+
+
+I've never made shortbread cookies, regular or no, but what was the structural integrity these cookies were lacking? Gluten. I imagine regular (dare I call them that?) shortbread dough would stay together easily enough that it could handled with less care than nitroglycerin, and that the baked cookies would not be so delicate that they faint when they see a mouse. (Of course, [when I saw a mouse in my kitchen at night][2] I might've hit my head I jumped so violently.)
+
+
+
+I complain, but the shortbread cookies were good, if messy, to eat. How can you go wrong with something that's mostly butter? The texture was a little grainy, becoming not quite the fine paste in the mouth that I'm used to from regular shortbread, but rich and a little sweet, as they should be. A nice tea biscuit.
+
+Apparently, all legumes taste similar. Bob's Red Mill is partial to garbanzo bean flour in gluten-free baking mixes. Their chocolate chip cookie mix is mostly comprised of it, at which our noses twitched in mild disgust. Garbanzo beans and chocolate chips? Ew. Why not, say, oats? (The funny thing about [gluten-free baking][3] mixes is that each has a completely different approach to achieving the texture and flavor desired. Some are mostly rice, some oat, some garbanzo, some teff. Usually the actual ingredients are downplayed; the end result is everything. Which is odd these days, when every "organic" or "natural" product is busy bandying its ("simple," "pure") ingredients.) We didn't trust it, but we did already open the package, so what the hell. The cookies turned out beautifully, melting into the pan in folds of buttery chewiness (sorry, no photos). The flavor was unexpected, but not at all unpleasant. I devoured five in one sitting. I gave two to my brother, who when I asked him what kind he thought they were said "they're peanut-butter chocolate chip, right?"
+
+   [1]: http://thepioneerwoman.com/cooking/
+   [2]: http://sometimestheycook.blogspot.com/2011/04/purple-pork-and-night-butter.html
+   [3]: http://sometimestheycook.blogspot.com/2011/08/gluten-free-baking-part-i-simulation.html

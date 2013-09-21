@@ -1,0 +1,8 @@
+# This is a tea commercial and the slogan is "taste the secret."
+## 20 January 2011 9:45 PM
+
+Generally I poo-poo herbal tea.  When I do drink herbal teas, it is ginger or chamomile.  I think this is because I don't have for it one of those yet-unnamed "way in which food compels," which I'm tempted at the moment to call exoticization.  But I'll let the terminology simmer for now.  Instead I'll illustrate the appreciation I don't have for herbal tea with a scenario.
+
+You're in Starbucks.  There are too many things there, but to simplify the situation you could get coffee or you could get tea.  Coffee seems the safe option, as they are in the business of coffee, after all.  If you get tea it will probably come in a bag and be brought stewing in lukewarm water.  But you're not after fine or well-brewed tea.  You're not here to be picky and get what you expect.  You get some herbal infusion full of arcane-sounding fruits, herbs, and spices and named after some far-flung locale.  It's not that you care particularly what's in it or what it's called--these are all just allusions to what you want.  You put your nose to the steam swirling from the cup and feel like you're privvy to a secret.  The aroma taps you into the ephemera of some other life lost to nearly everyone else.  They're all drinking coffee.
+
+That whole scenario is a lie.  It's the addressed who leads "some other life lost to nearly everyone else," which, through an imagined appreciation of tea, I wish to access in the same manner.
