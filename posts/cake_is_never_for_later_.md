@@ -1,5 +1,5 @@
 # Cake is never for later.
-## 12 September 2013 10:07 PM
+## 12 September 2013 10:08 PM
 
 I boil the apples _in_ the sugar and butter. The peaches I throw on top of the caramel once it's done. They crackle and hiss like my fingers those times I accidentally grab hold of the skillet's handle without an oven mitt. My fear is if I cook the peaches like the apples, the peaches would release so much water that by the time they caramelized, they would become a sticky, undifferenciated goo. I suppose there's nothing wrong with jam.
 

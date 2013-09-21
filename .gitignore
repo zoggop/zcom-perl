@@ -1,7 +1,5 @@
 import/
 build/
-!build/fonts/*
-!build/style.css
 
 #################
 ## Eclipse

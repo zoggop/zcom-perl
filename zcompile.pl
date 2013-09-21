@@ -1,5 +1,6 @@
 # zoggop dot com static website compiler
 use File::Copy;
+use File::Copy::Recursive qw(dircopy);
 use Date::Parse;
 use Text::Markdown 'markdown';
 use Date::Calc qw(Delta_Days);
@@ -57,6 +58,9 @@ if ($CLARG{'all'}) {
 	if (-e "posts.newest") { unlink "posts.newest"; }
 }
 
+# copy additives
+dircopy('additives','build') or die $!;
+
 my $untitled = 0;
 
 # read last checksums and dates to compare against
@@ -104,7 +108,7 @@ foreach my $postfile (@postfiles) {
 }
 my $totalNewPosts = @newPosts;
 print "total new posts: $totalNewPosts\n";
-if ($totalNewPosts == 0) { exit; }
+if (($totalNewPosts == 0) and not ($CLARG{'index'})) { exit; }
 
 # create build directory if not existant
 unless (-d 'build') { mkdir ('build'); }
@@ -551,10 +555,12 @@ sub Thumbnail {
 	my $FullSizeURL;
 	#localize imagemagick and warning vars
 	my $IM = "";
-	my $x;	
+	my $x;
 	if ("\U$ext" eq "PDF") {
-		$IM = ReadPDF("posts/$post/$image");
-		copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+		unless ((-e "build/$post/$image") and not ($CLARG{'overwrite'})) {
+			$IM = ReadPDF("posts/$post/$image");
+			copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+		}
 		$FullSizeURL = "$post/$image";
 	} else {
 		# read source image
@@ -565,17 +571,25 @@ sub Thumbnail {
 		} else {
 			# get width and height
 			(my $width, my $height) = $IM->Get('height', 'width');
-			if (($width <= $LargeWidth) and ($height <= $LargeHeight) and ($ext eq $FinalImageExt)) {
-				copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+			if (($width <= $LargeWidth) and ($height <= $LargeHeight)) {
+				unless ((-e "build/$post/$image") and not ($CLARG{'overwrite'})) {
+					copy("posts/$post/$image", "build/$post/$image") or die "Copy failed: $!";
+				}
+					$FullSizeURL = "$post/$image";
 			} else {
-				ResizeImage($IM, $LargeSize, "build/$post/$base");
+				unless ((-e "build/$post/$base.$FinalImageExt") and not ($CLARG{'overwrite'})) {
+					ResizeImage($IM, $LargeSize, "build/$post/$base");
+				}
+				$FullSizeURL = "$post/$base.$FinalImageExt";
 			}
-			$FullSizeURL = "$post/$base.$FinalImageExt";
+			
 		}
 	}
 	unless ($x) {
 		# resize and write thumb image
-		ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
+		unless ((-e "build/$post/$base-thumb.$FinalImageExt") and not ($CLARG{'overwrite'})) {
+			ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
+		}
 		print "$_[0] --> $post/$base\n";
 		return ("$post/$base-thumb.$FinalImageExt", $FullSizeURL);
 	}

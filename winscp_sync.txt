@@ -1,0 +1,6 @@
+# Being intended for interactive session, we are not enabling batch mode
+# Connect
+open ftp://forrest:NcQ}KA6vMd3v@nwbiolog.com/public_html
+# Synchronize paths provided via environment variables
+synchronize remote "%1%" "%2%"
+exit
