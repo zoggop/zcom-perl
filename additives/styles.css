@@ -30,44 +30,21 @@ a:visited { text-decoration:underline; color: black; }
 a:active { text-decoration:underline; color: black; }
 a:hover { text-decoration:underline; color: black; }
 
+#container {
+  margin:8px;
+}
+
 #header {
   display:inline-block;
   width:300px;
   text-align:left;
   vertical-align:top;
-  margin:8px;
-  margin-top:16px;
+  margin-right:8px;
   margin-bottom:32px;
-  text-align:left;
-}
-
-#header h1:hover {
-  color:black;
-}
-
-#header h1 {
-  font-size: 4em;
-  line-height:0.5em;
-  letter-spacing:-0.15em;
-  color:#EEE;
-  font-weight:800;
-  word-spacing:3em;
-  margin-top:0;
-  margin-bottom:0;
-  font-variant:small-caps;
-}
-
-#header h2 {
-  font-style:italic;
-}
-
-#header a {
-  text-decoration:none;
 }
 
 #content {
   display:inline-block;
-  margin:8px;
   text-align:left;
 }
 
@@ -75,11 +52,49 @@ a:hover { text-decoration:underline; color: black; }
   margin-bottom:6em;
 }
 
-#footer {
-  font-size:0.75em;
+#yearlist {
   text-align:center;
+  max-width:480px;
+  margin-top:3em;
+}
+
+#footer {
+  font-size:12px;
+  line-height:1em;
+  text-align:right;
   margin-top:48px;
 } 
+
+#header h1:hover {
+  color:black;
+}
+
+#header h1 {
+  display:block;
+  width:3em;
+  font-size: 64px;
+  line-height:50%;
+  letter-spacing:-0.175em;
+  color:#EEE;
+  font-weight:800;
+  margin-top:8px;
+  margin-bottom:0;
+  font-variant:small-caps;
+  text-align:left;
+}
+
+#header h2 {
+  font-style:italic;
+}
+
+#header p {
+  line-height:1em;
+  color:#AAA;
+}
+
+#header a {
+  text-decoration:none;
+}
 
 .smallcaps {
   font-variant:small-caps;
@@ -178,12 +193,6 @@ h2.post-link {
   margin:0;
 }
 
-#yearlist {
-  text-align:center;
-  max-width:480px;
-  margin-top:3em;
-}
-
 .year {
   font-style: italic;
   display:inline;
@@ -196,6 +205,7 @@ h2.post-link {
     width: 26.2%;
   }
 }
+
 
 @media (min-width: 1354px) {
   .post-content {

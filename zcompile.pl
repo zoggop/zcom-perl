@@ -59,7 +59,17 @@ if ($CLARG{'all'}) {
 }
 
 # copy additives
-dircopy('additives','build') or die $!;
+# my $dirsync = new File::DirSync {
+# 	verbose => 1,
+# 	nocache => 0,
+# 	localmode => 0,
+# };
+# $dirsync->src("additives");
+# $dirsync->dst("build");
+# $dirsync->rebuild();
+# $dirsync->dirsync();
+my ($num_of_files_and_dirs,$num_of_dirs,$depth_traversed) = dircopy('additives','build') or die $!;
+print "$num_of_files_and_dirs items copied from additives/ to build/ -- $num_of_dirs directories, $depth_traversed deep\n";
 
 my $untitled = 0;
 
@@ -90,6 +100,18 @@ if (-e "posts.inventory") {
 
 # ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 
+# get last year info
+my %allYears;
+open(FILE, "years.list");
+my @yearlines = <FILE>;
+close(FILE);
+foreach my $line (@yearlines) {
+	chomp($line);
+	(my $year, my $numposts) = split(/ /, $line);
+	$allYears{$year} = $numposts;
+}
+
+# get last newest post info
 my $newestPost = GetLastNewestPost();
 my $newestDateNumber = GetDateNumber($lastDates{$newestPost});
 
@@ -218,36 +240,53 @@ print "newest $newestPost $postDates{$newestPost}\n";
 my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
 foreach my $postfile (keys %checkSums) {
 #	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
-	print "$postfile $postDates{$postfile}\n";
 	my @ymd = GetYearMonthDay($postDates{$postfile});
-	print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
-	my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
-	my $datenumber = GetDateNumber($postDates{$postfile});
-	print ("days old $daysold\n");
-	if ($daysold <= $frontPageDays) {
-		print "$postfile made front page\n";
-		$frontPageDates{$postfile} = $datenumber;
-	} elsif ($daysold <= $headlineArchiveDays) {
-		print "$postfile made headline archive\n";
-		$headlineArchiveDates{$postfile} = $datenumber;
-	}
-	my $year = $ymd[0];
-	my $month = $ymd[1];
-	my $day = $ymd[2];
-	# add to complete list of years for the list of archive pages
-	if ($allYears{$year}) {
-		$allYears{$year} = $allYears{$year} + 1;
+	# only consider those within the last two months
+	my $consider = 0;
+	if ($CLARG{'all'}) {
+		$consider = 1;
 	} else {
-		$allYears{$year} = 1;
+		if ($ymd[0] == $newestYearMonthDay[0]) {
+			if ($ymd[1] >= $newestYearMonthDay[1] - 2) {
+				$consider = 1;
+			}
+		} elsif (($ymd[0] == $newestYearMonthDay[0] - 1) and ($newestYearMonthDay[1] <= 2)) {
+			if ($ymd[1] >= 10 ) {
+				$consider = 1;
+			}
+		}
 	}
-	# compile list of pages within each year and month's archive
-	if ($updateYearArchive{$year}) {
-		my $order = $datenumber;
-		$yearArchives{$year}{$postfile} = $order;
-	}
-	if ($updateMonthArchive{"$year $month"}) {
-		my $order = $datenumber;
-		$monthArchives{"$year $month"}{$postfile} = $order;
+	if ($consider == 1) {
+		print "$postfile $postDates{$postfile}\n";
+		print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
+		my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
+		my $datenumber = GetDateNumber($postDates{$postfile});
+		print ("days old $daysold\n");
+		if ($daysold <= $frontPageDays) {
+			print "made front page\n";
+			$frontPageDates{$postfile} = $datenumber;
+		} elsif ($daysold <= $headlineArchiveDays) {
+			print "made headline archive\n";
+			$headlineArchiveDates{$postfile} = $datenumber;
+		}
+		my $year = $ymd[0];
+		my $month = $ymd[1];
+		my $day = $ymd[2];
+		# add to complete list of years for the list of archive pages
+		if ($allYears{$year}) {
+			$allYears{$year} = $allYears{$year} + 1;
+		} else {
+			$allYears{$year} = 1;
+		}
+		# compile list of pages within each year and month's archive
+		if ($updateYearArchive{$year}) {
+			my $order = $datenumber;
+			$yearArchives{$year}{$postfile} = $order;
+		}
+		if ($updateMonthArchive{"$year $month"}) {
+			my $order = $datenumber;
+			$monthArchives{"$year $month"}{$postfile} = $order;
+		}
 	}
 }
 
@@ -275,6 +314,7 @@ $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
 $buffer{'Title'} = "";
+$buffer{'Subtitle'} = "<p>\"I never see him. I looked at him twice or thrice about a year ago, before he recognised me, and then I shut my eyes; and if he were to cross their balls twelve times between each day's sunset and sunrise, except from memory, I should hardly know what shape had gone by.\"</p><p>\"Lucy, what do you mean?\" said she, under her breath.</p><p>\"I mean that I value vision, and dread being struck stone blind.\"</p>";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
@@ -301,7 +341,6 @@ foreach my $yearmonth (keys %monthArchives) {
 }
 
 # write post inventory
-# if (-e 'posts.inventory') { undef("posts.inventory"); }
 open(FILE, ">posts.inventory");
 foreach my $postfile (keys %checkSums) {
 	print FILE "$postfile\n";
@@ -311,15 +350,22 @@ foreach my $postfile (keys %checkSums) {
 close(FILE);
 
 # write newest post
-# if (-e 'posts.newest') { undef("posts.newest"); }
 open(FILE, ">posts.newest");
 print FILE "$newestPost";
 close(FILE);
 
+# write year list
+open(FILE, ">years.list");
+foreach my $year (sort keys %allYears) {
+	print FILE "$year $allYears{$year}\n";
+}
+close(FILE);
 
-#
-# SUBROUTINES
-#
+
+
+###############
+# SUBROUTINES #
+###############
 
 sub BuildPostList() {
 	# parse front page posts in order

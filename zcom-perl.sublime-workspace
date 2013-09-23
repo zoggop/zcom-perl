@@ -68,129 +68,10 @@
 	"buffers":
 	[
 		{
-			"file": "date-template.html",
+			"file": "additives/styles.css",
 			"settings":
 			{
-				"buffer_size": 96,
-				"line_ending": "Windows",
-				"name": "{{Day}} {{MonthName}}, {{Year}}"
-			}
-		},
-		{
-			"file": "year-template.html",
-			"settings":
-			{
-				"buffer_size": 59,
-				"line_ending": "Windows",
-				"name": "<h3 class=\"year\"><a href=\"{{Year}}.html\">{{Year}}<"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
-			"settings":
-			{
-				"buffer_size": 7497,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "post-headline-template.html",
-			"settings":
-			{
-				"buffer_size": 171,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "asset-image-template.html",
-			"settings":
-			{
-				"buffer_size": 112,
-				"line_ending": "Windows",
-				"name": "<a href=\"{{Image}}\"><img src=\"{{Thumb}}\"></a>"
-			}
-		},
-		{
-			"file": "asset-file-template.html",
-			"settings":
-			{
-				"buffer_size": 101,
-				"line_ending": "Windows",
-				"name": "<a href=\"{{File}}\">{{Filename}}</a>"
-			}
-		},
-		{
-			"file": "build/styles.css",
-			"settings":
-			{
-				"buffer_size": 3216,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "build/fonts/lato/stylesheet.css",
-			"settings":
-			{
-				"buffer_size": 1237,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "import-xml.pl",
-			"settings":
-			{
-				"buffer_size": 5463,
-				"line_ending": "Windows",
-				"name": "use XML::Feed;"
-			}
-		},
-		{
-			"file": "importlog.txt",
-			"settings":
-			{
-				"buffer_size": 31677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 2677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "8452359665",
-			"settings":
-			{
-				"buffer_size": 10,
-				"line_ending": "Windows",
-				"name": "8452359665"
-			}
-		},
-		{
-			"file": "index-template.html",
-			"settings":
-			{
-				"buffer_size": 137,
-				"line_ending": "Windows",
-				"name": "<div id=\"frontpage\">"
-			}
-		},
-		{
-			"file": "build/index.html",
-			"settings":
-			{
-				"buffer_size": 5801,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 155,
+				"buffer_size": 3196,
 				"line_ending": "Unix"
 			}
 		},
@@ -199,145 +80,22 @@
 			"settings":
 			{
 				"buffer_size": 735,
-				"line_ending": "Windows",
-				"name": "todo"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/AIInfo.lua",
-			"settings":
-			{
-				"buffer_size": 1557,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/ai.lua",
+			"file": "zcom-perl.sublime-project",
 			"settings":
 			{
-				"buffer_size": 2001,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackerbehaviour.lua",
-			"settings":
-			{
-				"buffer_size": 7107,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackers.lua",
-			"settings":
-			{
-				"buffer_size": 121,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackhandler.lua",
-			"settings":
-			{
-				"buffer_size": 8047,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
-			"settings":
-			{
-				"buffer_size": 36864,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits-complete.lua",
-			"settings":
-			{
-				"buffer_size": 2388,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits.lua",
-			"settings":
-			{
-				"buffer_size": 2411,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/unitTable.lua",
-			"settings":
-			{
-				"buffer_size": 79669,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "zpublish.pl",
-			"settings":
-			{
-				"buffer_size": 2569,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
-			"settings":
-			{
-				"buffer_size": 547,
-				"line_ending": "Windows",
-				"name": "System.Execute(\"C:\\Users\\zoggop\\zcom-perl\\zpublish"
+				"buffer_size": 543,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 17457,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey-NB/plugins/Smarty pants/Smarty pants.js",
-			"settings":
-			{
-				"buffer_size": 666,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "zpublish.bat",
-			"settings":
-			{
-				"buffer_size": 68,
-				"line_ending": "Windows",
-				"name": "perl zpublish.pl %1"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
-			"settings":
-			{
-				"buffer_size": 17233,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
-			"settings":
-			{
-				"buffer_size": 7455,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "posts.inventory",
-			"settings":
-			{
-				"buffer_size": 894,
+				"buffer_size": 18558,
 				"line_ending": "Windows"
 			}
 		},
@@ -345,20 +103,36 @@
 			"file": "template.html",
 			"settings":
 			{
-				"buffer_size": 1308,
+				"buffer_size": 1386,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "build/fonts/idealist/stylesheet.css",
+			"file": "winscp_sync.txt",
 			"settings":
 			{
-				"buffer_size": 510,
-				"line_ending": "Unix"
+				"buffer_size": 230,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "zsync.bat",
+			"settings":
+			{
+				"buffer_size": 57,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 2645,
+				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "zcompile",
 	"command_palette":
 	{
 		"height": 360.0,
@@ -397,7 +171,11 @@
 	},
 	"console":
 	{
-		"height": 125.0
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) "
+		]
 	},
 	"distraction_free":
 	{
@@ -410,6 +188,41 @@
 	},
 	"file_history":
 	[
+		"/C/Users/zoggop/zcom-perl/build/fonts/idealist/stylesheet.css",
+		"/C/Users/zoggop/zcom-perl/template.html",
+		"/C/Users/zoggop/zcom-perl/posts.inventory",
+		"/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
+		"/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
+		"/C/Users/zoggop/zcom-perl/zpublish.bat",
+		"/C/Users/zoggop/WriteMonkey-NB/plugins/Smarty pants/Smarty pants.js",
+		"/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
+		"/C/Users/zoggop/zcom-perl/zpublish.pl",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/unitTable.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits-complete.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackhandler.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackers.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackerbehaviour.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/ai.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/AIInfo.lua",
+		"/C/Users/zoggop/zcom-perl/README.TXT",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/zoggop/zcom-perl/build/index.html",
+		"/C/Users/zoggop/zcom-perl/index-template.html",
+		"/C/Users/zoggop/zcom-perl/.gitignore",
+		"/C/Users/zoggop/zcom-perl/importlog.txt",
+		"/C/Users/zoggop/zcom-perl/import-xml.pl",
+		"/C/Users/zoggop/zcom-perl/build/fonts/lato/stylesheet.css",
+		"/C/Users/zoggop/zcom-perl/asset-file-template.html",
+		"/C/Users/zoggop/zcom-perl/asset-image-template.html",
+		"/C/Users/zoggop/zcom-perl/post-headline-template.html",
+		"/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
+		"/C/Users/zoggop/zcom-perl/year-template.html",
+		"/C/Users/zoggop/zcom-perl/zcompile.pl",
+		"/C/Users/zoggop/zcom-perl/additives/styles.css",
+		"/C/Users/zoggop/zcom-perl/date-template.html",
+		"/C/Users/zoggop/zcom-perl/build/styles.css",
+		"/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
 		"/C/Users/zoggop/zcom-perl/build/fonts/antpoltexpd/stylesheet.css",
 		"/C/Users/zoggop/zcom-perl/posts/cake_is_never_for_later_.md",
 		"/C/Users/zoggop/zcom-perl/posts/pumpkin_pie.md",
@@ -421,9 +234,7 @@
 		"/C/Users/zoggop/zcom-perl/posts/jasmine_understands_marriage_perfectly__woody_allen_may_not.md",
 		"/C/Users/zoggop/zcom-perl/posts/kurt_wallander_exists_to_be_fucked_with.md",
 		"/C/Users/zoggop/zcom-perl/posts/wallander.md",
-		"/C/Users/zoggop/zcom-perl/template.html",
 		"/C/Users/zoggop/zcom-perl/posts/jasmine_understands_marriage_perfectly__woody_allen_doesn_t.md",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits.lua",
 		"/C/Users/zoggop/WriteMonkey-NB/plugins/Big Huge Thesaurus/exe_Big Huge Thesaurus.js",
 		"/C/Users/zoggop/WriteMonkey/plugins/Quick search/exe_Quick search.js",
 		"/C/Users/zoggop/Documents/nbc/nwbiolog_dot_com/compile.pl",
@@ -435,7 +246,6 @@
 		"/C/Users/zoggop/zcom-perl/posts/aspiring_to_be_rectangular_almond_cookies/01-1012091003-00.jpg",
 		"/C/Users/zoggop/zcom-perl/posts/kale_the_bittersweet/assets.captions",
 		"/C/Users/zoggop/Documents/nbc/nwbiolog_dot_com/sync12.bat",
-		"/C/Users/zoggop/zcom-perl/zcompile.pl",
 		"/C/Users/zoggop/Documents/code/spring_lua/map-idiot/helper_widgets/assessunits-complete.lua",
 		"/C/Users/zoggop/Documents/code/spring_lua/map-idiot/map-learning-ai.txt",
 		"/C/Program Files (x86)/Spring/AI/Skirmish/Shard/dev/AIOptions.lua",
@@ -444,7 +254,6 @@
 		"/C/Users/zoggop/zcom-perl/import/mrs__hudson_s_biscuits.md",
 		"/C/Users/zoggop/Documents/zoggopcom/fromscratch/style.css",
 		"/C/Users/zoggop/zcom-bsmith/public/css/styles.css",
-		"/C/Users/zoggop/zcom-perl/posts.inventory",
 		"/C/Users/zoggop/zcom-perl/import/total_recall/assets.captions",
 		"/C/Users/zoggop/zcom-perl/import/v_i__warshawski/assets.captions",
 		"/C/Users/zoggop/zcom-perl/import/zack_s_shack.md",
@@ -496,6 +305,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"built",
 			"readpost",
 			"newestpost",
 			"datenumber",
@@ -574,183 +384,24 @@
 	"groups":
 	[
 		{
-			"selected": 34,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "date-template.html",
+					"file": "additives/styles.css",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 96,
+						"buffer_size": 3196,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								59,
-								59
-							]
-						],
-						"settings":
-						{
-							"auto_name": "{{Day}} {{MonthName}}, {{Year}}",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "year-template.html",
-					"settings":
-					{
-						"buffer_size": 59,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								3
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<h3 class=\"year\"><a href=\"{{Year}}.html\">{{Year}}<",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
-					"settings":
-					{
-						"buffer_size": 7497,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								497,
-								497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "post-headline-template.html",
-					"settings":
-					{
-						"buffer_size": 171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								75,
-								75
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "asset-image-template.html",
-					"settings":
-					{
-						"buffer_size": 112,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								103,
-								103
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<a href=\"{{Image}}\"><img src=\"{{Thumb}}\"></a>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "asset-file-template.html",
-					"settings":
-					{
-						"buffer_size": 101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								93,
-								93
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<a href=\"{{File}}\">{{Filename}}</a>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "build/styles.css",
-					"settings":
-					{
-						"buffer_size": 3216,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								439,
-								439
+								2565,
+								2565
 							]
 						],
 						"settings":
@@ -760,229 +411,15 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2265.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "build/fonts/lato/stylesheet.css",
-					"settings":
-					{
-						"buffer_size": 1237,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								86,
-								86
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "import-xml.pl",
-					"settings":
-					{
-						"buffer_size": 5463,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1000,
-								1257
-							]
-						],
-						"settings":
-						{
-							"auto_name": "use XML::Feed;",
-							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "importlog.txt",
-					"settings":
-					{
-						"buffer_size": 31677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24032,
-								23954
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 9356.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": ".gitignore",
-					"settings":
-					{
-						"buffer_size": 2677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								134,
-								134
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"settings":
-					{
-						"buffer_size": 10,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10,
-								10
-							]
-						],
-						"settings":
-						{
-							"auto_name": "8452359665",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "index-template.html",
-					"settings":
-					{
-						"buffer_size": 137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								128
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<div id=\"frontpage\">",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "build/index.html",
-					"settings":
-					{
-						"buffer_size": 5801,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 155,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
+					"buffer": 1,
 					"file": "README.TXT",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 735,
@@ -998,7 +435,6 @@
 						],
 						"settings":
 						{
-							"auto_name": "todo",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1008,25 +444,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/AIInfo.lua",
+					"buffer": 2,
+					"file": "zcom-perl.sublime-project",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1557,
+						"buffer_size": 543,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								833,
-								833
+								543,
+								543
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1035,450 +471,49 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/ai.lua",
-					"settings":
-					{
-						"buffer_size": 2001,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 150.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackerbehaviour.lua",
-					"settings":
-					{
-						"buffer_size": 7107,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackers.lua",
-					"settings":
-					{
-						"buffer_size": 121,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackhandler.lua",
-					"settings":
-					{
-						"buffer_size": 8047,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 750.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
-					"settings":
-					{
-						"buffer_size": 36864,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5117,
-								5117
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits-complete.lua",
-					"settings":
-					{
-						"buffer_size": 2388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1038,
-								1038
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/helper_widgets/assessunits.lua",
-					"settings":
-					{
-						"buffer_size": 2411,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/unitTable.lua",
-					"settings":
-					{
-						"buffer_size": 79669,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "zpublish.pl",
-					"settings":
-					{
-						"buffer_size": 2569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								255,
-								255
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 26,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
-					"settings":
-					{
-						"buffer_size": 547,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								529,
-								529
-							]
-						],
-						"settings":
-						{
-							"auto_name": "System.Execute(\"C:\\Users\\zoggop\\zcom-perl\\zpublish",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 27,
+					"buffer": 3,
 					"file": "zcompile.pl",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17457,
+						"buffer_size": 18558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								404,
-								404
+								9123,
+								9123
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3850.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 28,
-					"file": "/C/Users/zoggop/WriteMonkey-NB/plugins/Smarty pants/Smarty pants.js",
-					"settings":
-					{
-						"buffer_size": 666,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								666,
-								666
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 29,
-					"file": "zpublish.bat",
-					"settings":
-					{
-						"buffer_size": 68,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "perl zpublish.pl %1",
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 30,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
-					"settings":
-					{
-						"buffer_size": 17233,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								629,
-								629
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 31,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
-					"settings":
-					{
-						"buffer_size": 7455,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3116,
-								3116
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 32,
-					"file": "posts.inventory",
-					"settings":
-					{
-						"buffer_size": 894,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								819,
-								819
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 33,
+					"buffer": 4,
 					"file": "template.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1308,
+						"buffer_size": 1386,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								711,
-								711
+								1035,
+								1035
 							]
 						],
 						"settings":
@@ -1493,24 +528,79 @@
 					"type": "text"
 				},
 				{
-					"buffer": 34,
-					"file": "build/fonts/idealist/stylesheet.css",
+					"buffer": 5,
+					"file": "winscp_sync.txt",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 510,
+						"buffer_size": 230,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								507,
-								507
+								139,
+								139
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "zsync.bat",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 57,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57,
+								57
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								119,
+								119
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1552,6 +642,11 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"project": "zcom-perl.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -1573,10 +668,24 @@
 		],
 		"width": 0.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 194.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }
