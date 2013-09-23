@@ -75,25 +75,31 @@ my $untitled = 0;
 
 # read last checksums and dates to compare against
 my %lastCheckSums;
-my %lastDates;
+my %datenumbers;
+my %years;
+my %months;
+my %days;
 if (-e "posts.inventory") {
 	open(FILE, "posts.inventory");
 	@cslines = <FILE>;
 	close(FILE);
-	my $a = 0;
+	my $f = 0;
 	my $filename;
 	my $checksum;
 	foreach my $line (@cslines) {
 		chomp($line);
-		if ($a == 0) {
+		if ($f == 0) {
 			$filename = $line;
-			$a = 1; 
-		} elsif (($a == 1) and (-e "posts/$filename")) {
+			$f = 1; 
+		} elsif (($f == 1) and (-e "posts/$filename")) {
 			$lastCheckSums{$filename} = $line;
-			$a = 2;
+			$f = 2;
+		} elsif (($f == 2) and (-e "posts/$filename")) {
+			$datenumbers{$filename} = $line;
+			$f = 3;
 		} elsif (-e "posts/$filename") {
-			$lastDates{$filename} = $line;
-			$a = 0;
+			($years{$filename}, $months{$filename}, $days{$filename}) = split(/ /, $line);
+			$f = 0;
 		}
 	}
 }
@@ -113,7 +119,7 @@ foreach my $line (@yearlines) {
 
 # get last newest post info
 my $newestPost = GetLastNewestPost();
-my $newestDateNumber = GetDateNumber($lastDates{$newestPost});
+my $newestDateNumber = $datenumbers{$newestPost};
 
 # read post markdown checksums to find new posts
 opendir(DIR, "posts");
@@ -140,8 +146,6 @@ my %updateYearArchive;
 my %updateMonthArchive;
 my @posts;
 my %postRef;
-my %postDates;
-foreach my $key (keys %lastDates) { $postDates{$key} = $lastDates{$key}; }
 my %checkSums;
 foreach my $key (keys %lastCheckSums) { $checkSums{$key} = $lastCheckSums{$key}; }
 my $ref = 0;
@@ -206,18 +210,17 @@ foreach my $postfile (@newPosts) {
 		}
 		$postfile = "$shortname.md";
 	}
-	$checkSums{"$postfile"} = md5_hex(read_file("posts/$postfile"));
-	my $datenumber = GetDateNumber($date);
-	print("$datenumber compared to $newestDateNumber\n");
-	if ($datenumber > $newestDateNumber) {
+	$checkSums{$postfile} = md5_hex(read_file("posts/$postfile"));
+	$datenumbers{$postfile} = GetDateNumber($date);
+	print("$datenumbers{$postfile} compared to $newestDateNumber\n");
+	if ($datenumbers{$postfile} > $newestDateNumber) {
 		$newestPost = $postfile;
-		$newestDateNumber = $datenumber;
+		$newestDateNumber = $datenumbers{$postfile};
 	}
-	$postDates{"$postfile"} = $date;
+	($years{$postfile}, $months{$postfile}, $days{$postfile}) = GetYearMonthDay($date);
 	# find which archive pages need to be updated
-	my ($year, $month, $day) = GetYearMonthDay($date);
-	$updateYearArchive{$year} = 1;
-	$updateMonthArchive{"$year $month"} = 1;
+	$updateYearArchive{$years{$postfile}} = 1;
+	$updateMonthArchive{"$years{$postfile} $months{$postfile}"} = 1;
 	my $post = {};
 	$post->{'Date'} = ReformatDate($date);
 	$post->{'Title'} = $title;
@@ -236,11 +239,11 @@ my %headlineArchiveDates;
 my %allYears;
 my %yearArchives;
 my %monthArchives;
-print "newest $newestPost $postDates{$newestPost}\n";
-my @newestYearMonthDay = GetYearMonthDay($postDates{$newestPost});
+print "NEWEST: $newestPost\n";
+my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
 #	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
-	my @ymd = GetYearMonthDay($postDates{$postfile});
+	my @ymd = ($years{$postfile}, $months{$postfile}, $days{$postfile});
 	# only consider those within the last two months
 	my $consider = 0;
 	if ($CLARG{'all'}) {
@@ -257,35 +260,29 @@ foreach my $postfile (keys %checkSums) {
 		}
 	}
 	if ($consider == 1) {
-		print "$postfile $postDates{$postfile}\n";
+		print "$postfile\n";
 		print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
 		my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
-		my $datenumber = GetDateNumber($postDates{$postfile});
 		print ("days old $daysold\n");
 		if ($daysold <= $frontPageDays) {
 			print "made front page\n";
-			$frontPageDates{$postfile} = $datenumber;
+			$frontPageDates{$postfile} = $datenumbers{$postfile};
 		} elsif ($daysold <= $headlineArchiveDays) {
 			print "made headline archive\n";
-			$headlineArchiveDates{$postfile} = $datenumber;
+			$headlineArchiveDates{$postfile} = $datenumbers{$postfile};
 		}
-		my $year = $ymd[0];
-		my $month = $ymd[1];
-		my $day = $ymd[2];
 		# add to complete list of years for the list of archive pages
-		if ($allYears{$year}) {
-			$allYears{$year} = $allYears{$year} + 1;
+		if ($allYears{$ymd[0]}) {
+			$allYears{$ymd[0]} = $allYears{$ymd[0]} + 1;
 		} else {
-			$allYears{$year} = 1;
+			$allYears{$ymd[0]} = 1;
 		}
 		# compile list of pages within each year and month's archive
-		if ($updateYearArchive{$year}) {
-			my $order = $datenumber;
-			$yearArchives{$year}{$postfile} = $order;
+		if ($updateYearArchive{$ymd[0]}) {
+			$yearArchives{$ymd[0]}{$postfile} = $datenumbers{$postfile}
 		}
-		if ($updateMonthArchive{"$year $month"}) {
-			my $order = $datenumber;
-			$monthArchives{"$year $month"}{$postfile} = $order;
+		if ($updateMonthArchive{"$ymd[0] $ymd[1]"}) {
+			$monthArchives{"$ymd[0] $ymd[1]"}{$postfile} = $datenumbers{$postfile}
 		}
 	}
 }
@@ -345,7 +342,8 @@ open(FILE, ">posts.inventory");
 foreach my $postfile (keys %checkSums) {
 	print FILE "$postfile\n";
 	print FILE "$checkSums{$postfile}\n";
-	print FILE "$postDates{$postfile}\n";
+	print FILE "$datenumbers{$postfile}\n";
+	print FILE "$years{$postfile} $months{$postfile} $days{$postfile}\n";
 }
 close(FILE);
 
