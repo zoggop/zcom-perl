@@ -142,8 +142,9 @@ if (($totalNewPosts == 0) and not ($CLARG{'index'})) { exit; }
 unless (-d 'build') { mkdir ('build'); }
 
 # read new posts and create their post pages
-my %updateYearArchive;
-my %updateMonthArchive;
+my %allYears;
+my %yearArchives;
+my %monthArchives;
 my @posts;
 my %postRef;
 my %checkSums;
@@ -218,9 +219,18 @@ foreach my $postfile (@newPosts) {
 		$newestDateNumber = $datenumbers{$postfile};
 	}
 	($years{$postfile}, $months{$postfile}, $days{$postfile}) = GetYearMonthDay($date);
-	# find which archive pages need to be updated
-	$updateYearArchive{$years{$postfile}} = 1;
-	$updateMonthArchive{"$years{$postfile} $months{$postfile}"} = 1;
+
+	# add to complete list of years for the list of archive pages
+	if ($allYears{$years{$postfile}}) {
+		$allYears{$years{$postfile}} = $allYears{$years{$postfile}} + 1;
+	} else {
+		$allYears{$years{$postfile}} = 1;
+	}
+	# add to list of pages within each year and month's archive
+	$yearArchives{$years{$postfile}}{$postfile} = $datenumbers{$postfile};
+	$monthArchives{"$years{$postfile} $months{$postfile}"}{$postfile} = $datenumbers{$postfile};
+
+	# store post data
 	my $post = {};
 	$post->{'Date'} = ReformatDate($date);
 	$post->{'Title'} = $title;
@@ -236,9 +246,6 @@ foreach my $postfile (@newPosts) {
 # find post ages and put into archives that need to be updated
 my %frontPageDates;
 my %headlineArchiveDates;
-my %allYears;
-my %yearArchives;
-my %monthArchives;
 print "NEWEST: $newestPost\n";
 my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
@@ -270,19 +277,6 @@ foreach my $postfile (keys %checkSums) {
 		} elsif ($daysold <= $headlineArchiveDays) {
 			print "made headline archive\n";
 			$headlineArchiveDates{$postfile} = $datenumbers{$postfile};
-		}
-		# add to complete list of years for the list of archive pages
-		if ($allYears{$ymd[0]}) {
-			$allYears{$ymd[0]} = $allYears{$ymd[0]} + 1;
-		} else {
-			$allYears{$ymd[0]} = 1;
-		}
-		# compile list of pages within each year and month's archive
-		if ($updateYearArchive{$ymd[0]}) {
-			$yearArchives{$ymd[0]}{$postfile} = $datenumbers{$postfile}
-		}
-		if ($updateMonthArchive{"$ymd[0] $ymd[1]"}) {
-			$monthArchives{"$ymd[0] $ymd[1]"}{$postfile} = $datenumbers{$postfile}
 		}
 	}
 }
