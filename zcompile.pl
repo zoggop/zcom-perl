@@ -1,5 +1,6 @@
 # zoggop dot com static website compiler
 use File::Copy;
+use Time::HiRes qw(time);
 use File::Copy::Recursive qw(dircopy);
 use Date::Parse;
 use Text::Markdown 'markdown';
@@ -10,6 +11,8 @@ use File::Slurp;
 use DateTime::Format::Natural;
 use Text::Diff;
 use Image::Magick;
+
+my $DebugMode = '';
 
 # image extensions
 my @iexts = (
@@ -68,8 +71,17 @@ if ($CLARG{'all'}) {
 # $dirsync->dst("build");
 # $dirsync->rebuild();
 # $dirsync->dirsync();
+
+my $start_run = time();
+# create build directory if not existant
+unless (-d 'build') { mkdir ('build'); }
 my ($num_of_files_and_dirs,$num_of_dirs,$depth_traversed) = dircopy('additives','build') or die $!;
 print "$num_of_files_and_dirs items copied from additives/ to build/ -- $num_of_dirs directories, $depth_traversed deep\n";
+
+# SyncDirectory("test", "test-target");
+
+# system('rsync -rpogtv additives/ build/');
+print ("\nadditive to build sync took " . (time() - $start_run) . " seconds\n\n");
 
 my $untitled = 0;
 
@@ -138,8 +150,12 @@ my $totalNewPosts = @newPosts;
 print "total new posts: $totalNewPosts\n";
 if (($totalNewPosts == 0) and not ($CLARG{'index'})) { exit; }
 
-# create build directory if not existant
-unless (-d 'build') { mkdir ('build'); }
+# getting the current date
+my $dtnow = DateTime->now;
+
+# setting buffers
+$buffer{'Subtitle'} = "";
+$buffer{'ThisYear'} = $dtnow->year;
 
 # read new posts and create their post pages
 my %allYears;
@@ -153,15 +169,17 @@ my $ref = 0;
 foreach my $postfile (@newPosts) {
 	my ($title, $date, $content) = ReadPost($postfile);
 	my $shortname = TitleToShortName($title);
+	print("NEW: $postfile \"$title\" ");
 	# assign new filename and deal with duplicates
 	if ($postfile ne "$shortname.md") {
-		print "file $postfile is not $shortname.md\n";
+		DebugPrint("file $postfile is not $shortname.md\n");
 		if (-e "posts/$shortname.md") {
-			print "file $shortname.md already exists\n";
+			DebugPrint("file $shortname.md already exists\n");
 			# determine if duplicate is an update or just has the same title
 			my ($dtitle, $ddate, $dcontent) = ReadPost("$shortname.md");
 			if ($dtitle ne $title) {
-				print "duplicate file title $dtitle doesn't match title $title\n";
+				print "duplicate filename ";
+				DebugPrint("\nduplicate file title $dtitle doesn't match title $title\n");
 				# move duplicate file with title that doesn't match filename
 				for ($i = 0; $i <= $#newPosts; $i++) {
 					if ($newPosts[i] eq "$shortname.md") {
@@ -176,10 +194,11 @@ foreach my $postfile (@newPosts) {
 					}
 				}
 			} elsif ($lastCheckSums{"$shortname.md"}) {
-				print "$shortname.md exists in last inventory\n";
+				DebugPrint("$shortname.md exists in last inventory\n");
 				my $diff = diff \$content, \$dcontent;
 				if (length($diff) < length($content) / 2) {
-					print "diff is more than half match, moving old to backup\n";
+					print "update ";
+					DebugPrint("diff is more than half match, moving old to backup\n");
 					# move duplicate to backup
 					delete $lastCheckSums{"$shortname.md"};
 					unless (-d "backup") { mkdir "backup"; }
@@ -191,7 +210,8 @@ foreach my $postfile (@newPosts) {
 					}
 					move("posts/$shortname.md", "backup/$backupname.md")
 				} else {
-					print "diff is less than half match, finding new filename\n";
+					print "duplicate ";
+					DebugPrint("diff is less than half match, finding new filename\n");
 					# find new filename
 					my $suffix = 1;
 					while (-e "posts/$shortname.md") {
@@ -201,7 +221,7 @@ foreach my $postfile (@newPosts) {
 				}
 			}
 		}
-		print "moving $postfile to $shortname.md\n";
+		print " -- renaming to $shortname.md";
 		move("posts/$postfile", "posts/$shortname.md");
 		# move asset directory too
 		my $postbase = $postfile;
@@ -211,9 +231,10 @@ foreach my $postfile (@newPosts) {
 		}
 		$postfile = "$shortname.md";
 	}
+	print "\n";
 	$checkSums{$postfile} = md5_hex(read_file("posts/$postfile"));
 	$datenumbers{$postfile} = GetDateNumber($date);
-	print("$datenumbers{$postfile} compared to $newestDateNumber\n");
+	DebugPrint("$datenumbers{$postfile} compared to $newestDateNumber\n");
 	if ($datenumbers{$postfile} > $newestDateNumber) {
 		$newestPost = $postfile;
 		$newestDateNumber = $datenumbers{$postfile};
@@ -267,15 +288,14 @@ foreach my $postfile (keys %checkSums) {
 		}
 	}
 	if ($consider == 1) {
-		print "$postfile\n";
-		print("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
+		DebugPrint("$ymd[0] $ymd[1] $ymd[2] compared to newest $newestYearMonthDay[0] $newestYearMonthDay[1] $newestYearMonthDay[2]\n");
 		my $daysold = abs Delta_Days(@newestYearMonthDay, @ymd);
-		print ("days old $daysold\n");
+		DebugPrint("$postfile is $daysold days old\n");
 		if ($daysold <= $frontPageDays) {
-			print "made front page\n";
+			print "$postfile made front page\n";
 			$frontPageDates{$postfile} = $datenumbers{$postfile};
 		} elsif ($daysold <= $headlineArchiveDays) {
-			print "made headline archive\n";
+			print "$postfile made headline archive\n";
 			$headlineArchiveDates{$postfile} = $datenumbers{$postfile};
 		}
 	}
@@ -305,7 +325,7 @@ $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
 $buffer{'Title'} = "";
-$buffer{'Subtitle'} = "<p>\"I never see him. I looked at him twice or thrice about a year ago, before he recognised me, and then I shut my eyes; and if he were to cross their balls twelve times between each day's sunset and sunrise, except from memory, I should hardly know what shape had gone by.\"</p><p>\"Lucy, what do you mean?\" said she, under her breath.</p><p>\"I mean that I value vision, and dread being struck stone blind.\"</p>";
+# $buffer{'Subtitle'} = "<p>\"I never see him. I looked at him twice or thrice about a year ago, before he recognised me, and then I shut my eyes; and if he were to cross their balls twelve times between each day's sunset and sunrise, except from memory, I should hardly know what shape had gone by.\"</p><p>\"Lucy, what do you mean?\" said she, under her breath.</p><p>\"I mean that I value vision, and dread being struck stone blind.\"</p>";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
@@ -353,6 +373,7 @@ foreach my $year (sort keys %allYears) {
 }
 close(FILE);
 
+print "\ncompiled in " . (time() - $start_run) . " seconds\n";
 
 
 ###############
@@ -385,6 +406,7 @@ sub BuildPostList() {
 
 sub BuildPostAssets() {
 	my $post = $_[0];
+	unless (-d "posts/$post") { return ""; }
 	opendir(DIR, "posts/$post");
 	my @assets = readdir(DIR);
 	closedir(DIR);
@@ -412,13 +434,14 @@ sub BuildPostAssets() {
 		}
 	}
 	my %ahtml;
+	print "assets: ";
 	foreach my $asset (@assets) {
-		unless ((-d "posts/$post/$asset") or ($asset eq 'assets.captions')) {
+		unless ((-d "posts/$post/$asset") or ($asset eq 'assets.captions') or ($asset eq 'Thumbs.db')) {
 			# read asset
 			(my $base, my $ext) = GetBaseExt($asset);
 			my $assethtml;
 			$ext = uc($ext);
-			print "$base $ext $imageExts{$ext}\n";
+			print "$base $ext, ";
 			$buffer{'Caption'} = $captions{$asset};
 			if ($imageExts{$ext}) {
 				($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
@@ -436,6 +459,7 @@ sub BuildPostAssets() {
 			}
 		}
 	}
+	print "\n";
 	@assets = sort { $aorder{$a} <=> $aorder{$b} } keys(%ahtml);
 	my $assetshtml;
 	foreach $asset (@assets) {
@@ -485,7 +509,7 @@ sub GetDateNumber() {
 	 	my $date_string  = $parser->extract_datetime($_[0]);
 	 	my $dt = $parser->parse_datetime($date_string);
 		my $datenumber = $dt->year . sprintf("%003d", $dt->doy) . sprintf("%02d", $dt->hour) . sprintf("%02d", $dt->min);
-		print $datenumber, "\n";
+		DebugPrint("$datenumber\n");
 		return $datenumber;
 	} else {
 		return 0;
@@ -496,7 +520,7 @@ sub GetDateNumber() {
 sub BuildPostPage() {
 	my $postfile = $_[0];
 	my $ref = $postRef{$postfile};
-	print "post ref $postfile $ref\n";
+	DebugPrint("post ref $postfile $ref\n");
 	my %post = %{ $posts[$ref] };
 	foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
 	$buffer{'Content'} = ParseTemplate('post-template.html');
@@ -537,7 +561,7 @@ sub ReadPost() {
 		}
 		my $m = Text::Markdown->new;
 		$content = $m->markdown($content);
-		print "$date\n";
+		DebugPrint("$date\n");
 		return ($title, $date, $content);
 	} else {
 		return;
@@ -628,7 +652,7 @@ sub Thumbnail {
 		unless ((-e "build/$post/$base-thumb.$FinalImageExt") and not ($CLARG{'overwrite'})) {
 			ResizeImage($IM, $ThumbSize, "build/$post/$base-thumb");
 		}
-		print "$_[0] --> $post/$base\n";
+		DebugPrint("$_[0] --> $post/$base\n");
 		return ("$post/$base-thumb.$FinalImageExt", $FullSizeURL);
 	}
 }
@@ -666,4 +690,37 @@ sub GetBaseExt() {
 	my $ext = pop(@dot);
 	my $base = join('', @dot);
 	return ($base, $ext);
+}
+
+sub SyncDirectory() {
+	print "syncing $_[0] to $_[1]\n";
+	unless (-d $_[1]) { mkdir($_[1]); }
+	opendir(DIR, $_[0]);
+	@dir = readdir(DIR);
+	closedir(DIR);
+	foreach my $item (@dir) {
+		if (("$item" ne '.') and ("$item" ne '..')) {
+			print "$_[0]/$item ";
+			if (-d "$_[0]/$item") {
+				SyncDirectory("$_[0]/$item", "$_[1]/$item");
+			} else {
+				if (-f "$_[1]/$item") {
+					if (md5_hex(read_file("$_[0]/$item")) != md5_hex(read_file("$_[1]/$item"))) {
+						print "md5 differs ";
+						copy("$_[0]/$item", "$_[1]/$item") or die "Copy failed: $!";
+					} else {
+						print "md5 same ";
+					}
+				} else { 
+					print "target file $_[1]/$item doesn't exist ";
+					copy("$_[0]/$item", "$_[1]/$item") or die "Copy failed: $!";
+				}
+			}
+			print "\n";
+		}
+	}
+}
+
+sub DebugPrint() {
+	if ($DebugMode) { print $_[0]; }
 }
