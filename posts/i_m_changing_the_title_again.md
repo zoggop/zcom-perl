@@ -1,5 +1,5 @@
-# Pressure Systems Are Candy
-## 22 September 2013 9:52 PM
+# I'm Changing the Title Again
+## 24 September 2013 10:34 PM
 
 
 Seasons are a ploy. A New season can fall instantly (in this week's case, like a grey blanket), yet it sneaks. The beginning of every season is an opportunity to toy with forever: what will life look like from now on? There's an "until," but ignore it. Three months is a lifetime. Except when you hear a date six months in the future, and realize it's almost here.
@@ -18,3 +18,5 @@ Phenomenologically, programming is thoroughly technical. It has more in common w
 
 But that's just how I imagine it. I'm not that patient.
 Every little tectonic shift in experience, like the seasons, are there to negate. A few hours meticulously painting marzipan, and I can feel like never doing it again. That's the real product: being over it.
+
+[1]: http://thestandardoftaste.wordpress.com/2012/04/04/christmas-recipe-4-how-to-make-marzipan-fruit/

@@ -2,12 +2,10 @@
 use File::Copy;
 use Time::HiRes qw(time);
 use File::Copy::Recursive qw(dircopy);
-use Date::Parse;
 use Text::Markdown 'markdown';
 use Date::Calc qw(Delta_Days);
 use IO::File;
 use Digest::MD5 qw(md5_hex);
-use File::Slurp;
 use DateTime::Format::Natural;
 use Text::Diff;
 use Image::Magick;
@@ -15,20 +13,7 @@ use Image::Magick;
 my $DebugMode = '';
 
 # image extensions
-my @iexts = (
-	'PDF',
-	'JPG',
-	'JPEG',
-	'PNG',
-	'SVG',
-	'JNG',
-	'GIF'
-);
-
-my %imageExts;
-foreach my $ext (@iexts) {
-	$imageExts{$ext} = 1;
-}
+my %imageExts = qw(PDF 1 JPG 1 PNG 1 SVG 1 JNG 1 GIF 1);
 
 # month names
 my %num2mon = qw(
@@ -61,6 +46,8 @@ if ($CLARG{'all'}) {
 	if (-e "posts.newest") { unlink "posts.newest"; }
 }
 
+if ($CLARG{'debug'}) { $DebugMode = 1; }
+
 # copy additives
 # my $dirsync = new File::DirSync {
 # 	verbose => 1,
@@ -73,14 +60,20 @@ if ($CLARG{'all'}) {
 # $dirsync->dirsync();
 
 my $start_run = time();
+
+# my ($num_of_files_and_dirs,$num_of_dirs,$depth_traversed) = 
+# print "$num_of_files_and_dirs items copied from additives/ to build/ -- $num_of_dirs directories, $depth_traversed deep\n";
+# SyncDirectory("additives", "build");
+
 # create build directory if not existant
 unless (-d 'build') { mkdir ('build'); }
-my ($num_of_files_and_dirs,$num_of_dirs,$depth_traversed) = dircopy('additives','build') or die $!;
-print "$num_of_files_and_dirs items copied from additives/ to build/ -- $num_of_dirs directories, $depth_traversed deep\n";
 
-# SyncDirectory("test", "test-target");
+if (uc($^O) eq 'LINUX') {
+	system('rsync -rpogt additives/ build/');
+} else {
+	dircopy('additives','build') or die $!;
+}
 
-# system('rsync -rpogtv additives/ build/');
 print ("\nadditive to build sync took " . (time() - $start_run) . " seconds\n\n");
 
 my $untitled = 0;
@@ -140,7 +133,8 @@ closedir(DIR);
 my @newPosts;
 foreach my $postfile (@postfiles) {
 	unless (-d "posts/$postfile") {
-		my $checksum = md5_hex(read_file("posts/$postfile"));
+		# my $checksum = md5_hex(read_file("posts/$postfile"));
+		my $checksum = GetChecksum("posts/$postfile");
 		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
 		}
@@ -158,7 +152,6 @@ $buffer{'Subtitle'} = "";
 $buffer{'ThisYear'} = $dtnow->year;
 
 # read new posts and create their post pages
-my %allYears;
 my %yearArchives;
 my %monthArchives;
 my @posts;
@@ -183,42 +176,36 @@ foreach my $postfile (@newPosts) {
 				# move duplicate file with title that doesn't match filename
 				for ($i = 0; $i <= $#newPosts; $i++) {
 					if ($newPosts[i] eq "$shortname.md") {
-						my $dshortname = TitleToShortName($dtitle);
-						my $suffix = 1;
-						while (-e "posts/$dshortname.md") {
-							$dshortname = $dshortname . $suffix;
-							$suffix = $suffix + 1;
-						}
+						my $dshortname = NonDuplicateSuffix(TitleToShortName($dtitle), 'posts/', '.md');
 						move("posts/$newPosts[i]", "posts/$dshortname.md");
 						$newPosts[i] = "$dshortname.md";
 					}
 				}
 			} elsif ($lastCheckSums{"$shortname.md"}) {
 				DebugPrint("$shortname.md exists in last inventory\n");
+				my ($dtitle, $ddate, $dcontent) = ReadPost("$shortname.md");
 				my $diff = diff \$content, \$dcontent;
+				DebugPrint(length($diff) . " compared to " . length($content)) . "\n";
 				if (length($diff) < length($content) / 2) {
 					print "update ";
 					DebugPrint("diff is more than half match, moving old to backup\n");
 					# move duplicate to backup
 					delete $lastCheckSums{"$shortname.md"};
+					delete $checkSums{"$shortname.md"};
 					unless (-d "backup") { mkdir "backup"; }
-					my $suffix = 1;
-					my $backupname = $shortname;
-					while (-e "backup/$backupname.md") {
-						$backupname = $backupname . $suffix;
-						$suffix = $suffix + 1;
-					}
+					my $backupname = NonDuplicateSuffix($shortname, 'backup/', '.md');
 					move("posts/$shortname.md", "backup/$backupname.md")
 				} else {
 					print "duplicate ";
 					DebugPrint("diff is less than half match, finding new filename\n");
 					# find new filename
-					my $suffix = 1;
-					while (-e "posts/$shortname.md") {
-						$shortname = $shortname . $suffix;
-						$suffix = $suffix + 1;
-					}
+					my $shortname = NonDuplicateSuffix($shortname, 'posts/', '.md');
 				}
+			}
+		} else {
+			if ($lastCheckSums{$postfile}) {
+				delete $lastCheckSums{$postfile};
+				delete $checkSums{$postfile};
 			}
 		}
 		print " -- renaming to $shortname.md";
@@ -226,13 +213,13 @@ foreach my $postfile (@newPosts) {
 		# move asset directory too
 		my $postbase = $postfile;
 		$postbase =~ s/.md//;
-		if (-d "posts/$posebase") {
+		if (-d "posts/$postbase") {
 			move("posts/$postbase", "posts/$shortname");
 		}
 		$postfile = "$shortname.md";
 	}
 	print "\n";
-	$checkSums{$postfile} = md5_hex(read_file("posts/$postfile"));
+	$checkSums{$postfile} = GetChecksum("posts/$postfile");
 	$datenumbers{$postfile} = GetDateNumber($date);
 	DebugPrint("$datenumbers{$postfile} compared to $newestDateNumber\n");
 	if ($datenumbers{$postfile} > $newestDateNumber) {
@@ -270,7 +257,6 @@ my %headlineArchiveDates;
 print "NEWEST: $newestPost\n";
 my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
-#	my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($dates{$postfile});
 	my @ymd = ($years{$postfile}, $months{$postfile}, $days{$postfile});
 	# only consider those within the last two months
 	my $consider = 0;
@@ -552,8 +538,6 @@ sub ReadPost() {
 				$date =~ s/#//g; #remove header markdown
 				$date =~ s/^\s+//; #remove leading spaces
 				$date =~ s/\s+$//; #remove trailing spaces
-				# my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
-				# $date = "$year$month$day$hh$mm$ss";
 			} else {
 				$content = $content . $line;
 			}
@@ -705,7 +689,7 @@ sub SyncDirectory() {
 				SyncDirectory("$_[0]/$item", "$_[1]/$item");
 			} else {
 				if (-f "$_[1]/$item") {
-					if (md5_hex(read_file("$_[0]/$item")) != md5_hex(read_file("$_[1]/$item"))) {
+					if (GetChecksum("$_[0]/$item") != GetChecksum("$_[1]/$item")) {
 						print "md5 differs ";
 						copy("$_[0]/$item", "$_[1]/$item") or die "Copy failed: $!";
 					} else {
@@ -719,6 +703,24 @@ sub SyncDirectory() {
 			print "\n";
 		}
 	}
+}
+
+sub GetChecksum() {
+	open (CHECK, $_[0]) or die "Can't open '$_[0]': $!";
+	binmode (CHECK);
+	my $checksum = Digest::MD5->new->addfile(CHECK)->hexdigest;
+	close(CHECK);
+}
+
+sub NonDuplicateSuffix() {
+	my $string = $_[0];
+	my $base = $_[0];
+	my $suffix = 1;
+	while (-e "$_[1]$string$_[2]") {
+		$string = $base . $suffix;
+		$suffix = $suffix + 1;
+	}
+	return $string;
 }
 
 sub DebugPrint() {

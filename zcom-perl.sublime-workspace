@@ -71,16 +71,8 @@
 			"file": "additives/styles.css",
 			"settings":
 			{
-				"buffer_size": 3196,
+				"buffer_size": 3193,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.TXT",
-			"settings":
-			{
-				"buffer_size": 735,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -95,7 +87,7 @@
 			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 18558,
+				"buffer_size": 21191,
 				"line_ending": "Windows"
 			}
 		},
@@ -103,7 +95,7 @@
 			"file": "template.html",
 			"settings":
 			{
-				"buffer_size": 1386,
+				"buffer_size": 1399,
 				"line_ending": "Unix"
 			}
 		},
@@ -384,7 +376,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -393,15 +385,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3196,
+						"buffer_size": 3193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2565,
-								2565
+								0,
+								0
 							]
 						],
 						"settings":
@@ -418,33 +410,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "README.TXT",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								735,
-								735
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "zcom-perl.sublime-project",
 					"semi_transient": false,
 					"settings":
@@ -462,7 +427,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -471,20 +438,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "zcompile.pl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18558,
+						"buffer_size": 21191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9123,
-								9123
+								0,
+								0
 							]
 						],
 						"settings":
@@ -500,20 +467,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "template.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1386,
+						"buffer_size": 1399,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1035,
-								1035
+								0,
+								0
 							]
 						],
 						"settings":
@@ -528,7 +495,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "winscp_sync.txt",
 					"semi_transient": false,
 					"settings":
@@ -555,7 +522,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "zsync.bat",
 					"semi_transient": false,
 					"settings":
@@ -582,7 +549,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
