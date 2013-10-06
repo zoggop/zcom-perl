@@ -74,7 +74,7 @@ if (uc($^O) eq 'LINUX') {
 	dircopy('additives','build') or die $!;
 }
 
-print ("\nadditive to build sync took " . (time() - $start_run) . " seconds\n\n");
+print ("\nadditive to build sync in " . roundup((time() - $start_run) * 1000) . "ms\n\n");
 
 my $untitled = 0;
 
@@ -710,6 +710,7 @@ sub GetChecksum() {
 	binmode (CHECK);
 	my $checksum = Digest::MD5->new->addfile(CHECK)->hexdigest;
 	close(CHECK);
+	return $checksum;
 }
 
 sub NonDuplicateSuffix() {
@@ -725,4 +726,9 @@ sub NonDuplicateSuffix() {
 
 sub DebugPrint() {
 	if ($DebugMode) { print $_[0]; }
+}
+
+sub roundup {
+    my $n = shift;
+    return(($n == int($n)) ? $n : int($n + 1))
 }
