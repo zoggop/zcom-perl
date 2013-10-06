@@ -1,8 +1,7 @@
 body {
   /* prioritize system font for better smoothing in chrome */
   font-family: "Lato", "latoweb", "Open Sans", "Droid Sans", "Segoe UI", "Ubuntu", "Arial", sans-serif;
-  font-size:16px;
-  line-height:1.4em;
+  line-height:1.5em;
   margin:0;
   -webkit-font-smoothing: subpixel-antialiased;
 }
@@ -19,7 +18,7 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
 h3 {
