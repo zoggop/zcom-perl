@@ -710,6 +710,7 @@ sub GetChecksum() {
 	binmode (CHECK);
 	my $checksum = Digest::MD5->new->addfile(CHECK)->hexdigest;
 	close(CHECK);
+	return $checksum;
 }
 
 sub NonDuplicateSuffix() {

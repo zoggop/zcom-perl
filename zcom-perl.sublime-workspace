@@ -76,6 +76,14 @@
 			}
 		},
 		{
+			"file": "README.TXT",
+			"settings":
+			{
+				"buffer_size": 735,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "zcom-perl.sublime-project",
 			"settings":
 			{
@@ -87,7 +95,7 @@
 			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 21191,
+				"buffer_size": 21134,
 				"line_ending": "Windows"
 			}
 		},
@@ -163,11 +171,7 @@
 	},
 	"console":
 	{
-		"height": 125.0,
-		"history":
-		[
-			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) "
-		]
+		"height": 125.0
 	},
 	"distraction_free":
 	{
@@ -376,13 +380,12 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "additives/styles.css",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 3193,
@@ -410,8 +413,33 @@
 				},
 				{
 					"buffer": 1,
+					"file": "README.TXT",
+					"settings":
+					{
+						"buffer_size": 735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								735,
+								735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "zcom-perl.sublime-project",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 543,
@@ -438,12 +466,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "zcompile.pl",
-					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21191,
+						"buffer_size": 21134,
 						"regions":
 						{
 						},
@@ -461,15 +488,14 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3850.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "template.html",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 1399,
@@ -495,9 +521,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "winscp_sync.txt",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 230,
@@ -522,9 +547,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "zsync.bat",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 57,
@@ -549,9 +573,8 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": ".gitignore",
-					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 2645,
@@ -613,7 +636,6 @@
 	{
 		"height": 102.0
 	},
-	"project": "zcom-perl.sublime-project",
 	"replace":
 	{
 		"height": 64.0
@@ -635,24 +657,10 @@
 		],
 		"width": 0.0
 	},
-	"select_symbol":
-	{
-		"height": 0.0,
-		"selected_items":
-		[
-		],
-		"width": 0.0
-	},
-	"settings":
-	{
-	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 194.0,
-	"status_bar_visible": true,
-	"template_settings":
-	{
-	}
+	"status_bar_visible": true
 }
