@@ -2,7 +2,7 @@
 ## 7 October 2013 7:25 AM
 
 
-I was asked if I wanted to go to "a super-feminist play." I went in thinking it was [a rendition of *Robin Hood*][1] in which Marian is the real hero. It ends with Robin Hood (he's him, it turns out) taking this moral stand: "No. I cannot marry in a castle with servants waiting on me. I will only marry in the forest among the [etc] and the [etc]." The man who narrates the play--whose transgressions of the fourth wall can't be heard by those behind it--closes triumphantly with "this is how Robin Hood found his heart." Robin found his heart, the playwright found his head, and Marian? She found Robin? I'm not sure where the twist is. The fact that for the first act she wielded a sword?
+I was asked if I wanted to go to "a super-feminist play." I went in thinking it was [a rendition of *Robin Hood*][1] in which Marian is the real hero. It ends with Robin Hood (he's him, it turns out) taking this moral stand: "No. I cannot marry in a castle with servants waiting on me. I will only marry in the forest among the [foresty things]." The man who narrates the play--whose transgressions of the fourth wall can't be heard by those behind it--closes triumphantly with "this is how Robin Hood found his heart." Robin found his heart, the playwright found his head, and Marian? She found Robin? I'm not sure where the twist is. The fact that for the first act she wielded a sword?
 
 About that. She dressed up as Martin of Sherwood, donning the classic green tunic and tights. Every joke revolved around how obvious her femininity was to us, the audience, while the diegesis remained oblivious. Isn't it funny that she's--hahaha, this is so fresh--*trying to fight a man*? Listen to her shriek, watch her feebly drop her sword.
 

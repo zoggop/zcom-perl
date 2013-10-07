@@ -19,4 +19,6 @@ Phenomenologically, programming is thoroughly technical. It has more in common w
 But that's just how I imagine it. I'm not that patient.
 Every little tectonic shift in experience, like the seasons, are there to negate. A few hours meticulously painting marzipan, and I can feel like never doing it again. That's the real product: being over it.
 
+Some text to delete.
+
 [1]: http://thestandardoftaste.wordpress.com/2012/04/04/christmas-recipe-4-how-to-make-marzipan-fruit/

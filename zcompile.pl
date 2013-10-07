@@ -152,8 +152,8 @@ $buffer{'Subtitle'} = "";
 $buffer{'ThisYear'} = $dtnow->year;
 
 # read new posts and create their post pages
-my %yearArchives;
-my %monthArchives;
+my %yearArchiveUpdate;
+my %monthArchiveUpdate;
 my @posts;
 my %postRef;
 my %checkSums;
@@ -234,9 +234,10 @@ foreach my $postfile (@newPosts) {
 	} else {
 		$allYears{$years{$postfile}} = 1;
 	}
-	# add to list of pages within each year and month's archive
-	$yearArchives{$years{$postfile}}{$postfile} = $datenumbers{$postfile};
-	$monthArchives{"$years{$postfile} $months{$postfile}"}{$postfile} = $datenumbers{$postfile};
+
+	# set year and month archives that need to be updated
+	$yearArchiveUpdate{$years{$postfile}} = 1;
+	$monthArchiveUpdate{"$years{$postfile} $months{$postfile}"} = 1;
 
 	# store post data
 	my $post = {};
@@ -254,10 +255,21 @@ foreach my $postfile (@newPosts) {
 # find post ages and put into archives that need to be updated
 my %frontPageDates;
 my %headlineArchiveDates;
+my %yearArchives;
+my %monthArchives;
 print "NEWEST: $newestPost\n";
 my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
 	my @ymd = ($years{$postfile}, $months{$postfile}, $days{$postfile});
+
+	# add to list of pages within each year and month's archive if it falls within year or month archive to be updated
+	if ($yearArchiveUpdate{$ymd[0]}) {
+		$yearArchives{$years{$postfile}}{$postfile} = $datenumbers{$postfile};
+	}
+	if ($monthArchiveUpdate{$ymd[1]}) {
+		$monthArchives{"$years{$postfile} $months{$postfile}"}{$postfile} = $datenumbers{$postfile};
+	}
+
 	# only consider those within the last two months
 	my $consider = 0;
 	if ($CLARG{'all'}) {
