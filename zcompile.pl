@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 # zoggop dot com static website compiler
 use File::Copy;
 use Time::HiRes qw(time);
@@ -9,8 +11,9 @@ use Digest::MD5 qw(md5_hex);
 use DateTime::Format::Natural;
 use Text::Diff;
 use Image::Magick;
+use String::Compare;
 
-my $DebugMode = '';
+my $DebugMode = 1;
 
 # image extensions
 my %imageExts = qw(PDF 1 JPG 1 PNG 1 SVG 1 JNG 1 GIF 1);
@@ -164,6 +167,7 @@ foreach my $postfile (@newPosts) {
 	my $shortname = TitleToShortName($title);
 	print("NEW: $postfile \"$title\" ");
 	# assign new filename and deal with duplicates
+	my $foundduplicate = 0;
 	if ($postfile ne "$shortname.md") {
 		DebugPrint("file $postfile is not $shortname.md\n");
 		if (-e "posts/$shortname.md") {
@@ -184,17 +188,18 @@ foreach my $postfile (@newPosts) {
 			} elsif ($lastCheckSums{"$shortname.md"}) {
 				DebugPrint("$shortname.md exists in last inventory\n");
 				my ($dtitle, $ddate, $dcontent) = ReadPost("$shortname.md");
-				my $diff = diff \$content, \$dcontent;
-				DebugPrint(length($diff) . " compared to " . length($content)) . "\n";
-				if (length($diff) < length($content) / 2) {
+				my $compare = compare($content, $dcontent);
+				DebugPrint("$shortname.md is $compare alike to $postfile\n");
+				if ($compare > 0.4) {
 					print "update ";
-					DebugPrint("diff is more than half match, moving old to backup\n");
+					DebugPrint("comparison is match, moving old to backup\n");
 					# move duplicate to backup
 					delete $lastCheckSums{"$shortname.md"};
 					delete $checkSums{"$shortname.md"};
 					unless (-d "backup") { mkdir "backup"; }
 					my $backupname = NonDuplicateSuffix($shortname, 'backup/', '.md');
-					move("posts/$shortname.md", "backup/$backupname.md")
+					move("posts/$shortname.md", "backup/$backupname.md");
+					$foundduplicate = 1;
 				} else {
 					print "duplicate ";
 					DebugPrint("diff is less than half match, finding new filename\n");
@@ -218,6 +223,31 @@ foreach my $postfile (@newPosts) {
 		}
 		$postfile = "$shortname.md";
 	}
+
+	# look for dupicates by a different title
+	# DebugPrint($foundduplicate);
+	# if ($foundduplicate == 0) {
+	# 	my $count = 0;
+	# 	foreach my $dup (sort {$datenumbers{$b} cmp $datenumbers{$a}} keys %lastCheckSums) {
+	# 		my ($dtitle, $ddate, $dcontent) = ReadPost($dup);
+	# 		my $compare = compare($content, $dcontent);
+	# 		DebugPrint("$dup is $compare alike to $postfile\n");
+	# 		if ($compare > 0.4) {
+	# 			print " is an update of $dup ";
+	# 			DebugPrint("comparison is match, moving old to backup\n");
+	# 			# move duplicate to backup
+	# 			delete $lastCheckSums{$dup};
+	# 			delete $checkSums{$dup};
+	# 			unless (-d "backup") { mkdir "backup"; }
+	# 			my $backupname = NonDuplicateSuffix(ShortName($dtitle), 'backup/', '.md');
+	# 			move("posts/$dup", "backup/$backupname.md");
+	# 			last;
+	# 		}
+	# 		$count = $count + 1;
+	# 		if ($count == 3) { last; }
+	# 	}
+	# }
+
 	print "\n";
 	$checkSums{$postfile} = GetChecksum("posts/$postfile");
 	$datenumbers{$postfile} = GetDateNumber($date);
@@ -266,7 +296,7 @@ foreach my $postfile (keys %checkSums) {
 	if ($yearArchiveUpdate{$ymd[0]}) {
 		$yearArchives{$years{$postfile}}{$postfile} = $datenumbers{$postfile};
 	}
-	if ($monthArchiveUpdate{$ymd[1]}) {
+	if ($monthArchiveUpdate{"$ymd[0] $ymd[1]"}) {
 		$monthArchives{"$years{$postfile} $months{$postfile}"}{$postfile} = $datenumbers{$postfile};
 	}
 
@@ -557,7 +587,6 @@ sub ReadPost() {
 		}
 		my $m = Text::Markdown->new;
 		$content = $m->markdown($content);
-		DebugPrint("$date\n");
 		return ($title, $date, $content);
 	} else {
 		return;

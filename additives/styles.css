@@ -8,9 +8,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   /* prioritize web font because it's unlikely anyone will have the font, and i can't seem to use the expanded version using a system font */
-  font-family: "antykwa_poltawskiegoexpd", "Georgia", "Times New Roman", serif;
+  font-family: "Georgia", "Times New Roman", serif;
   color:#AAA;
   font-weight: 900;
+}
+
+.date, .page-title {
+    /* prioritize web font because it's unlikely anyone will have the font, and i can't seem to use the expanded version using a system font */
+  font-family: "antykwa_poltawskiegoexpd", "Georgia", "Times New Roman", serif!important;
 }
 
 h1 {
@@ -23,6 +28,7 @@ h2 {
 
 h3 {
   font-size:1em;
+  font-family:
 }
 
 a { text-decoration:underline; color: black; }
@@ -146,6 +152,7 @@ h2.post-title {
   line-height: 1.0em;
   margin-top:8px;
   margin-bottom:1em;
+  font-family: "Georgia";
 }
 
 h2.post-title a, h2.post-title a:visited {

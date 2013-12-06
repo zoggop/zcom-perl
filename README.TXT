@@ -8,6 +8,7 @@ todo
 
 done
 
+- fix month archives
 - ordering issues fixed ($daysold is only used to determine what shows up on the front page, everything else is datenumbers)
 - create a context menu that uses zpublish.pl (made "send to")
 - create zpublish.pl
