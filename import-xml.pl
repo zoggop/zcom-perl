@@ -2,7 +2,7 @@ use XML::Feed;
 use LWP::UserAgent;
 use LWP::Simple;
 use URI::Escape;
-use Text::Markdown;
+# use Text::Markdown;
 
 my $ua = LWP::UserAgent->new;
 

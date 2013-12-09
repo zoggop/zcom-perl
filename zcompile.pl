@@ -28,15 +28,21 @@ my $frontPageDays = 7; # how many days beyond the first post to display on the f
 my $headlineArchiveDays = 30;
 my $FinalImageExt = "jpg";
 my $FinalImageQuality = 90;
+my $BackgroundImageQuality = 75;
 my $LargeWidth = 800;
 my $LargeHeight = 680;
 my $ThumbWidth = 300;
 my $ThumbHeight = 680;
+my $BackgroundWidth = 1920;
+my $BackgroundHeight = 1080;
 my $PdfDensity = 100;
 
 # geometry strings for passing to imagemagick
 my $LargeSize = $LargeWidth . 'x' . $LargeHeight;
 my $ThumbSize = $ThumbWidth . 'x' . $ThumbHeight;
+my $BackgroundSize = $BackgroundWidth . 'x' . $BackgroundHeight;
+
+my $background;
 
 # command line arguments
 my %CLARG = {};
@@ -669,7 +675,12 @@ sub Thumbnail {
 				}
 				$FullSizeURL = "$post/$base.$FinalImageExt";
 			}
-			
+			unless ($background) {
+				if (($width >= $BackgroundWidth / 2) and ($height >= BackgroundHeight / 2)) {
+					BackgroundifyImage($IM);
+					$background = 1;
+				}
+			}
 		}
 	}
 	unless ($x) {
@@ -687,7 +698,7 @@ sub ReadPDF {
 	my $PDF = Image::Magick->new;
 	$PDF->Set(density=>$PdfDensity);
 	$PDF->Set(units=>"PixelsPerInch");
-	my $x = $PDF->Read("$_[0]");
+	my $x = $PDF->Read($_[0] . '[0]');
 	warn "$x" if "$x";
 	$PDF->Set(alpha=>"Off");
 	$x = $PDF->Trim();
@@ -705,6 +716,20 @@ sub ResizeImage {
 	$x = $image->Set(quality=>"$FinalImageQuality");
 	warn "$x" if "$x";
 	$x = $image->Write("$base.$FinalImageExt");
+	warn "$x" if "$x";
+	undef $image;
+}
+
+# turn an image into a background
+sub BackgroundifyImage {
+	my $image = $_[0]->Clone();
+	my $x = $image->Resize(geometry=>"$BackgroundSize");
+	warn "$x" if "$x";
+	# $x = $image->Colorize(fill=>"white", blend=>"0.1");
+	# warn "$x" if "$x";
+	$x = $image->Set(quality=>"$BackgroundImageQuality");
+	warn "$x" if "$x";
+	$x = $image->Write("build/bg.$FinalImageExt");
 	warn "$x" if "$x";
 	undef $image;
 }
