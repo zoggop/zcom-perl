@@ -305,7 +305,7 @@ foreach my $postfile (@newPosts) {
 	$post->{'Assets'} = BuildPostAssets($shortname);
 	$posts[$ref] = $post;
 	$postRef{$postfile} = $ref;
-	BuildPostPage($postfile);
+	# BuildPostPage($postfile);
 	$ref = $ref + 1;
 }
 
@@ -317,8 +317,8 @@ my %monthArchives;
 print "NEWEST: $newestPost\n";
 my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
-	my @ymd = ($years{$postfile}, $months{$postfile}, $days{$postfile});
 
+	my @ymd = ($years{$postfile}, $months{$postfile}, $days{$postfile});
 	# add to list of pages within each year and month's archive if it falls within year or month archive to be updated
 	if ($yearArchiveUpdate{$ymd[0]}) {
 		$yearArchives{$years{$postfile}}{$postfile} = $datenumbers{$postfile};
@@ -327,7 +327,7 @@ foreach my $postfile (keys %checkSums) {
 		$monthArchives{"$years{$postfile} $months{$postfile}"}{$postfile} = $datenumbers{$postfile};
 	}
 
-	# only consider those within the last two months
+	# only consider those within the last two months for the front page
 	my $consider = 0;
 	if ($CLARG{'all'}) {
 		$consider = 1;
@@ -357,6 +357,39 @@ foreach my $postfile (keys %checkSums) {
 }
 
 # sort {$hash{$b} cmp $hash{$a}} keys %hash
+
+# sort all posts
+my @allPosts = sort { $datenumbers{$b} <=> $datenumbers{$a} } keys(%datenumbers);
+# give each new or adjacent to new a next and previous and build necessary posts
+for ($i = 0; $i <= $#allPosts; $i++) {
+	my $postfile = $allPosts[$i];
+	my $ref = $postRef{$postfile};
+	if ($ref or $postRef{$allPosts[$i-1]} or $postRef{$allPosts[$i+1]}) {
+		# only new posts have a ref
+		my @prevnext;
+		if ($i != 0) {
+			my $prev = $allPosts[$i-1];
+			push(@prevnext, $prev);
+		}
+		if ($i != $#allPosts) {
+			my $next = $allPosts[$i+1];
+			push(@prevnext, $next);
+		}
+		push(@prevnext, 'post-headline-template.html');
+		$buffer{'PreviousNext'} = BuildPostList(@prevnext);
+		unless ($ref) {
+			# for unread posts (in other words not new)
+			# feed the post directly into the buffer (skip %posts)
+			my ($title, $date, $content) = ReadPost($postfile);
+			$buffer{'Date'} = ReformatDate($date);
+			$buffer{'Title'} = $title;
+			$buffer{'Content'} = $content;
+			($buffer{'ShortName'}, my $ext) = GetBaseExt($postfile);
+			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
+		}
+		BuildPostPage($postfile);
+	}
+}
 
 # sort front page posts
 my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
@@ -592,12 +625,15 @@ sub GetDateNumber() {
 sub BuildPostPage() {
 	my $postfile = $_[0];
 	my $ref = $postRef{$postfile};
-	DebugPrint("post ref $postfile $ref\n");
-	my %post = %{ $posts[$ref] };
-	foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
+	if ($ref) {
+		DebugPrint("post ref $postfile $ref\n");
+		my %post = %{ $posts[$ref] };
+		foreach my $key (keys %post) { $buffer{$key} = $post{$key}; }
+	}
 	$buffer{'Content'} = ParseTemplate('post-template.html');
+	$buffer{'Content'} = ParseTemplate('post-page-template.html');
 	$buffer{'Title'} = '';
-	open(FILE, ">build/$post{'ShortName'}.html");
+	open(FILE, ">build/$buffer{'ShortName'}.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
 }
