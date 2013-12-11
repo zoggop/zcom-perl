@@ -13,7 +13,7 @@ use Text::Diff;
 use Image::Magick;
 use String::Compare;
 
-my $DebugMode = 1;
+my $DebugMode = 0;
 
 # image extensions
 my %imageExts = qw(PDF 1 JPG 1 PNG 1 SVG 1 JNG 1 GIF 1);
@@ -88,6 +88,8 @@ print ("\nadditive to build sync took " . (time() - $start_run) . " seconds\n\n"
 my $untitled = 0;
 
 # read last checksums and dates to compare against
+my @deletedPosts;
+my %lastAssetInvStr;
 my %lastCheckSums;
 my %datenumbers;
 my %years;
@@ -100,21 +102,32 @@ if (-e "posts.inventory") {
 	my $f = 0;
 	my $filename;
 	my $checksum;
+	my $exists = 0;
 	foreach my $line (@cslines) {
 		chomp($line);
 		if ($f == 0) {
 			$filename = $line;
-			$f = 1; 
-		} elsif (($f == 1) and (-e "posts/$filename")) {
-			$lastCheckSums{$filename} = $line;
-			$f = 2;
-		} elsif (($f == 2) and (-e "posts/$filename")) {
-			$datenumbers{$filename} = $line;
-			$f = 3;
-		} elsif (-e "posts/$filename") {
-			($years{$filename}, $months{$filename}, $days{$filename}) = split(/ /, $line);
-			$f = 0;
+			if (-e "posts/$filename") {
+				$exists = 1;
+			} else {
+				$exsts = 0;
+				push(@deletedPosts, $filename)
+			}
+		} else {
+			if ($exists == 1) {
+				if ($f == 1) {
+					$lastCheckSums{$filename} = $line;
+				} elsif ($f == 2) {
+					$datenumbers{$filename} = $line;
+				} elsif ($f == 3) {
+					($years{$filename}, $months{$filename}, $days{$filename}) = split(/ /, $line);
+				} elsif ($f == 4) {
+					$lastAssetInvStr{$filename} = $line;
+				}
+			}
 		}
+		$f = $f + 1;
+		if ($f == 5) { $f = 0; }
 	}
 }
 
@@ -140,12 +153,20 @@ opendir(DIR, "posts");
 @postfiles = readdir(DIR);
 closedir(DIR);
 my @newPosts;
+my %assetInvStr;
 foreach my $postfile (@postfiles) {
+	# checks if it's a directory just because this would cause it to fail, not because this is a likely scenario
 	unless (-d "posts/$postfile") {
-		# my $checksum = md5_hex(read_file("posts/$postfile"));
 		my $checksum = GetChecksum("posts/$postfile");
+		$assetInvStr{$postfile} = GetAssetInventoryString($postfile);
 		if ($checksum ne $lastCheckSums{$postfile}) {
 			push(@newPosts, $postfile);
+		} else {
+			# check the post's assets for changes if it has any
+			DebugPrint("$assetInvStr{$postfile} compared to $lastAssetInvStr{$postfile}\n");
+			if ($assetInvStr{$postfile} ne $lastAssetInvStr{$postfile}) {
+				push(@newPosts, $postfile)
+			}
 		}
 	}
 }
@@ -392,6 +413,7 @@ foreach my $postfile (keys %checkSums) {
 	print FILE "$checkSums{$postfile}\n";
 	print FILE "$datenumbers{$postfile}\n";
 	print FILE "$years{$postfile} $months{$postfile} $days{$postfile}\n";
+	print FILE "$assetInvStr{$postfile}\n";
 }
 close(FILE);
 
@@ -436,6 +458,22 @@ sub BuildPostList() {
 		$postlist = $postlist . ParseTemplate($template);
 	}
 	return $postlist;
+}
+
+sub GetAssetInventoryString() {
+	my $postfile = $_[0];
+	(my $post, my $ext) = GetBaseExt($postfile);
+	unless (-d "posts/$post") { return ""; }
+	opendir(DIR, "posts/$post");
+	my @assets = readdir(DIR);
+	closedir(DIR);
+	my $assetInventoryString = "";
+	foreach my $asset (@assets) {
+		unless ((-d "posts/$post/$asset") or ($asset eq 'Thumbs.db')) {
+			$assetInventoryString = $assetInventoryString . "//" . $asset . "|" . (stat("posts/$post/$asset"))[9];
+		}
+	}
+	return $assetInventoryString;
 }
 
 sub BuildPostAssets() {
@@ -499,7 +537,7 @@ sub BuildPostAssets() {
 	foreach $asset (@assets) {
 		$assetshtml = $assetshtml . $ahtml{$asset};
 	}
-	return $assetshtml;
+	return $assetshtml, $assetInventoryString;
 }
 
 sub TitleToShortName() {
@@ -675,12 +713,12 @@ sub Thumbnail {
 				}
 				$FullSizeURL = "$post/$base.$FinalImageExt";
 			}
-			unless ($background) {
-				if (($width >= $BackgroundWidth / 2) and ($height >= BackgroundHeight / 2)) {
-					BackgroundifyImage($IM);
-					$background = 1;
-				}
-			}
+			# unless ($background) {
+			# 	if (($width >= $BackgroundWidth / 2) and ($height >= BackgroundHeight / 2)) {
+			# 		BackgroundifyImage($IM);
+			# 		$background = 1;
+			# 	}
+			# }
 		}
 	}
 	unless ($x) {
