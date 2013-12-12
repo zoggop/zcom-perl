@@ -143,6 +143,7 @@ foreach my $line (@yearlines) {
 	(my $year, my $numposts) = split(/ /, $line);
 	$allYears{$year} = $numposts;
 }
+my $newyear = 0;
 
 # get last newest post info
 my $newestPost = GetLastNewestPost();
@@ -289,6 +290,7 @@ foreach my $postfile (@newPosts) {
 	if ($allYears{$years{$postfile}}) {
 		$allYears{$years{$postfile}} = $allYears{$years{$postfile}} + 1;
 	} else {
+		$newyear = 1;
 		$allYears{$years{$postfile}} = 1;
 	}
 
@@ -305,7 +307,6 @@ foreach my $postfile (@newPosts) {
 	$post->{'Assets'} = BuildPostAssets($shortname);
 	$posts[$ref] = $post;
 	$postRef{$postfile} = $ref;
-	# BuildPostPage($postfile);
 	$ref = $ref + 1;
 }
 
@@ -358,39 +359,6 @@ foreach my $postfile (keys %checkSums) {
 
 # sort {$hash{$b} cmp $hash{$a}} keys %hash
 
-# sort all posts
-my @allPosts = sort { $datenumbers{$b} <=> $datenumbers{$a} } keys(%datenumbers);
-# give each new or adjacent to new a next and previous and build necessary posts
-for ($i = 0; $i <= $#allPosts; $i++) {
-	my $postfile = $allPosts[$i];
-	my $ref = $postRef{$postfile};
-	if ($ref or $postRef{$allPosts[$i-1]} or $postRef{$allPosts[$i+1]}) {
-		# only new posts have a ref
-		my @prevnext;
-		if ($i != 0) {
-			my $prev = $allPosts[$i-1];
-			push(@prevnext, $prev);
-		}
-		if ($i != $#allPosts) {
-			my $next = $allPosts[$i+1];
-			push(@prevnext, $next);
-		}
-		push(@prevnext, 'post-headline-template.html');
-		$buffer{'PreviousNext'} = BuildPostList(@prevnext);
-		unless ($ref) {
-			# for unread posts (in other words not new)
-			# feed the post directly into the buffer (skip %posts)
-			my ($title, $date, $content) = ReadPost($postfile);
-			$buffer{'Date'} = ReformatDate($date);
-			$buffer{'Title'} = $title;
-			$buffer{'Content'} = $content;
-			($buffer{'ShortName'}, my $ext) = GetBaseExt($postfile);
-			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
-		}
-		BuildPostPage($postfile);
-	}
-}
-
 # sort front page posts
 my @frontPagePosts = sort { $frontPageDates{$b} <=> $frontPageDates{$a} } keys(%frontPageDates);
 push(@frontPagePosts, 'post-template.html');
@@ -417,6 +385,39 @@ $buffer{'Title'} = "";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
+
+# sort all posts
+my @allPosts = sort { $datenumbers{$b} <=> $datenumbers{$a} } keys(%datenumbers);
+# give each new or adjacent to new a next and previous and build necessary posts
+for ($i = 0; $i <= $#allPosts; $i++) {
+	my $postfile = $allPosts[$i];
+	my $ref = $postRef{$postfile};
+	if ($newyear == 1 or $ref or $postRef{$allPosts[$i-1]} or $postRef{$allPosts[$i+1]}) {
+		# only new posts have a ref
+		my @prevnext;
+		if ($i != 0) {
+			my $prev = $allPosts[$i-1];
+			push(@prevnext, $prev);
+		}
+		if ($i != $#allPosts) {
+			my $next = $allPosts[$i+1];
+			push(@prevnext, $next);
+		}
+		push(@prevnext, 'post-headline-template.html');
+		$buffer{'PreviousNext'} = BuildPostList(@prevnext);
+		unless ($ref) {
+			# for unread posts (in other words not new)
+			# feed the post directly into the buffer (skip %posts)
+			my ($title, $date, $content) = ReadPost($postfile);
+			$buffer{'Date'} = ReformatDate($date);
+			$buffer{'Title'} = $title;
+			$buffer{'Content'} = $content;
+			($buffer{'ShortName'}, my $ext) = GetBaseExt($postfile);
+			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
+		}
+		BuildPostPage($postfile);
+	}
+}
 
 # sort archives and build archive pages
 foreach my $year (keys %yearArchives) {

@@ -1,7 +1,5 @@
 todo
 
-- hm i broke assets somehow?
-- put the yearlist at the bottom of each post page too
 - handle post deletion
 - don't include old shit at all? include a selection?
 - "next month" or "next year" etc at bottom of index and archive pages, some way of transversing
@@ -11,6 +9,7 @@ todo
 
 done
 
+- put the yearlist at the bottom of each post page too
 - show a postlist on each post page as on the index, but just one post before and after
 - check if asset directory has changed to register a new post
 - hosted on github
