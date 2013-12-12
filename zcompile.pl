@@ -570,7 +570,7 @@ sub BuildPostAssets() {
 	foreach $asset (@assets) {
 		$assetshtml = $assetshtml . $ahtml{$asset};
 	}
-	return $assetshtml, $assetInventoryString;
+	return $assetshtml;
 }
 
 sub TitleToShortName() {

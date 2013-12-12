@@ -1,5 +1,6 @@
 todo
 
+- hm i broke assets somehow?
 - put the yearlist at the bottom of each post page too
 - handle post deletion
 - don't include old shit at all? include a selection?
