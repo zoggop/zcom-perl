@@ -331,7 +331,7 @@ foreach my $postfile (@deletedPosts) {
 my %frontPageDates;
 my %headlineArchiveDates;
 my %yearArchives;
-my %monthArchives;
+# my %monthArchives;
 print "NEWEST: $newestPost\n";
 my @newestYearMonthDay = ($years{$newestPost}, $months{$newestPost}, $days{$newestPost});
 foreach my $postfile (keys %checkSums) {
@@ -397,8 +397,8 @@ $buffer{'FrontPage'} = $frontPageContent;
 $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
-$buffer{'Title'} = "";
-# $buffer{'Subtitle'} = "<p>\"I never see him. I looked at him twice or thrice about a year ago, before he recognised me, and then I shut my eyes; and if he were to cross their balls twelve times between each day's sunset and sunrise, except from memory, I should hardly know what shape had gone by.\"</p><p>\"Lucy, what do you mean?\" said she, under her breath.</p><p>\"I mean that I value vision, and dread being struck stone blind.\"</p>";
+$buffer{'Title'} = "an effort to ignore the five-second rule";
+$buffer{'Subtitle'} = "";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
@@ -439,6 +439,13 @@ for ($i = 0; $i <= $#allPosts; $i++) {
 	}
 }
 
+# find earliest year
+$latestYear = $buffer{'ThisYear'}; # assume posts are not in the future
+$earliestYear = $latestYear;
+foreach my $year (keys %allYears) {
+	if ($year < $earliestYear) { $earliestYear = $year; }
+}
+
 # sort archives and build archive pages
 foreach my $year (keys %yearArchives) {
 	my @yearPosts = sort { $yearArchives{$year}{$b} <=> $yearArchives{$year}{$a} } keys($yearArchives{$year});
@@ -455,6 +462,23 @@ foreach my $yearmonth (keys %monthArchives) {
 	$buffer{'Content'} = BuildPostList(@monthPosts);
 	my ($year, $month) = split(/ /, $yearmonth);
 	$buffer{'Title'} = "$num2mon{$month} $year";
+	(my $nextmonth, my $nextyear) = GetNextPrevMonth($month, $year, 1);
+	if ($nextmonth != 0) {
+		$buffer{'NextName'} = "$num2mon{$nextmonth} $nextyear";
+		$buffer{'NextLink'} = "$nextyear-$nextmonth.html";
+	} else {
+		$buffer{'NextName'} = "";
+		$buffer{'NextLink'} = "";
+	}
+	(my $prevmonth, my $prevyear) = GetNextPrevMonth($month, $year, -1);
+	if ($prevmonth != 0) {
+		$buffer{'PrevName'} = "$num2mon{$prevmonth} $prevyear";
+		$buffer{'PrevLink'} = "$prevyear-$prevmonth.html";
+	} else {
+		$buffer{'PrevName'} = "";
+		$buffer{'PrevLink'} = "";
+	}
+	$buffer{'Content'} = ParseTemplate('month-archive-template.html');
 	open(FILE, ">build/$year-$month.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
@@ -594,6 +618,24 @@ sub BuildPostAssets() {
 	return $assetshtml;
 }
 
+sub GetNextPrevMonth() {
+	my $month = $_[0];
+	my $year = $_[1];
+	my $add = $_[2];
+	until ($year > $latestYear or $year < $earliestYear) {
+		$month = $month + $add;
+		if ($month == 13) {
+			$month = 1;
+			$year = $year + 1;
+		} elsif ($month == 0) {
+			$month = 12;
+			$year = $year - 1;
+		}
+		if ($monthArchives{"$year $month"}) { return ($month, $year); }
+	}
+	return (0, 0);
+}
+
 sub TitleToShortName() {
 	if ($_[0]) {
 		my $shortname= lc($_[0]);
@@ -653,6 +695,7 @@ sub BuildPostPage() {
 	}
 	$buffer{'Content'} = ParseTemplate('post-template.html');
 	$buffer{'Content'} = ParseTemplate('post-page-template.html');
+	$buffer{'PageTitle'} = $buffer{'Title'};
 	$buffer{'Title'} = '';
 	open(FILE, ">build/$buffer{'ShortName'}.html");
 	print FILE ParseTemplate('template.html');
@@ -721,6 +764,7 @@ sub ParseTemplate {
 		@template[0] = $buffer{$_[0]};
 	}
 	my $output = '';
+	if ($buffer{'PageTitle'} eq "") { $buffer{'PageTitle'} = $buffer{'Title'}; }
 	foreach my $line (@template) {
 		foreach my $key (keys %buffer) {
 			my $search = '{{' . $key . '}}';
@@ -728,6 +772,7 @@ sub ParseTemplate {
 		}
 		$output = $output . $line;
 	}
+	$buffer{'PageTitle'} = "";
 	return $output;
 }
 

@@ -65,6 +65,12 @@ a:hover { text-decoration:underline; color: black; }
   margin-top:3em;
 }
 
+#month-nav {
+  text-align:right;
+  max-width:480px;
+  margin-top:3em;
+}
+
 #footer {
   font-size:12px;
   line-height:1em;
@@ -163,6 +169,11 @@ h2.post-title a:hover, h2.post-title a:active {
   text-decoration:underline;
 }
 
+h2.date {
+  font-style: italic;
+  font-weight:800;
+}
+
 h3.date {
   font-style: italic;
   font-weight:800;
@@ -219,6 +230,9 @@ h2.post-link {
     max-width:640px;
   }
   #yearlist {
+    max-width:640px;
+  }
+  #month-nav {
     max-width:640px;
   }
 }

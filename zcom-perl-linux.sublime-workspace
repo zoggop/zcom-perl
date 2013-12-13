@@ -263,16 +263,16 @@
 			"file": "README.TXT",
 			"settings":
 			{
-				"buffer_size": 900,
+				"buffer_size": 1003,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "lftpupload.sh",
+			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 290,
-				"line_ending": "Unix"
+				"buffer_size": 26142,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -364,15 +364,16 @@
 	},
 	"file_history":
 	[
+		"/media/win8/Users/zoggop/zcom-perl/template.html",
+		"/media/win8/Users/zoggop/zcom-perl/zcompile.pl",
+		"/media/win8/Users/zoggop/zcom-perl/post-page-template.html",
 		"/home/zoggop/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
 		"/media/win8/Users/zoggop/zcom-perl/additives/styles.css",
 		"/media/win8/Users/zoggop/zcom-perl/import-xml.pl",
-		"/media/win8/Users/zoggop/zcom-perl/template.html",
 		"/media/win8/Users/zoggop/zcom-perl/upload.x",
 		"/media/win8/Users/zoggop/Documents/sync_backup/nwbiolog_com_pass.txt",
 		"/media/win8/Users/zoggop/zcom-perl/znowpublish.sh",
 		"/media/win8/Users/zoggop/zcom-perl/lftpupload.sh",
-		"/media/win8/Users/zoggop/zcom-perl/zcompile.pl",
 		"/media/win8/Users/zoggop/zcom-perl/README.TXT",
 		"/media/win8/Users/zoggop/Documents/writing/marzipan4.md",
 		"/media/win8/Users/zoggop/zcom-perl/posts/marzipan4.md",
@@ -490,8 +491,7 @@
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/dedicatedreclaimbehaviour.lua",
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/attackers.lua",
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/autoreclaimbehaviour.lua",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/unitLists.lua",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/AIInfo.lua"
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/unitLists.lua"
 	],
 	"find":
 	{
@@ -533,6 +533,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"BuildPostPage",
+			"allYears",
+			"$checkSums",
+			"new posts",
+			"allYears",
+			"undef",
+			"deletedPosts",
+			"newyear",
+			"allYears",
+			"buildpostpage",
+			"allYears",
+			"years.list",
+			"assetinventorystring",
+			"assets:",
+			"buildpostassets",
+			"asset",
 			"CLARG{",
 			"upload",
 			"pdf",
@@ -644,23 +660,7 @@
 			"movestate",
 			"MOVESTATE_HOLD",
 			"movestate",
-			"anyamph",
-			"csubpen",
-			"safepos",
-			"game:Send",
-			"got wre",
-			"cormmkr",
-			"corfflak",
-			"fflak",
-			"landtargets",
-			"unitsToIgnoreAs",
-			"corca",
-			"bomberlist",
-			"arelandtargets",
-			"breakthroughBomberCounter",
-			"breakthroughBomberCounter ",
-			"self.counter",
-			"getcounter"
+			"anyamph"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -739,7 +739,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -748,15 +748,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 900,
+						"buffer_size": 1003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								78,
-								78
+								274,
+								274
 							]
 						],
 						"settings":
@@ -765,14 +765,14 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -781,30 +781,30 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
 							],
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
@@ -816,19 +816,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "lftpupload.sh",
-					"semi_transient": true,
+					"file": "zcompile.pl",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 290,
+						"buffer_size": 26142,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								14947,
+								14947
 							]
 						],
 						"settings":
@@ -837,14 +837,14 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -853,35 +853,36 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
 							],
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/Perl/Perl.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6883.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -909,14 +910,14 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -925,30 +926,30 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
 							],
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
