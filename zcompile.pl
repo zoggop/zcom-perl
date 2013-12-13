@@ -53,6 +53,7 @@ foreach my $arg (@ARGV) {
 if ($CLARG{'all'}) {
 	if (-e "posts.inventory") { unlink "posts.inventory"; }
 	if (-e "posts.newest") { unlink "posts.newest"; }
+	if (-e "years.list") { unlink "years.list"; }
 }
 
 if ($CLARG{'debug'}) { $DebugMode = 1; }
@@ -83,7 +84,7 @@ if (uc($^O) eq 'LINUX') {
 	dircopy('additives','build') or die $!;
 }
 
-print ("\nadditive to build sync took " . (time() - $start_run) . " seconds\n\n");
+print ("additive to build sync took " . (time() - $start_run) . " seconds\n");
 
 my $untitled = 0;
 
@@ -110,7 +111,7 @@ if (-e "posts.inventory") {
 			if (-e "posts/$filename") {
 				$exists = 1;
 			} else {
-				$exsts = 0;
+				$exists = 0;
 				push(@deletedPosts, $filename)
 			}
 		} else {
@@ -172,8 +173,10 @@ foreach my $postfile (@postfiles) {
 	}
 }
 my $totalNewPosts = @newPosts;
-print "total new posts: $totalNewPosts\n";
-if (($totalNewPosts == 0) and not ($CLARG{'index'})) { exit; }
+my $totalDeletedPosts = @deletedPosts;
+print "$totalNewPosts new posts\n";
+if ($totalDeletedPosts > 0) { print "$totalDeletedPosts posts deleted\n"; }
+if ($totalNewPosts == 0 and $totalDeletedPosts == 0 and not $CLARG{'index'}) { exit; }
 
 # getting the current date
 my $dtnow = DateTime->now;
@@ -310,6 +313,20 @@ foreach my $postfile (@newPosts) {
 	$ref = $ref + 1;
 }
 
+my %postDeleted;
+# do what needs to be done with deleted posts
+foreach my $postfile (@deletedPosts) {
+	# set year and month archives that need to be updated
+	$yearArchiveUpdate{$years{$postfile}} = 1;
+	$monthArchiveUpdate{"$years{$postfile} $months{$postfile}"} = 1;
+	# remove from complete list of years and remove the year if it was the only post in it
+	$allYears{$years{$postfile}} = $allYears{$years{$postfile}} - 1;
+	if ($allYears{$years{$postfile}} == 0) {
+		delete $allYears{$years{$postfile}};
+	}
+	$postDeleted{$postfile} = 1;
+}
+
 # find post ages and put into archives that need to be updated
 my %frontPageDates;
 my %headlineArchiveDates;
@@ -391,31 +408,34 @@ my @allPosts = sort { $datenumbers{$b} <=> $datenumbers{$a} } keys(%datenumbers)
 # give each new or adjacent to new a next and previous and build necessary posts
 for ($i = 0; $i <= $#allPosts; $i++) {
 	my $postfile = $allPosts[$i];
+	my $prev = $allPosts[$i-1];
+	my $next = $allPosts[$i+1];
 	my $ref = $postRef{$postfile};
-	if ($newyear == 1 or $ref or $postRef{$allPosts[$i-1]} or $postRef{$allPosts[$i+1]}) {
-		# only new posts have a ref
-		my @prevnext;
-		if ($i != 0) {
-			my $prev = $allPosts[$i-1];
-			push(@prevnext, $prev);
+	my $deleted = $postDeleted{$postfile};
+	unless ($deleted) {
+		if ($newyear == 1 or $ref or $postRef{$prev} or $postRef{$next} or $postDeleted{$prev} or $postDeleted{$next}) {
+			# only new posts have a ref
+			my @prevnext;
+			if ($i != 0) {
+				push(@prevnext, $prev);
+			}
+			if ($i != $#allPosts) {
+				push(@prevnext, $next);
+			}
+			push(@prevnext, 'post-headline-template.html');
+			$buffer{'PreviousNext'} = BuildPostList(@prevnext);
+			unless ($ref) {
+				# for unread posts (in other words not new)
+				# feed the post directly into the buffer (skip %posts)
+				my ($title, $date, $content) = ReadPost($postfile);
+				$buffer{'Date'} = ReformatDate($date);
+				$buffer{'Title'} = $title;
+				$buffer{'Content'} = $content;
+				($buffer{'ShortName'}, my $ext) = GetBaseExt($postfile);
+				$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
+			}
+			BuildPostPage($postfile);
 		}
-		if ($i != $#allPosts) {
-			my $next = $allPosts[$i+1];
-			push(@prevnext, $next);
-		}
-		push(@prevnext, 'post-headline-template.html');
-		$buffer{'PreviousNext'} = BuildPostList(@prevnext);
-		unless ($ref) {
-			# for unread posts (in other words not new)
-			# feed the post directly into the buffer (skip %posts)
-			my ($title, $date, $content) = ReadPost($postfile);
-			$buffer{'Date'} = ReformatDate($date);
-			$buffer{'Title'} = $title;
-			$buffer{'Content'} = $content;
-			($buffer{'ShortName'}, my $ext) = GetBaseExt($postfile);
-			$buffer{'Assets'} = BuildPostAssets($buffer{'ShortName'});
-		}
-		BuildPostPage($postfile);
 	}
 }
 
