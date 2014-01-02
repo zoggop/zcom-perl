@@ -1,12 +1,12 @@
 todo
 
+- include youtube video links as embeds in the sidebar
 - don't include old shit at all? include a selection?
 - fix upper case filename issues?
-- create a writemonkey plugin that uses zpublish.pl
-
 
 done
 
+- youtube embeds as .youtube files
 - next and previous month on month archive pages
 - handle post deletion
 - put the yearlist at the bottom of each post page too

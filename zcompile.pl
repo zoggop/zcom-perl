@@ -596,6 +596,9 @@ sub BuildPostAssets() {
 			if ($imageExts{$ext}) {
 				($buffer{'Thumb'}, $buffer{'Image'}) = Thumbnail($asset, $post);
 				$assethtml = ParseTemplate('asset-image-template.html');
+			} elsif ($ext eq 'YOUTUBE') {
+				$buffer{'Video'} = ReadYoutubeFile($post, $asset);
+				$assethtml = ParseTemplate('asset-youtube-template.html');			
 			} else {
 				copy("posts/$post/$asset", "build/$post/$asset") or die "Copy failed: $!";
 				$buffer{'File'} = "$post/$asset";
@@ -616,6 +619,20 @@ sub BuildPostAssets() {
 		$assetshtml = $assetshtml . $ahtml{$asset};
 	}
 	return $assetshtml;
+}
+
+sub ReadYoutubeFile() {
+	my $post = $_[0];
+	my $asset = $_[1];
+	open(FILE, "posts/$post/$asset");
+		my @lines = <FILE>;
+	close(FILE);
+	my $video = "";
+	foreach $line (@lines) {
+		chomp($line);
+		$video = $video . $line;
+	}
+	return $video;	
 }
 
 sub GetNextPrevMonth() {

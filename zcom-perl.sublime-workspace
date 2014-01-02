@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"asse",
+				"assetInventoryString"
+			],
+			[
+				"ass",
+				"assetInventoryString"
+			],
+			[
 				"monthAr",
 				"monthArchiveUpdate"
 			],
@@ -72,245 +80,44 @@
 	"buffers":
 	[
 		{
-			"file": "date-template.html",
+			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 96,
-				"line_ending": "Windows",
-				"name": "{{Day}} {{MonthName}}, {{Year}}"
-			}
-		},
-		{
-			"file": "year-template.html",
-			"settings":
-			{
-				"buffer_size": 59,
-				"line_ending": "Windows",
-				"name": "<h3 class=\"year\"><a href=\"{{Year}}.html\">{{Year}}<"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
-			"settings":
-			{
-				"buffer_size": 7497,
+				"buffer_size": 27354,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "post-headline-template.html",
-			"settings":
-			{
-				"buffer_size": 171,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "asset-image-template.html",
-			"settings":
-			{
-				"buffer_size": 112,
-				"line_ending": "Windows",
-				"name": "<a href=\"{{Image}}\"><img src=\"{{Thumb}}\"></a>"
-			}
-		},
-		{
-			"file": "asset-file-template.html",
-			"settings":
-			{
-				"buffer_size": 101,
-				"line_ending": "Windows",
-				"name": "<a href=\"{{File}}\">{{Filename}}</a>"
-			}
-		},
-		{
-			"file": "build/styles.css",
-			"settings":
-			{
-				"buffer_size": 3454,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "import-xml.pl",
-			"settings":
-			{
-				"buffer_size": 5463,
-				"line_ending": "Windows",
-				"name": "use XML::Feed;"
-			}
-		},
-		{
-			"file": "importlog.txt",
-			"settings":
-			{
-				"buffer_size": 31677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 2645,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "8452359665",
-			"settings":
-			{
-				"buffer_size": 10,
-				"line_ending": "Windows",
-				"name": "8452359665"
-			}
-		},
-		{
-			"file": "index-template.html",
-			"settings":
-			{
-				"buffer_size": 137,
-				"line_ending": "Windows",
-				"name": "<div id=\"frontpage\">"
-			}
-		},
-		{
-			"file": "build/index.html",
-			"settings":
-			{
-				"buffer_size": 7682,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 281,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "README.TXT",
 			"settings":
 			{
-				"buffer_size": 830,
+				"buffer_size": 902,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/zoggop/Documents/writing/legos.md",
+			"settings":
+			{
+				"buffer_size": 1928,
 				"line_ending": "Windows",
-				"name": "todo"
-			}
-		},
-		{
-			"file": "additives/styles.css",
-			"settings":
-			{
-				"buffer_size": 3454,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "template.html",
-			"settings":
-			{
-				"buffer_size": 1431,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "zcompile.pl",
-			"settings":
-			{
-				"buffer_size": 22390,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
-			"settings":
-			{
-				"buffer_size": 157520,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "zpublish.pl",
-			"settings":
-			{
-				"buffer_size": 2569,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
-			"settings":
-			{
-				"buffer_size": 547,
-				"line_ending": "Windows",
-				"name": "System.Execute(\"C:\\Users\\zoggop\\zcom-perl\\zpublish"
-			}
-		},
-		{
-			"file": "zpublishbat.log",
-			"settings":
-			{
-				"buffer_size": 1969,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "zpublish.bat",
-			"settings":
-			{
-				"buffer_size": 105,
-				"line_ending": "Windows",
-				"name": "perl zpublish.pl %1"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
-			"settings":
-			{
-				"buffer_size": 17233,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
-			"settings":
-			{
-				"buffer_size": 7455,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "build/fonts/idealist/stylesheet.css",
-			"settings":
-			{
-				"buffer_size": 510,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/unitTable.lua",
-			"settings":
-			{
-				"buffer_size": 90646,
-				"line_ending": "Windows"
+				"name": "# Art Imitating Art"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 152.0,
+		"height": 60.0,
 		"selected_items":
 		[
 			[
-				"Package Control: list",
-				"Package Control: List Packages"
-			],
-			[
 				"Package Control: install",
 				"Package Control: Install Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
 			],
 			[
 				"Package Control: insta",
@@ -337,7 +144,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 400.0
+		"width": 562.0
 	},
 	"console":
 	{
@@ -358,10 +165,36 @@
 	},
 	"file_history":
 	[
+		"/C/Users/zoggop/Documents/writing/tocorne.md",
+		"/C/Users/zoggop/zcom-perl/post-page-template.html",
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/unitTable.lua",
+		"/C/Users/zoggop/zcom-perl/build/fonts/idealist/stylesheet.css",
+		"/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
+		"/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
+		"/C/Users/zoggop/zcom-perl/zpublish.bat",
+		"/C/Users/zoggop/zcom-perl/zpublishbat.log",
+		"/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
+		"/C/Users/zoggop/zcom-perl/zpublish.pl",
+		"/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
 		"/C/Users/zoggop/zcom-perl/template.html",
+		"/C/Users/zoggop/zcom-perl/additives/styles.css",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/zoggop/zcom-perl/build/index.html",
+		"/C/Users/zoggop/zcom-perl/index-template.html",
+		"/C/Users/zoggop/zcom-perl/.gitignore",
+		"/C/Users/zoggop/zcom-perl/importlog.txt",
+		"/C/Users/zoggop/zcom-perl/import-xml.pl",
+		"/C/Users/zoggop/zcom-perl/build/styles.css",
+		"/C/Users/zoggop/zcom-perl/asset-file-template.html",
+		"/C/Users/zoggop/zcom-perl/asset-image-template.html",
+		"/C/Users/zoggop/zcom-perl/post-headline-template.html",
+		"/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
+		"/C/Users/zoggop/zcom-perl/year-template.html",
 		"/C/Users/zoggop/zcom-perl/zcompile.pl",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/zoggop/zcom-perl/date-template.html",
+		"/C/Users/zoggop/zcom-perl/README.TXT",
 		"/C/Users/zoggop/zcom-perl/posts.inventory",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/zoggop/ba783/gui_red_buildordermenu.lua",
 		"/C/Program Files (x86)/Spring/LuaUI/widgets.lua",
 		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
@@ -468,6 +301,38 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$postRef",
+			"buildpostpage",
+			"BuildPostPage",
+			"$postRef",
+			"$ref =",
+			"$postRef{$postfile} =",
+			"$posts[",
+			"$datenumbers",
+			"$postRef",
+			"$posts[",
+			"$post->",
+			"datenumbers{$postfile} =",
+			"datenumbers",
+			"frontpageposts",
+			"buildpostpage",
+			"buildpostlist",
+			"postlist",
+			"DebugPr",
+			"DebugPrint",
+			"AssetInvStr",
+			"assetinvstr",
+			"GetAssetInventoryString",
+			"assetinvstr",
+			"newestPost",
+			"GetLastNewestPost",
+			"syncdirec",
+			"GetAssetInv",
+			"PostAs",
+			"Build",
+			"lastassets{",
+			"BuildPostAss",
+			"syncdirectory",
 			"template.html",
 			"ReadPost",
 			"pressure",
@@ -564,594 +429,146 @@
 	"groups":
 	[
 		{
-			"selected": 14,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "date-template.html",
+					"file": "zcompile.pl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 96,
+						"buffer_size": 27354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								59,
-								59
+								2405,
+								2405
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "{{Day}} {{MonthName}}, {{Year}}",
+							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
-								"bh_single_quote_close"
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
 							],
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/Perl/Perl.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 905.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "year-template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 59,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3,
-								3
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<h3 class=\"year\"><a href=\"{{Year}}.html\">{{Year}}<",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7497,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								497,
-								497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "post-headline-template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								75,
-								75
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "asset-image-template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 112,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								103,
-								103
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<a href=\"{{Image}}\"><img src=\"{{Thumb}}\"></a>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "asset-file-template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								93,
-								93
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<a href=\"{{File}}\">{{Filename}}</a>",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "build/styles.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3454,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "import-xml.pl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5463,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1000,
-								1257
-							]
-						],
-						"settings":
-						{
-							"auto_name": "use XML::Feed;",
-							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "importlog.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24032,
-								23954
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 9356.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2645,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10,
-								10
-							]
-						],
-						"settings":
-						{
-							"auto_name": "8452359665",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "index-template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 137,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								128
-							]
-						],
-						"settings":
-						{
-							"auto_name": "<div id=\"frontpage\">",
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "build/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7682,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close"
-							],
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close"
-							],
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
 					"file": "README.TXT",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 830,
+						"buffer_size": 902,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35,
-								35
+								902,
+								902
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "todo",
+							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
-								"bh_single_quote_close"
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
 							],
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
@@ -1159,408 +576,57 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "additives/styles.css",
+					"buffer": 2,
+					"file": "/C/Users/zoggop/Documents/writing/legos.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3454,
+						"buffer_size": 1928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								905,
-								905
+								1770,
+								1770
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"auto_name": "# Art Imitating Art",
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 9.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "template.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1431,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1065,
-								1065
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "zcompile.pl",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 22390,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11683,
-								11683
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4713.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 157520,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "zpublish.pl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								255,
-								255
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "",
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close"
-							],
-							"syntax": "Packages/Perl/Perl.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 547,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								529,
-								529
-							]
-						],
-						"settings":
-						{
-							"auto_name": "System.Execute(\"C:\\Users\\zoggop\\zcom-perl\\zpublish",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "zpublishbat.log",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1969,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1568,240 +634,23 @@
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
-								"bh_square_close"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "zpublish.bat",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 105,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "perl zpublish.pl %1",
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
 								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close"
-							],
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/exe_Corkboards.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17233,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								629,
-								629
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "/C/Users/zoggop/WriteMonkey/plugins/Corkboards/CorkboardCollection.incl",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7455,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3116,
-								3116
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "build/fonts/idealist/stylesheet.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 510,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								507,
-								507
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 26,
-					"file": "/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/unitTable.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 90646,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4658,
-								4658
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
+								"bh_round_close"
 							],
-							"syntax": "Packages/Lua/Lua.tmLanguage"
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1838,6 +687,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
 	"project": "zcom-perl.sublime-project",
 	"replace":
 	{
