@@ -6,6 +6,8 @@ todo
 
 done
 
+- fix bug: triplicating
+- fix bug: post-pages aren't being generated unless i do all of them
 - youtube embeds as .youtube files
 - next and previous month on month archive pages
 - handle post deletion

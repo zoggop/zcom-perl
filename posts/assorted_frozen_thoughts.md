@@ -1,0 +1,18 @@
+# Assorted Frozen Thoughts
+## 12 January 2014 8:01 AM
+
+There's a whole gag about the snowman having/lacking a bigger/smaller carrot nose. Carrots are the reindeer's favorite snack, and the reindeer keeps giving the carrot to the snowman and then almost biting it off. The chomping becomes play becomes affection. Affection: the power to give, take away, and to withhold taking away.
+
+As Anna fantasizes about the possibility of a romance, she jumps around the castle posing in front of paintings. There's something self-critical in presenting the desire for True Love as a kind of self-induced puppetry, as if these aren't just paintings she's imitating, but previous Disney movies. Rather than a universal destiny, Anna's fantasy is based on specific images bound up in history. The love she very quickly falls into turns out to be not just false but treacherous--a man out not to steal her heart but her kingdom.
+
+Disney is suddenly proud of their slapstick beginnings? Maybe this started back in *Tangled*, which I haven't seen. Their logo has become a nostalgia-drenched animation of Mickey Mouse gyrating his pelvis side to side. The main feature was introduced by a five minute Mickey short that starts in black and white and then bursts out of the on-screen screen into 3-D color. It has all the sadism of Looney Toons, but the bottom of the scenario is literal: a pitchfork gets rammed into the cat's ass. Repeatedly. Outside the screen, Mickey figures out how to flip the frames of the animation back and forth yet the cat persists through all his beatings, so that he sustains the abuse multiple times. Watching Mickey watch himself repeat all his aggression is like watching someone watch porn. Disney seems to be trying to reframe their past as quaint and noble.
+
+Odd that "letting go" means dressing more sexily in private, as if the only thing Elsa had to hide was sexuality. (After the movie someone started singing "I'm So Excited," which might've stood in for Elsa's solo "Let It Go" in a pinch.) The sexual coming-of-age tale seems like a good reading (she has a power that is thought to be dangerous, is triggered by strong emotions and physical touch, and that everyone rushes to control or exploit), but predictably, I found myself reading Elsa's conundrum as depression. The coronation party is exciting for Anna, and nerve-wracking work for Elsa, who has so much to hide. "Make one wrong move and everyone will know," she sings. The fear that if you misstep, you'll freeze the room and everyone in it is a perfect metaphor for how the depressed approach social situations. Surely not just me? But for Elsa it's not arrogant to think she has such a drastically deadening effect on people; she does in fact have the power to freeze them solid.
+
+Elsa flees to a frozen mountain, builds a whole gleaming palace out of ice.
+
+Disney movies need a neatly tied up ending, and promoting free-floating love as a solution to the problem of emotion isn't too bad. Of course, love is defined quite specifically as "putting someone else's needs before your own." The story in which the princess is saved by a knight in shining armor (in *Frozen*, "a valiant, pungent reindeer king") is derailed; instead, the princess saves herself by saving her sister by sacrificing herself.
+
+Where the depression metaphor stopped working for me was when Elsa learns that Anna is dying because she accidentally froze her heart. This apparently changes things, because Elsa's freezing storm of anger and self-loathing abates. Since when is guilt therapeutically effective?
+
+Elsa and Anna bond over the smell of *chocolate* (their emphasis). Really, writers, you couldn't come up with anything less cliched than Women Love Chocolate?

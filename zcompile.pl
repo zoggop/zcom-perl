@@ -112,7 +112,7 @@ if (-e "posts.inventory") {
 				$exists = 1;
 			} else {
 				$exists = 0;
-				push(@deletedPosts, $filename)
+				push(@deletedPosts, $filename);
 			}
 		} else {
 			if ($exists == 1) {
@@ -185,6 +185,8 @@ my $dtnow = DateTime->now;
 $buffer{'Subtitle'} = "";
 $buffer{'ThisYear'} = $dtnow->year;
 
+my %builtAssets;
+
 # read new posts and create their post pages
 my %yearArchiveUpdate;
 my %monthArchiveUpdate;
@@ -192,7 +194,7 @@ my @posts;
 my %postRef;
 my %checkSums;
 foreach my $key (keys %lastCheckSums) { $checkSums{$key} = $lastCheckSums{$key}; }
-my $ref = 0;
+my $ref = 1;
 foreach my $postfile (@newPosts) {
 	my ($title, $date, $content) = ReadPost($postfile);
 	my $shortname = TitleToShortName($title);
@@ -403,23 +405,27 @@ open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');
 close(FILE);
 
+my %builtPage;
+
 # sort all posts
 my @allPosts = sort { $datenumbers{$b} <=> $datenumbers{$a} } keys(%datenumbers);
 # give each new or adjacent to new a next and previous and build necessary posts
-for ($i = 0; $i <= $#allPosts; $i++) {
+my $highest = $#allPosts - 1;
+for my $i (0 .. $highest) {
 	my $postfile = $allPosts[$i];
 	my $prev = $allPosts[$i-1];
 	my $next = $allPosts[$i+1];
 	my $ref = $postRef{$postfile};
 	my $deleted = $postDeleted{$postfile};
-	unless ($deleted) {
+	my $alreadyBuilt = $builtPage{$postfile};
+	unless ($deleted or $alreadyBuilt) {
 		if ($newyear == 1 or $ref or $postRef{$prev} or $postRef{$next} or $postDeleted{$prev} or $postDeleted{$next}) {
 			# only new posts have a ref
 			my @prevnext;
 			if ($i != 0) {
 				push(@prevnext, $prev);
 			}
-			if ($i != $#allPosts) {
+			if ($i != $highest) {
 				push(@prevnext, $next);
 			}
 			push(@prevnext, 'post-headline-template.html');
@@ -556,6 +562,7 @@ sub GetAssetInventoryString() {
 
 sub BuildPostAssets() {
 	my $post = $_[0];
+	if ($builtAssets{$post}) { return $builtAssets{$post}; }
 	unless (-d "posts/$post") { return ""; }
 	opendir(DIR, "posts/$post");
 	my @assets = readdir(DIR);
@@ -618,6 +625,7 @@ sub BuildPostAssets() {
 	foreach $asset (@assets) {
 		$assetshtml = $assetshtml . $ahtml{$asset};
 	}
+	$builtAssets{$post} = $assetshtml;
 	return $assetshtml;
 }
 
@@ -717,6 +725,8 @@ sub BuildPostPage() {
 	open(FILE, ">build/$buffer{'ShortName'}.html");
 	print FILE ParseTemplate('template.html');
 	close(FILE);
+	DebugPrint("built post page $buffer{'ShortName'}.html\n");
+	$builtPage{$postfile} = 1;
 }
 
 # read a post
