@@ -1,0 +1,34 @@
+# Where I Am
+## 4 March 2014 10:22 PM
+
+There was this graduate thesis for which, when presented, we could not contain our derision. It claimed there were "places" and "nonplaces." As you might guess, places were villages, and nonplaces were Wall Marts and international airports. (Admittedly, such a thesis could have been come from nearly anywhere.) Back then, the idea that any place was a place at all was laughable to me--pointing to a "real" place and letting your longing do the rest of the argumentation. The implication seemed to be that only people of any substance wouldn't look out of place in a diner. In my zealous conflation of postmodernity and postmodernism, I couldn't imagine a place having any more ontological hold than a Wall Mart or a Starbucks. Now, I'm not sure I believe in nonplaces.
+
+There are more sophisticated claims for place. [Lata Mani's "Sex and The Signal-Free Corridor"][2] isn't mixed up with a desire for tastefully distressed upholstry. She seems more interested in the cultivation of inner place:
+
+> One way to challenge commodity culture (and it is a culture) is to thoroughly inhabit ourselves – body, mind and heart – becoming fully aware of who we are; equally of where we are. This would deprive prevailing abstractions of their potency. For their power is secured by our distractedness, by our inattention to the rich complexity and sensuousness of our lives and of the world around us. 
+
+It's hard to argue with "smart phones, Ipods, air-conditioned cars and gated communities" all being means to an insulating end. But where are we, exactly? Every day I overhear people saying how "conscious" they are. By this they mean how overrun by taboos, identity politics, health crazes, and guilt they are. In short, prevailing abstractions. But a Marxistish belief that our objective relations are out there is preferable to a neoliberal belief that buying local, free trade, and organic is the most political act possible.
+
+The same food co-op where conscious consumerism is practiced has a cell-phone free dining area (a signal-free corridor). Place is so fragile, apparently, that it can be shattered by voices from elsewhere.
+
+Complaining about cell phones often takes the form of imagining the intimate conversations that could occur if we weren't all texting or being interrupted by ringtones. "Where we are" sounds an awful lot like this. Which could be an indication of just how trapped I am, or it could be a repressive hypothesis. The in-person connection--we borrow a telephonic word for the interpersonal--wasn't a thing until it got obtructed.
+
+To think the grass is greener is the only epistemic structure possible, though, is going too far. It is possible to be self-deceived, just plain wrong.
+
+I think I've been wrong about the nature of my computer. I thought it was a place, that without it, the texture of life changes. This is of course true. If I go outside or read a book, I can feel virtuous; the connection with "the rich complexity of the sensuous" restored. But while my computer can, somewhat less immediately than a smartphone, be carried with me everywhere, I remain innured in the sticky stuff I often reach into my pocket for my phone to wish myself out of. Like active noise-cancellation, the computer can be used as a tool of interior aggression to negate my surroundings--negation so modulated that it becomes erasure. Some of my most productive times writing were when I needed a life preserver to not drown in housemates' conversations. But that's not the computer. It's just a focus. Or a distraction.
+
+In Oakland I was bewildered to discover that a laptop, while its connectivity cushions the impact of being dropped into another house, somehow mutates in transit. There, it had lost its potency. I found myself exhausted by the effort of dawdling on the web. It could not provide that restorative distance from my surroundings. Reading books felt, unfamiliarly, like less of a stretch. Less decision-making was required. Even the negligable publicity of my computer screen was too much. Text on the page seemed almost entirely hidden away. That was the joy of it: the spaciousness of secrecy. Strangely this loosened things, even while it set the thick, transparent jell-o of alienation.
+
+Which is to say, of course, that the novel is an earlier technology of "distractedness." But today, because it lacks an internet connection and a screen, it has become one flavor of pure presence. Reading [a novel is said to "improve empathy."][3] I have to wonder if "empathy" is a bit like [Aphex Twin's multiplying visage in the "Window Licker" video][1]
+
+If place is pure, it comes with all the magic tricks of purity: it's easy to mistake and it's easy--ha--to misplace.
+
+When I got back from Oakland, I was asked if it was strange coming back from the city. If Ashland felt small. I was surprised what a non-sequitor this was. Yes, I felt a difference in the texture of life there in part because of the metropolitan vastness hanging over everywhere I went within it. It was a saturation of place; the feeling was at once one of being trapped in a tiny corner of a larger world, and that the objective relation between the local part and the urban whole felt unknowable in a terrible way often unfelt in the wilderness. But far more viscous than this was the much smaller reality of the house. Both the character of my relationships with who I was living with, and the house itself. It was alien enough that I could understand its peculiarity (whereas the house in Ashland feels comfortably like nothing except for the first day or two of being there). The heat was kept low, necessitating leaving, warmer clothes, a space heater, too much tea, or not any of these things, just being cold. Now that it's a month behind me I can miss that. The bare bathroom that, oddly, had a window right into the neighbor's window, where they played brass mashups. The sense of being half-naked wherever I went, that anything could move anywhere, the feeling, basically, of waking up in a temporary arrangement.
+
+Ashland, if anything, feels like much less of a place--some mixture of the globalized yet particularly New Zealand suburbs that circumscribe Lorde's songwriting, and a small town, with its gossip and run-ins.
+
+These posts always come half-formed. I tend to throw everything I'm thinking of onto the page and, like a city, leave the synthesis for later (never). And maybe that's the most placed one can be: unable to find a window to the horizon. I always wish I could close with something of spectacular clarity. That I can't means I live here, revising, for weeks.
+
+[1]: http://www.youtube.com/watch?v=J639xIdgzQU
+[2]: http://www.epw.in/commentary/sex-and-signal-free-corridor.html
+[3]: http://www.scientificamerican.com/article/novel-finding-reading-literary-fiction-improves-empathy/

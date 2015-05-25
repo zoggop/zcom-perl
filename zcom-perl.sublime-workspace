@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"md_",
+				"md_dark_scheme"
+			],
+			[
+				"mark",
+				"markdown_settings_file"
+			],
+			[
 				"asse",
 				"assetInventoryString"
 			],
@@ -83,32 +91,45 @@
 			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 27354,
+				"buffer_size": 28006,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "README.TXT",
+			"file": "/C/Users/zoggop/dev/colorade/colorade.pl",
 			"settings":
 			{
-				"buffer_size": 902,
+				"buffer_size": 2396,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/zoggop/Documents/writing/legos.md",
+			"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 1928,
+				"buffer_size": 480,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/zoggop/jstor_get.pl",
+			"settings":
+			{
+				"buffer_size": 4380,
 				"line_ending": "Windows",
-				"name": "# Art Imitating Art"
+				"name": "my $start = $ARGV[0]"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/User/zpublish.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 60.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -163,8 +184,75 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/zoggop/zcom-perl"
+	],
 	"file_history":
 	[
+		"/C/Users/zoggop/dev/colorade/Monokai Soda-zoggop2.tmTheme",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Monokai Soda.tmTheme",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/SolarizedToggle.sublime-settings",
+		"/C/strawberry/perl/site/lib/Graphics/Color/RGB.pm",
+		"/C/Users/zoggop/dev/colorade/Monokai Soda-zoggop2-mod.tmTheme",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/perl.sublime-build",
+		"/C/Users/zoggop/zcom-perl/zpublish.pl",
+		"/C/Users/zoggop/mapconv/loony.bat",
+		"/C/Users/zoggop/mapconv/desertedthird.bat",
+		"/C/Users/zoggop/mapconv/grc.bat",
+		"/C/Users/zoggop/Documents/writing/winning_conversations.md",
+		"/C/Users/zoggop/zcom-perl/posts/there_was_this_graduate.md",
+		"/C/Users/zoggop/mapconvng/trinity-features",
+		"/C/Users/zoggop/AppData/Local/Temp/Temp1_auto_repair_reclaim.lua.zip/auto_repair_reclaim.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/cache/Shard-BA-Deserted_Third_v1.lua",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/C/Users/zoggop/AppData/Local/Temp/7zO2BAE.tmp/mapinfo.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertTrinity.sdd/mapinfo.lua",
+		"/C/Users/zoggop/AppData/Local/Temp/7zO3E8D.tmp/mapinfo.lua",
+		"/C/Users/zoggop/AppData/Local/Temp/7zOBF39.tmp/mapinfo.lua",
+		"/C/Users/zoggop/AppData/Local/Temp/7zO4218.tmp/mapinfo.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertedThird.sdd/mapinfo.lua",
+		"/C/Users/zoggop/Desktop/DesertedThird.sdd/mapinfo.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertedThird.sdd/mapoptions.lua",
+		"/C/Users/zoggop/mapconv/trinity_features.txt",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertTrinity.sdd/maphelper/mapinfo.lua",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertTrinity.sdd/mapconfig/featureplacer/set.lua",
+		"/C/Users/zoggop/mapconv/fp.lua",
+		"/C/Users/zoggop/mapconv/README FOR THIS MAPCONV.TXT",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/zoggop/Documents/my games/Spring/maps/DesertTrinity.sdd/mapoptions.lua",
+		"/C/Users/zoggop/Documents/writing/optimismgivingup3.md",
+		"/C/Users/zoggop/Documents/writing/optimismgivingup2.md",
+		"/C/Users/zoggop/Documents/my games/Spring/LuaUI/Widgets/gui_fancy_teamplatter.lua",
+		"/C/Users/zoggop/Documents/writing/email",
+		"/C/Users/zoggop/Documents/writing/no_more_cupcakes.md",
+		"/C/Users/zoggop/Documents/writing/gift_cake.md",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/zoggop/zcom-perl/import-xml.pl",
+		"/C/Users/zoggop/Desktop/SolarizedToggle.py",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Installed Packages/Solarized Toggle.sublime-package",
+		"/C/Users/zoggop/Documents/writing/been_thinking_quotes.md",
+		"/C/Users/zoggop/zcom-perl/posts/geeky_boys.md",
+		"/C/Users/zoggop/Documents/writing/pants.md",
+		"/C/Users/zoggop/zcom-perl/posts/the_end_of_the_record.md",
+		"/C/Users/zoggop/Documents/writing/the_end_of_the_record-ghost_world6.md",
+		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/zpublish.sublime-build",
+		"/C/Users/zoggop/zcom-perl/README.TXT",
+		"/C/Users/zoggop/zcom-perl/zcompile.pl",
+		"/C/Users/zoggop/Documents/writing/bwdr-february-ideas.txt",
+		"/C/Users/zoggop/Documents/writing/legos.md",
+		"/C/Users/zoggop/zcom-perl/posts/about_the_weather.md",
+		"/C/Users/zoggop/Documents/sync_backup/rental_application_info.txt",
+		"/C/Users/zoggop/zcom-perl/posts/the_literal_life.md",
+		"/C/Users/zoggop/zcom-perl/posts/assorted_frozen_thoughts.md",
+		"/C/Users/zoggop/Documents/writing/hong_king_is_watching2.md",
+		"/C/Users/zoggop/Documents/writing/cover_letter-cutcutcut.md",
+		"/C/Users/zoggop/Documents/writing/cover_letter-helpdesk.md",
+		"/C/Users/zoggop/Documents/writing/weather.md",
+		"/C/Users/zoggop/Documents/writing/frozen_notes2.md",
+		"/C/Users/zoggop/Documents/sync_backup/air-attackers.lua",
+		"/C/Users/zoggop/Documents/sync_backup/reply_to_scott.txt",
 		"/C/Users/zoggop/Documents/writing/tocorne.md",
 		"/C/Users/zoggop/zcom-perl/post-page-template.html",
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/unitTable.lua",
@@ -174,27 +262,21 @@
 		"/C/Users/zoggop/zcom-perl/zpublish.bat",
 		"/C/Users/zoggop/zcom-perl/zpublishbat.log",
 		"/C/Users/zoggop/WriteMonkey/plugins/zpublish/exe_zpublish.js",
-		"/C/Users/zoggop/zcom-perl/zpublish.pl",
 		"/C/Users/zoggop/Documents/my games/Spring/unitTable.lua",
 		"/C/Users/zoggop/zcom-perl/template.html",
 		"/C/Users/zoggop/zcom-perl/additives/styles.css",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/zoggop/zcom-perl/build/index.html",
 		"/C/Users/zoggop/zcom-perl/index-template.html",
 		"/C/Users/zoggop/zcom-perl/.gitignore",
 		"/C/Users/zoggop/zcom-perl/importlog.txt",
-		"/C/Users/zoggop/zcom-perl/import-xml.pl",
 		"/C/Users/zoggop/zcom-perl/build/styles.css",
 		"/C/Users/zoggop/zcom-perl/asset-file-template.html",
 		"/C/Users/zoggop/zcom-perl/asset-image-template.html",
 		"/C/Users/zoggop/zcom-perl/post-headline-template.html",
 		"/C/Users/zoggop/Documents/zoggopcom/fromscratch/test.html",
 		"/C/Users/zoggop/zcom-perl/year-template.html",
-		"/C/Users/zoggop/zcom-perl/zcompile.pl",
 		"/C/Users/zoggop/zcom-perl/date-template.html",
-		"/C/Users/zoggop/zcom-perl/README.TXT",
 		"/C/Users/zoggop/zcom-perl/posts.inventory",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/zoggop/ba783/gui_red_buildordermenu.lua",
 		"/C/Program Files (x86)/Spring/LuaUI/widgets.lua",
 		"/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
@@ -235,47 +317,7 @@
 		"/C/Users/zoggop/zcom-perl/posts/kale_the_bittersweet/assets.captions",
 		"/C/Users/zoggop/Documents/nbc/nwbiolog_dot_com/sync12.bat",
 		"/C/Users/zoggop/Documents/code/spring_lua/map-idiot/helper_widgets/assessunits-complete.lua",
-		"/C/Users/zoggop/Documents/code/spring_lua/map-idiot/map-learning-ai.txt",
-		"/C/Program Files (x86)/Spring/AI/Skirmish/Shard/dev/AIOptions.lua",
-		"/C/Users/zoggop/zcom-perl/posts/tarte_tatin_iii__golden__delicious__boring.md",
-		"/C/Users/zoggop/zcom-perl/import/tarte_tatin_iii__golden__delicious__boring/assets.captions",
-		"/C/Users/zoggop/zcom-perl/import/mrs__hudson_s_biscuits.md",
-		"/C/Users/zoggop/Documents/zoggopcom/fromscratch/style.css",
-		"/C/Users/zoggop/zcom-bsmith/public/css/styles.css",
-		"/C/Users/zoggop/zcom-perl/import/total_recall/assets.captions",
-		"/C/Users/zoggop/zcom-perl/import/v_i__warshawski/assets.captions",
-		"/C/Users/zoggop/zcom-perl/import/zack_s_shack.md",
-		"/C/Users/zoggop/zcom-perl/posts/cake_is_never_for_later.md",
-		"/C/Users/zoggop/zcom-perl/posts/jasmine_understands_marriage__does_woody_allen_.md",
-		"/C/Users/zoggop/zcom-perl/import/across_the_living_room_and_other_distances/assets.captions",
-		"/C/Users/zoggop/zcom-perl/import/lentil_soup__41358.md",
-		"/C/Users/zoggop/zcom-perl/import/everything_in_one_room.md",
-		"/C/Users/zoggop/zcom-perl/import/remembered_games__tyrian.md",
-		"/C/Users/zoggop/zcom-perl/import/fire.md",
-		"/C/Users/zoggop/zcom-perl/import/bizcochuelo_de_papa.md",
-		"/C/Users/zoggop/zcom-perl/import/.md",
-		"/C/Users/zoggop/zcom-perl/import/57965264.md",
-		"/C/Users/zoggop/Downloads/html2markdown/to-markdown.js",
-		"/C/Users/zoggop/Downloads/html2markdown/html2markdown.py",
-		"/C/Users/zoggop/zcom-perl/blog-09-16-2013.xml",
-		"/C/Users/zoggop/zcom-perl/zoggop_dot_com-09-16-2013.xml",
-		"/C/Users/zoggop/zcom-perl/posts.newest",
-		"/C/Users/zoggop/zcom-perl/archive-template.html",
-		"/C/Users/zoggop/zcom-perl/backup/cake_is_never_for_later.md",
-		"/C/Users/zoggop/zcom-perl/posts/Cake_is_Never_for_Later.md",
-		"/C/Users/zoggop/zcom-perl/posts/cake_is_never_for_later-2013-09-12.md",
-		"/C/Users/zoggop/zcom-bsmith/layouts/fullpost.html",
-		"/C/Users/zoggop/zcom-bsmith/partials/post.json",
-		"/C/Users/zoggop/zcom-bsmith/partials/post-title.html",
-		"/C/Users/zoggop/zcom-bsmith/partials/date-insert.html",
-		"/C/Users/zoggop/zcom-bsmith/pages/post-title.json",
-		"/C/Users/zoggop/Documents/writing/fatherdaughter2.md",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/User/Markdown.sublime-settings",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/Markdown to Clipboard/README.md",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/MarkdownEditing/MarkdownEditor.tmTheme",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/MarkdownEditing/Main.sublime-menu",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
-		"/C/Users/zoggop/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings"
+		"/C/Users/zoggop/Documents/code/spring_lua/map-idiot/map-learning-ai.txt"
 	],
 	"find":
 	{
@@ -286,6 +328,7 @@
 		"height": 92.0,
 		"where_history":
 		[
+			"C:\\Users\\zoggop\\AppData\\Roaming\\Sublime Text 3\\Packages\\User",
 			"C:\\Users\\zoggop\\ba783",
 			"C:\\Program Files (x86)\\Spring\\LuaUI\",C:\\Users\\zoggop\\ba783",
 			"\"C:\\Program Files (x86)\\Spring\\LuaUI\",C:\\Users\\zoggop\\ba783\"",
@@ -301,6 +344,41 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"position",
+			"and",
+			"&",
+			"hsl",
+			"FILE",
+			"str",
+			"ext",
+			"|",
+			"or",
+			"seq",
+			"for ",
+			"titletoshortname",
+			"title",
+			"getbaseext",
+			"fog",
+			"oddly",
+			"tatiana",
+			"MarkdownEditor.tmTheme",
+			"the bane",
+			".\"",
+			"film",
+			"return",
+			"buildpostlist",
+			"postRef",
+			"$#allPosts",
+			"getdatenumber",
+			"datenumbers",
+			"buildpostpage",
+			"debugmode =",
+			"buildpostpage",
+			"deletedPosts",
+			"postDeleted{",
+			"buildpostpage",
+			"-",
+			"books",
 			"$postRef",
 			"buildpostpage",
 			"BuildPostPage",
@@ -393,20 +471,7 @@
 			"media",
 			"markdown(",
 			"$page->{'Content'}",
-			"$page->{'Date'}",
-			"$page->{'Title'}",
-			"buildpost",
-			"pageref",
-			"keys ",
-			"GetDateNumber",
-			"print \"$postfile",
-			"print ",
-			"<DIR>",
-			"buffer",
-			"mdfile",
-			"insert",
-			"background",
-			"menu"
+			"$page->{'Date'}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -414,6 +479,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"hsv",
+			"It",
+			"?",
+			"MarkdownEditor-dark.tmTheme",
+			"",
 			"$tag",
 			"$post->",
 			"$content",
@@ -429,7 +499,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -438,139 +508,82 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27354,
+						"buffer_size": 28006,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2405,
-								2405
+								152,
+								152
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
 							"WordCountShouldRun": true,
+							"WordCountSyntax": "perl",
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
 							"syntax": "Packages/Perl/Perl.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 905.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "README.TXT",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 902,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								902,
-								902
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"WordCountShouldRun": true,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -580,77 +593,272 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "/C/Users/zoggop/Documents/writing/legos.md",
+					"buffer": 1,
+					"file": "/C/Users/zoggop/dev/colorade/colorade.pl",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1928,
+						"buffer_size": 2396,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1770,
-								1770
+								142,
+								142
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
 							"WordCountShouldRun": true,
-							"auto_name": "# Art Imitating Art",
+							"WordCountSyntax": "plain text",
 							"bh_regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close"
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
-							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage"
+							"syntax": "Packages/Perl/Perl.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 228.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/zoggop/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": false,
+							"WordCountSyntax": "json",
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/zoggop/jstor_get.pl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4093,
+								4096
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "plain text",
+							"auto_name": "my $start = $ARGV[0]",
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/Perl/Perl.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -658,7 +866,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -687,10 +895,19 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 96.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
+	"output.markdown":
+	{
+		"height": 96.0
+	},
+	"pinned_build_system": "Packages/User/perl.sublime-build",
 	"project": "zcom-perl.sublime-project",
 	"replace":
 	{
@@ -700,6 +917,7 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -708,6 +926,7 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -716,11 +935,13 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 0.0
 	},
+	"selected_group": 0,
 	"settings":
 	{
 	},

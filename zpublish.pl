@@ -100,6 +100,9 @@ foreach $line (@lines) {
 }
 close(FILE);
 
+print "wrote posts/$shortname.md\n";
+print "$title";
+
 sub TitleToShortName() {
 	if ($_[0]) {
 		my $shortname= lc($_[0]);

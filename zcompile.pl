@@ -24,8 +24,8 @@ my %num2mon = qw(
 );
 
 # config variables
-my $frontPageDays = 7; # how many days beyond the first post to display on the front page
-my $headlineArchiveDays = 30;
+my $frontPageDays = 30; # how many days beyond the first post to display on the front page
+my $headlineArchiveDays = 60;
 my $FinalImageExt = "jpg";
 my $FinalImageQuality = 90;
 my $BackgroundImageQuality = 75;
@@ -399,7 +399,7 @@ $buffer{'FrontPage'} = $frontPageContent;
 $buffer{'HeadlineArchive'} = $headlineArchiveContent;
 $buffer{'YearList'} = $yearListContent;
 $buffer{'Content'} = ParseTemplate('index-template.html');
-$buffer{'Title'} = "an effort to ignore the five-second rule";
+$buffer{'Title'} = "";
 $buffer{'Subtitle'} = "";
 open(FILE, ">build/index.html");
 print FILE ParseTemplate('template.html');

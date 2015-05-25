@@ -1,0 +1,11 @@
+# Scatologic
+## 24 May 2014 7:36 AM
+
+
+The end of *Days of Future Past*, whatever you take that to mean, just sort of happened. (Apparently, if you choose to drop a plastic gun for the right reasons, you save the world. The endlessly patronizing Xavier says it's "all in your hands," to Raven/Mystique, good girl/bad girl, as if women haven't been hearing a thinly veiled "one misstep and you'll kill us all" since the middle ages.) The movie just ran out of time and had to wrap up. Or let loose. If this race literally against Time was anything like how my bowels felt after exiting the movie theater, then *X-Men* shat itself.
+
+Odd thing, it began raining as soon as we got in an auto to flee that stink of relief. May is premature for rain in Delhi, I'm told. Just before the rain I was loitering at an outdoor bookshop. Half its books were wrapped in plastic, but if this was for a rainy day, it was apparently not enough. I was gawping at anything familiar--their Shobhaa De corner (as if I've read her), their rows of classics--to fill the time during her pointed search for undiscovered mysteries. I said, in the auto, that if we'd left any earlier we would've gotten drenched. She said "not drenched." She was right, I had to begrudgingly admit to myself. I wanted the rain to mean something, for it to really *pour* even if it wasn't. We had to leave the books because they were covering the pile with a tarp. There was no risk, no tension, and no appreciable consequence. No drama.
+
+Yet the rain, like packing up all my belongings into a corner and cleaning my room down to an echoing rectangle of 1910 planks, was calming anyway. All ruddy varnish and unmatched grains, pockmarks and putty-filled holes. Not the smooth, evenly-flecked maple of the remodel just over the threshold. I stood under a tree, getting much less than drenched, watching JNU students run from building to tree to building.
+
+My room emptied, he'd said that I was "so calm," which was alarming. The rain left the air cool, me walking aimlessly, a fog of serenity over a restless puddle.

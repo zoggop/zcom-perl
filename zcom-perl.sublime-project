@@ -1,24 +1,24 @@
 {
+	"build_systems":
+	[
+		{
+			"name": "zcompile",
+			"shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl"
+		},
+		{
+			"name": "zcompile index",
+			"shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl index"
+		},
+		{
+			"name": "zcompile all",
+			"shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl all"
+		}
+	],
 	"folders":
 	[
 		{
 			"follow_symlinks": true,
-			"path": "C:\\Users\\zoggop\\zcom-perl"
+			"path": "."
 		}
-	],
-	"build_systems":
-    [
-        {
-            "name": "zcompile",
-            "shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl"
-        },
-        {
-            "name": "zcompile index",
-            "shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl index"
-        },
-        {
-            "name": "zcompile all",
-            "shell_cmd": "cd C:\\Users\\zoggop\\zcom-perl & perl zcompile.pl all"
-        }
-    ]
+	]
 }

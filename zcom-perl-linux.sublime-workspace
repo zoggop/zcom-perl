@@ -267,7 +267,7 @@
 			"file": "README.TXT",
 			"settings":
 			{
-				"buffer_size": 992,
+				"buffer_size": 1085,
 				"line_ending": "Windows"
 			}
 		},
@@ -275,15 +275,52 @@
 			"file": "zcompile.pl",
 			"settings":
 			{
-				"buffer_size": 27751,
+				"buffer_size": 28045,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "asset-youtube-template.html",
+			"file": "/media/win8/Users/zoggop/Documents/writing/place.md",
 			"settings":
 			{
-				"buffer_size": 186,
+				"buffer_size": 3990,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "/*\n    Markdown Preview default settings\n*/\n{\n    /*\n        Sets the default opener for html files\n\n        default - Use the system default HTML viewer\n        other - Set a full path to any executable. ex: /Applications/Google Chrome Canary.app or /Applications/Firefox.app\n    */\n    \"browser\": \"default\",\n\n    /*\n        Sets the parser used for build markdown to html.\n\n        NOTE: The parser setting is not for the preview commands now. \n        The preivew have sperated commands for each parser markdown.\n\n        Warning for github API : if you have a ST2 linux build, Python is not built with SSL so it may not work\n\n        default - The current default parser is python-markdown parser.\n        markdown - Use the buildin python-markdown parser\n        markdown2 - (Deprecated) Use the builtin python-markdown2 parser.\n        github - User github API to convert markdown, so you can use GitHub flavored Markdown, see http://github.github.com/github-flavored-markdown/\n    */\n    \"parser\": \"default\",\n\n    /*\n       Enable or not mathjax support.\n    */\n    \"enable_mathjax\": false,\n\n    /*\n        Enable or not highlight.js support for syntax highlighting.\n    */\n    \"enable_highlight\": false,\n\n    /*\n        List of enabled extensions of the selected markdown parser. \n\n        You can get the full list of extensions at:\n            * The markdown2 parser, the `default`: https://github.com/trentm/python-markdown2/wiki/Extras\n            * The python markdown parser, the `markdown`: http://pythonhosted.org/Markdown/extensions/index.html\n\n\n        default - use the default set of extensions, see table latter.\n        [ \"default\", \"def_list\", ... ] - a list of extensions. Use \"default\" to include the default extensions.\n        \n         Parser     | \"default\" Values\n        ------------|---------------------------\n         default    | [\"footnotes\", \"toc\", \"fenced-code-blocks\", \"cuddled-lists\" ]\n         markdown   | [\"extra\", \"toc\"]\n         github     | extensions values are not used.\n\n    */\n    \"enabled_extensions\": \"default\",\n\n    /*\n        Default mode for the github Markdown parser : markdown (documents) or gfm (comments)\n        see http://developer.github.com/v3/markdown/#render-an-arbitrary-markdown-document\n    */\n    \"github_mode\": \"markdown\",\n\n    /*\n        Uses an OAuth token to when parsing markdown with GitHub API. To create one for Markdown Preview, see https://help.github.com/articles/creating-an-oauth-token-for-command-line-use.\n    */\n    // \"github_oauth_token\": \"secret\",\n\n    /*\n        Sets the default css file to embed in the HTML\n\n        default - Use the builtin CSS or github CSS, depending on parser config (markdown.css or github.css)\n        other - Set an absolute path or url to any css file\n    */\n    \"css\": \"default\",\n\n    /*\n        Allow CSS overrides\n\n        true - Any file with matching a .markdown_filetype extension with .css will be loaded as an override\n        false - Matching files ignored\n    */\n    \"allow_css_overrides\": true,\n\n    /*\n        Specify a HTML template file to render your markdown within.\n\n        Available place holders in HTML template:\n        {{ HEAD }} - would be replaced by generated stylesheets, javascripts enabled above\n        {{ BODY }} - would be replaced by HTML converted from markdown\n\n        By setting \"skip_default_stylesheet\" to true you can use the styles only in your HTML\n        templat. In most case you should turn this setting on to have a full featured design.\n\n        Refer to 'customized-template-sample.html' as a show case.\n    */\n    // \"html_template\": \"/ABS_PATH_TO_A_HTML_FILE\",\n    // \"skip_default_stylesheet\": true,\n\n\n    /*\n        Sets the JavaScript files to embed in the HTML\n\n        Set an array of URLs or filepaths to JavaScript files. Absolute filepaths will be loaded\n        into the script tag; others will be set as the `src` attribute. The order of files in the\n        array is the order in which they are embedded.\n    */\n    // \"js\": [\"http://example.com/script.js\", \"/path/to/script.js\"],\n\n    /*\n        Sets the supported filetypes for auto-reload on save\n    */\n    \"markdown_filetypes\": [\".md\", \".markdown\", \".mdown\"],\n\n    /*\n        Sets a custom temporary folder for MarkdownPreview-generated html files. Useful if you're\n        using LiveReload and don't want to use the OS default. The directory will be created if not\n        exists. Relative path is supportted, and is checked against `os.path.isabs`, see doc:\n        http://docs.python.org/3/library/os.path.html#os.path.isabs\n\n        Examples: /tmp/custom_folder   (Linux/OSX - absolute path)\n                  C:/TEMP/MYNOTES\n                  C:\\\\TEMP\\\\MYNOTES    (Windows - absolute path, forward slash or escaped back slash)\n                  build                (All OS - relative path, current dir)\n                  ../build             (Linux/OSX - relative path, in parent dir)\n                  ..\\\\build            (Windows - relative path, in parent dir)\n    */\n    // \"path_tempfile\": \"/tmp/my_notes\",\n\n    /*\n        Strips the YAML front matter header and converts title to a heading\n    */\n    \"strip_yaml_front_matter\": false,\n\n    /* do we show the panel when build with CMD+B */\n    \"show_panel_on_build\": true,\n\n    /* do we include the CSS in when outputing HTML into a new sublime view ? */\n    \"embed_css_for_sublime_output\": true\n}\n\n\n",
+			"file": "/home/zoggop/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 5397,
+				"line_ending": "Unix",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "/home/zoggop/Manuscript_draft.css",
+			"settings":
+			{
+				"buffer_size": 2489,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/zoggop/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 48,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/zoggop/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 227,
 				"line_ending": "Unix"
 			}
 		},
@@ -315,9 +352,29 @@
 	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"command_palette":
 	{
-		"height": 56.0,
+		"height": 222.0,
 		"selected_items":
 		[
+			[
+				"preview",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"mark",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: inst",
 				"Package Control: Install Package"
@@ -325,10 +382,6 @@
 			[
 				"Package Control: re",
 				"Package Control: Remove Package"
-			],
-			[
-				"Package Control: install",
-				"Package Control: Install Package"
 			],
 			[
 				"build",
@@ -345,10 +398,6 @@
 			[
 				"Package Control: ",
 				"Package Control: Remove Package"
-			],
-			[
-				"Package Control: insta",
-				"Package Control: Install Package"
 			],
 			[
 				"packag",
@@ -371,7 +420,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 507.0
+		"width": 647.0
 	},
 	"console":
 	{
@@ -392,6 +441,10 @@
 	},
 	"file_history":
 	[
+		"/home/zoggop/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/zoggop/.config/sublime-text-3/Packages/User/SolarizedToggle.sublime-settings",
+		"/media/win8/Users/zoggop/zcom-perl/asset-youtube-template.html",
+		"/home/zoggop/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
 		"/media/win8/Users/zoggop/zcom-perl/posts/boring_now.md",
 		"/media/win8/Users/zoggop/zcom-perl/posts/boring_now/interstellar.youtube",
 		"/media/win8/Users/zoggop/zcom-perl/posts/boring_now/beyonce.youtube",
@@ -400,7 +453,6 @@
 		"/media/win8/Users/zoggop/zcom-perl/post-page-template.html",
 		"/media/win8/Users/zoggop/zcom-perl/index-template.html",
 		"/media/win8/Users/zoggop/zcom-perl/zcompile.pl",
-		"/home/zoggop/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
 		"/media/win8/Users/zoggop/zcom-perl/additives/styles.css",
 		"/media/win8/Users/zoggop/zcom-perl/import-xml.pl",
 		"/media/win8/Users/zoggop/zcom-perl/upload.x",
@@ -469,7 +521,6 @@
 		"/media/win8/Users/zoggop/Documents/writing/thor2.md",
 		"/home/zoggop/.spring/AI/Skirmish/Shard/shard4ba/ai/BA/.gitignore",
 		"/home/zoggop/.spring/AI/Skirmish/Shard/yuri2BA/README.MD",
-		"/home/zoggop/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/zoggop/.spring/AI/Skirmish/Shard/yuri2BA/README.md",
 		"/home/zoggop/.spring/AI/Skirmish/Shard/yuri2BA/ai/BA/taskqueues.lua",
 		"/home/zoggop/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
@@ -517,9 +568,7 @@
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/BA/buildhandler.lua",
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/attackhandler.lua",
 		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/attackerbehaviour.lua",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/ai.lua",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/metalShard/ai/attackhandler.lua",
-		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/yuri2BA/ai/preload/api.lua"
+		"/C/Users/zoggop/Documents/my games/Spring/AI/Skirmish/Shard/map-idiot/ai/ai.lua"
 	],
 	"find":
 	{
@@ -776,15 +825,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 992,
+						"buffer_size": 1085,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								507,
-								507
+								0,
+								0
 							]
 						],
 						"settings":
@@ -793,34 +842,6 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -829,10 +850,38 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
-								"bh_unmatched_close"
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close"
 							],
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
@@ -849,15 +898,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27751,
+						"buffer_size": 28045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19500,
-								19500
+								5821,
+								5821
 							]
 						],
 						"settings":
@@ -866,6 +915,14 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -874,14 +931,10 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -890,48 +943,44 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
-								"bh_unmatched_close"
+								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close"
 							],
 							"syntax": "Packages/Perl/Perl.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9647.0,
+						"translation.y": 3491.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "asset-youtube-template.html",
+					"file": "/media/win8/Users/zoggop/Documents/writing/place.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 186,
+						"buffer_size": 3990,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								140,
-								140
+								522,
+								522
 							]
 						],
 						"settings":
@@ -940,38 +989,14 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -979,9 +1004,35 @@
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
-								"bh_unmatched_close"
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close"
 							],
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"parser": "markdown",
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"target": "browser"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -992,6 +1043,300 @@
 				},
 				{
 					"buffer": 3,
+					"file": "/home/zoggop/.config/sublime-text-3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2781,
+								2781
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/zoggop/Manuscript_draft.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close"
+							],
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/zoggop/.config/sublime-text-3/Packages/User/MarkdownPreview.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/zoggop/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"WordCountShouldRun": true,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "additives/styles.css",
 					"semi_transient": false,
 					"settings":
@@ -1013,34 +1358,38 @@
 							"WordCountShouldRun": false,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1048,25 +1397,21 @@
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
-								"bh_tag_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
+								"bh_tag_close"
 							],
 							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2511.0,
+						"translation.y": 1572.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "month-archive-template.html",
 					"semi_transient": false,
 					"settings":
@@ -1088,34 +1433,38 @@
 							"WordCountShouldRun": true,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1123,11 +1472,7 @@
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
-								"bh_tag_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
+								"bh_tag_close"
 							],
 							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
@@ -1135,11 +1480,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": "gitupdate.sh",
 					"semi_transient": false,
 					"settings":
@@ -1208,7 +1553,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
