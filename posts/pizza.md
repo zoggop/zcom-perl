@@ -1,7 +1,7 @@
 # Pizza
 ## 13 August 2011 3:37 AM
 
-My father has decided that "they" call me "Isaac 'Pizza' Skibinski." Not without reason. I've made pizza three times in the past week.
+My father has decided that "they" call me "Mira 'Pizza' Skibinski." Not without reason. I've made pizza three times in the past week.
 
 In the summer I always seem to be drawn to making pizza, despite the fact that turning on the oven when it's ninety degrees outside seems absurd (or, alright, just environmentally insensitive). When it's not delivered to your door as the quintessential late-night food, baked (or rather fried) in "deep dish" swimming with grease, two-inches thick and covered in various kinds of meat, I think of pizza as a summer food. In part this is because I grow basil in the summer (for some reason I've never been one of those enterprising people who grows it in a little windowsill pot when it's too cold for it to survive outside). What is pizza without fresh basil? (Yes, I know, I'm stuck on this.) It's also simply because my image of pizza is a summery image: thin, brightly colored, light(ish), bathed in sunlight.
 
